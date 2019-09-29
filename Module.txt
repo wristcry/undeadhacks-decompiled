@@ -1,0 +1,1171 @@
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading;
+
+// Token: 0x02000001 RID: 1
+internal class <Module>
+{
+	// Token: 0x06000001 RID: 1 RVA: 0x00004C20 File Offset: 0x00002E20
+	static <Module>()
+	{
+		/*
+An exception occurred when decompiling this method (06000001)
+
+ICSharpCode.Decompiler.DecompilerException: Error decompiling System.Void <Module>::.cctor()
+ ---> System.ArgumentOutOfRangeException: Non-negative number required.
+Parameter name: length
+   at System.Array.Copy(Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length, Boolean reliable)
+   at System.Array.Copy(Array sourceArray, Array destinationArray, Int32 length)
+   at ICSharpCode.Decompiler.ILAst.ILAstBuilder.StackSlot.ModifyStack(StackSlot[] stack, Int32 popCount, Int32 pushCount, ByteCode pushDefinition) in C:\projects\dnspy\Extensions\ILSpy.Decompiler\ICSharpCode.Decompiler\ICSharpCode.Decompiler\ILAst\ILAstBuilder.cs:line 48
+   at ICSharpCode.Decompiler.ILAst.ILAstBuilder.StackAnalysis(MethodDef methodDef) in C:\projects\dnspy\Extensions\ILSpy.Decompiler\ICSharpCode.Decompiler\ICSharpCode.Decompiler\ILAst\ILAstBuilder.cs:line 387
+   at ICSharpCode.Decompiler.ILAst.ILAstBuilder.Build(MethodDef methodDef, Boolean optimize, DecompilerContext context) in C:\projects\dnspy\Extensions\ILSpy.Decompiler\ICSharpCode.Decompiler\ICSharpCode.Decompiler\ILAst\ILAstBuilder.cs:line 269
+   at ICSharpCode.Decompiler.Ast.AstMethodBodyBuilder.CreateMethodBody(IEnumerable`1 parameters, MethodDebugInfoBuilder& builder) in C:\projects\dnspy\Extensions\ILSpy.Decompiler\ICSharpCode.Decompiler\ICSharpCode.Decompiler\Ast\AstMethodBodyBuilder.cs:line 112
+   at ICSharpCode.Decompiler.Ast.AstMethodBodyBuilder.CreateMethodBody(MethodDef methodDef, DecompilerContext context, AutoPropertyProvider autoPropertyProvider, IEnumerable`1 parameters, Boolean valueParameterIsKeyword, StringBuilder sb, MethodDebugInfoBuilder& stmtsBuilder) in C:\projects\dnspy\Extensions\ILSpy.Decompiler\ICSharpCode.Decompiler\ICSharpCode.Decompiler\Ast\AstMethodBodyBuilder.cs:line 88
+   --- End of inner exception stack trace ---
+   at ICSharpCode.Decompiler.Ast.AstMethodBodyBuilder.CreateMethodBody(MethodDef methodDef, DecompilerContext context, AutoPropertyProvider autoPropertyProvider, IEnumerable`1 parameters, Boolean valueParameterIsKeyword, StringBuilder sb, MethodDebugInfoBuilder& stmtsBuilder) in C:\projects\dnspy\Extensions\ILSpy.Decompiler\ICSharpCode.Decompiler\ICSharpCode.Decompiler\Ast\AstMethodBodyBuilder.cs:line 92
+   at ICSharpCode.Decompiler.Ast.AstBuilder.<>c__DisplayClass89_1.<AddMethodBody>b__0() in C:\projects\dnspy\Extensions\ILSpy.Decompiler\ICSharpCode.Decompiler\ICSharpCode.Decompiler\Ast\AstBuilder.cs:line 1531
+*/;
+	}
+
+	// Token: 0x06000002 RID: 2 RVA: 0x00004C38 File Offset: 0x00002E38
+	private static void smethod_0()
+	{
+		string str = <Module>.smethod_4<string>(232593208u);
+		MethodInfo method = typeof(Environment).GetMethod(<Module>.smethod_5<string>(3228712748u), new Type[]
+		{
+			typeof(string)
+		});
+		if (method != null && <Module>.smethod_5<string>(1393497175u).Equals(method.Invoke(null, new object[]
+		{
+			str + <Module>.smethod_4<string>(3247166217u)
+		})))
+		{
+			Environment.FailFast(null);
+		}
+		new Thread(new ParameterizedThreadStart(<Module>.smethod_1))
+		{
+			IsBackground = true
+		}.Start(null);
+	}
+
+	// Token: 0x06000003 RID: 3 RVA: 0x00004CD8 File Offset: 0x00002ED8
+	private static void smethod_1(object object_0)
+	{
+		Thread thread = object_0 as Thread;
+		if (thread == null)
+		{
+			thread = new Thread(new ParameterizedThreadStart(<Module>.smethod_1));
+			thread.IsBackground = true;
+			thread.Start(Thread.CurrentThread);
+			Thread.Sleep(500);
+		}
+		for (;;)
+		{
+			if (Debugger.IsAttached || Debugger.IsLogging())
+			{
+				Environment.FailFast(null);
+			}
+			if (!thread.IsAlive)
+			{
+				Environment.FailFast(null);
+			}
+			Thread.Sleep(1000);
+		}
+	}
+
+	// Token: 0x06000004 RID: 4 RVA: 0x00004D50 File Offset: 0x00002F50
+	internal static byte[] smethod_2(byte[] byte_1)
+	{
+		MemoryStream memoryStream = new MemoryStream(byte_1);
+		<Module>.Class1 @class = new <Module>.Class1();
+		byte[] buffer = new byte[5];
+		memoryStream.Read(buffer, 0, 5);
+		@class.method_5(buffer);
+		long num = 0L;
+		for (int i = 0; i < 8; i++)
+		{
+			int num2 = memoryStream.ReadByte();
+			num |= (long)((long)((ulong)((byte)num2)) << 8 * i);
+		}
+		byte[] array = new byte[(int)num];
+		MemoryStream stream_ = new MemoryStream(array, true);
+		long long_ = memoryStream.Length - 13L;
+		@class.method_4(memoryStream, stream_, long_, num);
+		return array;
+	}
+
+	// Token: 0x06000005 RID: 5 RVA: 0x00004DE4 File Offset: 0x00002FE4
+	internal static byte[] smethod_3(byte[] A_0)
+	{
+		uint num = 1296u;
+		uint[] array = new uint[16];
+		uint num2 = 447297183u;
+		for (int i = 0; i < 16; i++)
+		{
+			num2 ^= num2 >> 12;
+			num2 ^= num2 << 25;
+			num2 ^= num2 >> 27;
+			array[i] = num2;
+		}
+		int num3 = 0;
+		int num4 = 0;
+		uint[] array2 = new uint[16];
+		byte[] array3 = new byte[num * 4u];
+		while ((long)num3 < (long)((ulong)num))
+		{
+			for (int j = 0; j < 16; j++)
+			{
+				array2[j] = (uint)A_0[num3 + j];
+			}
+			array2[0] = (array2[0] ^ array[0]);
+			array2[1] = (array2[1] ^ array[1]);
+			array2[2] = (array2[2] ^ array[2]);
+			array2[3] = (array2[3] ^ array[3]);
+			array2[4] = (array2[4] ^ array[4]);
+			array2[5] = (array2[5] ^ array[5]);
+			array2[6] = (array2[6] ^ array[6]);
+			array2[7] = (array2[7] ^ array[7]);
+			array2[8] = (array2[8] ^ array[8]);
+			array2[9] = (array2[9] ^ array[9]);
+			array2[10] = (array2[10] ^ array[10]);
+			array2[11] = (array2[11] ^ array[11]);
+			array2[12] = (array2[12] ^ array[12]);
+			array2[13] = (array2[13] ^ array[13]);
+			array2[14] = (array2[14] ^ array[14]);
+			array2[15] = (array2[15] ^ array[15]);
+			for (int k = 0; k < 16; k++)
+			{
+				uint num5 = array2[k];
+				array3[num4++] = (byte)num5;
+				array3[num4++] = (byte)(num5 >> 8);
+				array3[num4++] = (byte)(num5 >> 16);
+				array3[num4++] = (byte)(num5 >> 24);
+				array[k] ^= num5;
+			}
+			num3 += 16;
+		}
+		return array3;
+	}
+
+	// Token: 0x06000006 RID: 6 RVA: 0x00004FB8 File Offset: 0x000031B8
+	internal static T smethod_4<T>(uint uint_0)
+	{
+		if (Assembly.GetExecutingAssembly() == Assembly.GetCallingAssembly())
+		{
+			uint_0 = (uint_0 * 2320535051u ^ 1826688872u);
+			uint num = uint_0 >> 30;
+			T result = default(T);
+			uint_0 &= 1073741823u;
+			uint_0 <<= 2;
+			if ((ulong)num == 3UL)
+			{
+				int count = (int)<Module>.byte_0[(int)uint_0++] | (int)<Module>.byte_0[(int)uint_0++] << 8 | (int)<Module>.byte_0[(int)uint_0++] << 16 | (int)<Module>.byte_0[(int)uint_0++] << 24;
+				result = (T)((object)string.Intern(Encoding.UTF8.GetString(<Module>.byte_0, (int)uint_0, count)));
+			}
+			else if ((ulong)num == 2UL)
+			{
+				T[] array = new T[1];
+				Buffer.BlockCopy(<Module>.byte_0, (int)uint_0, array, 0, sizeof(T));
+				result = array[0];
+			}
+			else if ((ulong)num == 1UL)
+			{
+				int num2 = (int)<Module>.byte_0[(int)uint_0++] | (int)<Module>.byte_0[(int)uint_0++] << 8 | (int)<Module>.byte_0[(int)uint_0++] << 16 | (int)<Module>.byte_0[(int)uint_0++] << 24;
+				int length = (int)<Module>.byte_0[(int)uint_0++] | (int)<Module>.byte_0[(int)uint_0++] << 8 | (int)<Module>.byte_0[(int)uint_0++] << 16 | (int)<Module>.byte_0[(int)uint_0++] << 24;
+				Array array2 = Array.CreateInstance(typeof(T).GetElementType(), length);
+				Buffer.BlockCopy(<Module>.byte_0, (int)uint_0, array2, 0, num2 - 4);
+				result = (T)((object)array2);
+			}
+			return result;
+		}
+		return default(T);
+	}
+
+	// Token: 0x06000007 RID: 7 RVA: 0x00005168 File Offset: 0x00003368
+	internal static T smethod_5<T>(uint uint_0)
+	{
+		if (Assembly.GetExecutingAssembly() == Assembly.GetCallingAssembly())
+		{
+			uint_0 = (uint_0 * 3308107889u ^ 2257683054u);
+			uint num = uint_0 >> 30;
+			T result = default(T);
+			uint_0 &= 1073741823u;
+			uint_0 <<= 2;
+			if ((ulong)num != 2UL)
+			{
+				if ((ulong)num == 1UL)
+				{
+					T[] array = new T[1];
+					Buffer.BlockCopy(<Module>.byte_0, (int)uint_0, array, 0, sizeof(T));
+					result = array[0];
+				}
+				else if ((ulong)num == 3UL)
+				{
+					int num2 = (int)<Module>.byte_0[(int)uint_0++] | (int)<Module>.byte_0[(int)uint_0++] << 8 | (int)<Module>.byte_0[(int)uint_0++] << 16 | (int)<Module>.byte_0[(int)uint_0++] << 24;
+					int length = (int)<Module>.byte_0[(int)uint_0++] | (int)<Module>.byte_0[(int)uint_0++] << 8 | (int)<Module>.byte_0[(int)uint_0++] << 16 | (int)<Module>.byte_0[(int)uint_0++] << 24;
+					Array array2 = Array.CreateInstance(typeof(T).GetElementType(), length);
+					Buffer.BlockCopy(<Module>.byte_0, (int)uint_0, array2, 0, num2 - 4);
+					result = (T)((object)array2);
+				}
+			}
+			else
+			{
+				int count = (int)<Module>.byte_0[(int)uint_0++] | (int)<Module>.byte_0[(int)uint_0++] << 8 | (int)<Module>.byte_0[(int)uint_0++] << 16 | (int)<Module>.byte_0[(int)uint_0++] << 24;
+				result = (T)((object)string.Intern(Encoding.UTF8.GetString(<Module>.byte_0, (int)uint_0, count)));
+			}
+			return result;
+		}
+		return default(T);
+	}
+
+	// Token: 0x06000008 RID: 8 RVA: 0x00005318 File Offset: 0x00003518
+	internal static T smethod_6<T>(uint uint_0)
+	{
+		if (Assembly.GetExecutingAssembly() == Assembly.GetCallingAssembly())
+		{
+			uint_0 = (uint_0 * 1195231533u ^ 1817088489u);
+			uint num = uint_0 >> 30;
+			T result = default(T);
+			uint_0 &= 1073741823u;
+			uint_0 <<= 2;
+			if ((ulong)num == 3UL)
+			{
+				int count = (int)<Module>.byte_0[(int)uint_0++] | (int)<Module>.byte_0[(int)uint_0++] << 8 | (int)<Module>.byte_0[(int)uint_0++] << 16 | (int)<Module>.byte_0[(int)uint_0++] << 24;
+				result = (T)((object)string.Intern(Encoding.UTF8.GetString(<Module>.byte_0, (int)uint_0, count)));
+			}
+			else if ((ulong)num != 0UL)
+			{
+				if ((ulong)num == 1UL)
+				{
+					int num2 = (int)<Module>.byte_0[(int)uint_0++] | (int)<Module>.byte_0[(int)uint_0++] << 8 | (int)<Module>.byte_0[(int)uint_0++] << 16 | (int)<Module>.byte_0[(int)uint_0++] << 24;
+					int length = (int)<Module>.byte_0[(int)uint_0++] | (int)<Module>.byte_0[(int)uint_0++] << 8 | (int)<Module>.byte_0[(int)uint_0++] << 16 | (int)<Module>.byte_0[(int)uint_0++] << 24;
+					Array array = Array.CreateInstance(typeof(T).GetElementType(), length);
+					Buffer.BlockCopy(<Module>.byte_0, (int)uint_0, array, 0, num2 - 4);
+					result = (T)((object)array);
+				}
+			}
+			else
+			{
+				T[] array2 = new T[1];
+				Buffer.BlockCopy(<Module>.byte_0, (int)uint_0, array2, 0, sizeof(T));
+				result = array2[0];
+			}
+			return result;
+		}
+		return default(T);
+	}
+
+	// Token: 0x06000009 RID: 9 RVA: 0x000054C8 File Offset: 0x000036C8
+	internal static T smethod_7<T>(uint uint_0)
+	{
+		if (Assembly.GetExecutingAssembly() == Assembly.GetCallingAssembly())
+		{
+			uint_0 = (uint_0 * 1369585417u ^ 319835084u);
+			uint num = uint_0 >> 30;
+			T result = default(T);
+			uint_0 &= 1073741823u;
+			uint_0 <<= 2;
+			if ((ulong)num == 3UL)
+			{
+				int count = (int)<Module>.byte_0[(int)uint_0++] | (int)<Module>.byte_0[(int)uint_0++] << 8 | (int)<Module>.byte_0[(int)uint_0++] << 16 | (int)<Module>.byte_0[(int)uint_0++] << 24;
+				result = (T)((object)string.Intern(Encoding.UTF8.GetString(<Module>.byte_0, (int)uint_0, count)));
+			}
+			else if ((ulong)num == 1UL)
+			{
+				T[] array = new T[1];
+				Buffer.BlockCopy(<Module>.byte_0, (int)uint_0, array, 0, sizeof(T));
+				result = array[0];
+			}
+			else if ((ulong)num == 2UL)
+			{
+				int num2 = (int)<Module>.byte_0[(int)uint_0++] | (int)<Module>.byte_0[(int)uint_0++] << 8 | (int)<Module>.byte_0[(int)uint_0++] << 16 | (int)<Module>.byte_0[(int)uint_0++] << 24;
+				int length = (int)<Module>.byte_0[(int)uint_0++] | (int)<Module>.byte_0[(int)uint_0++] << 8 | (int)<Module>.byte_0[(int)uint_0++] << 16 | (int)<Module>.byte_0[(int)uint_0++] << 24;
+				Array array2 = Array.CreateInstance(typeof(T).GetElementType(), length);
+				Buffer.BlockCopy(<Module>.byte_0, (int)uint_0, array2, 0, num2 - 4);
+				result = (T)((object)array2);
+			}
+			return result;
+		}
+		return default(T);
+	}
+
+	// Token: 0x0600000A RID: 10 RVA: 0x00005678 File Offset: 0x00003878
+	internal static T smethod_8<T>(uint uint_0)
+	{
+		if (Assembly.GetExecutingAssembly() == Assembly.GetCallingAssembly())
+		{
+			uint_0 = (uint_0 * 2614507929u ^ 328942613u);
+			uint num = uint_0 >> 30;
+			T result = default(T);
+			uint_0 &= 1073741823u;
+			uint_0 <<= 2;
+			if ((ulong)num == 2UL)
+			{
+				int count = (int)<Module>.byte_0[(int)uint_0++] | (int)<Module>.byte_0[(int)uint_0++] << 8 | (int)<Module>.byte_0[(int)uint_0++] << 16 | (int)<Module>.byte_0[(int)uint_0++] << 24;
+				result = (T)((object)string.Intern(Encoding.UTF8.GetString(<Module>.byte_0, (int)uint_0, count)));
+			}
+			else if ((ulong)num != 0UL)
+			{
+				if ((ulong)num == 3UL)
+				{
+					int num2 = (int)<Module>.byte_0[(int)uint_0++] | (int)<Module>.byte_0[(int)uint_0++] << 8 | (int)<Module>.byte_0[(int)uint_0++] << 16 | (int)<Module>.byte_0[(int)uint_0++] << 24;
+					int length = (int)<Module>.byte_0[(int)uint_0++] | (int)<Module>.byte_0[(int)uint_0++] << 8 | (int)<Module>.byte_0[(int)uint_0++] << 16 | (int)<Module>.byte_0[(int)uint_0++] << 24;
+					Array array = Array.CreateInstance(typeof(T).GetElementType(), length);
+					Buffer.BlockCopy(<Module>.byte_0, (int)uint_0, array, 0, num2 - 4);
+					result = (T)((object)array);
+				}
+			}
+			else
+			{
+				T[] array2 = new T[1];
+				Buffer.BlockCopy(<Module>.byte_0, (int)uint_0, array2, 0, sizeof(T));
+				result = array2[0];
+			}
+			return result;
+		}
+		return default(T);
+	}
+
+	// Token: 0x04000001 RID: 1
+	internal static byte[] byte_0;
+
+	// Token: 0x04000002 RID: 2 RVA: 0x00002050 File Offset: 0x00000250
+	internal static <Module>.Struct4 struct4_0;
+
+	// Token: 0x02000002 RID: 2
+	internal struct Struct0
+	{
+		// Token: 0x0600000B RID: 11 RVA: 0x00003490 File Offset: 0x00001690
+		internal void method_0()
+		{
+			this.uint_0 = 1024u;
+		}
+
+		// Token: 0x0600000C RID: 12 RVA: 0x00005828 File Offset: 0x00003A28
+		internal uint method_1(<Module>.Class0 class0_0)
+		{
+			uint num = (class0_0.uint_1 >> 11) * this.uint_0;
+			if (class0_0.uint_0 < num)
+			{
+				class0_0.uint_1 = num;
+				this.uint_0 += 2048u - this.uint_0 >> 5;
+				if (class0_0.uint_1 < 16777216u)
+				{
+					class0_0.uint_0 = (class0_0.uint_0 << 8 | (uint)((byte)class0_0.stream_0.ReadByte()));
+					class0_0.uint_1 <<= 8;
+				}
+				return 0u;
+			}
+			class0_0.uint_1 -= num;
+			class0_0.uint_0 -= num;
+			this.uint_0 -= this.uint_0 >> 5;
+			if (class0_0.uint_1 < 16777216u)
+			{
+				class0_0.uint_0 = (class0_0.uint_0 << 8 | (uint)((byte)class0_0.stream_0.ReadByte()));
+				class0_0.uint_1 <<= 8;
+			}
+			return 1u;
+		}
+
+		// Token: 0x04000003 RID: 3
+		internal uint uint_0;
+	}
+
+	// Token: 0x02000003 RID: 3
+	internal struct Struct1
+	{
+		// Token: 0x0600000D RID: 13 RVA: 0x0000349D File Offset: 0x0000169D
+		internal Struct1(int int_1)
+		{
+			this.int_0 = int_1;
+			this.struct0_0 = new <Module>.Struct0[1 << int_1];
+		}
+
+		// Token: 0x0600000E RID: 14 RVA: 0x00005914 File Offset: 0x00003B14
+		internal void method_0()
+		{
+			uint num = 1u;
+			while ((ulong)num < (ulong)(1L << (this.int_0 & 31)))
+			{
+				this.struct0_0[(int)num].method_0();
+				num += 1u;
+			}
+		}
+
+		// Token: 0x0600000F RID: 15 RVA: 0x0000594C File Offset: 0x00003B4C
+		internal uint method_1(<Module>.Class0 class0_0)
+		{
+			uint num = 1u;
+			for (int i = this.int_0; i > 0; i--)
+			{
+				num = (num << 1) + this.struct0_0[(int)num].method_1(class0_0);
+			}
+			return num - (1u << this.int_0);
+		}
+
+		// Token: 0x06000010 RID: 16 RVA: 0x00005990 File Offset: 0x00003B90
+		internal uint method_2(<Module>.Class0 class0_0)
+		{
+			uint num = 1u;
+			uint num2 = 0u;
+			for (int i = 0; i < this.int_0; i++)
+			{
+				uint num3 = this.struct0_0[(int)num].method_1(class0_0);
+				num <<= 1;
+				num += num3;
+				num2 |= num3 << i;
+			}
+			return num2;
+		}
+
+		// Token: 0x06000011 RID: 17 RVA: 0x000059D8 File Offset: 0x00003BD8
+		internal static uint smethod_0(<Module>.Struct0[] struct0_1, uint uint_0, <Module>.Class0 class0_0, int int_1)
+		{
+			uint num = 1u;
+			uint num2 = 0u;
+			for (int i = 0; i < int_1; i++)
+			{
+				uint num3 = struct0_1[(int)(uint_0 + num)].method_1(class0_0);
+				num <<= 1;
+				num += num3;
+				num2 |= num3 << i;
+			}
+			return num2;
+		}
+
+		// Token: 0x04000004 RID: 4
+		internal readonly <Module>.Struct0[] struct0_0;
+
+		// Token: 0x04000005 RID: 5
+		internal readonly int int_0;
+	}
+
+	// Token: 0x02000004 RID: 4
+	internal class Class0
+	{
+		// Token: 0x06000012 RID: 18 RVA: 0x00005A18 File Offset: 0x00003C18
+		internal void method_0(Stream stream_1)
+		{
+			this.stream_0 = stream_1;
+			this.uint_0 = 0u;
+			this.uint_1 = uint.MaxValue;
+			for (int i = 0; i < 5; i++)
+			{
+				this.uint_0 = (this.uint_0 << 8 | (uint)((byte)this.stream_0.ReadByte()));
+			}
+		}
+
+		// Token: 0x06000013 RID: 19 RVA: 0x000034B7 File Offset: 0x000016B7
+		internal void method_1()
+		{
+			this.stream_0 = null;
+		}
+
+		// Token: 0x06000014 RID: 20 RVA: 0x000034C0 File Offset: 0x000016C0
+		internal void method_2()
+		{
+			while (this.uint_1 < 16777216u)
+			{
+				this.uint_0 = (this.uint_0 << 8 | (uint)((byte)this.stream_0.ReadByte()));
+				this.uint_1 <<= 8;
+			}
+		}
+
+		// Token: 0x06000015 RID: 21 RVA: 0x00005A64 File Offset: 0x00003C64
+		internal uint method_3(int int_0)
+		{
+			uint num = this.uint_1;
+			uint num2 = this.uint_0;
+			uint num3 = 0u;
+			for (int i = int_0; i > 0; i--)
+			{
+				num >>= 1;
+				uint num4 = num2 - num >> 31;
+				num2 -= (num & num4 - 1u);
+				num3 = (num3 << 1 | 1u - num4);
+				if (num < 16777216u)
+				{
+					num2 = (num2 << 8 | (uint)((byte)this.stream_0.ReadByte()));
+					num <<= 8;
+				}
+			}
+			this.uint_1 = num;
+			this.uint_0 = num2;
+			return num3;
+		}
+
+		// Token: 0x06000016 RID: 22 RVA: 0x000034FB File Offset: 0x000016FB
+		internal Class0()
+		{
+		}
+
+		// Token: 0x04000006 RID: 6
+		internal uint uint_0;
+
+		// Token: 0x04000007 RID: 7
+		internal uint uint_1;
+
+		// Token: 0x04000008 RID: 8
+		internal Stream stream_0;
+	}
+
+	// Token: 0x02000005 RID: 5
+	internal class Class1
+	{
+		// Token: 0x06000017 RID: 23 RVA: 0x00005AD8 File Offset: 0x00003CD8
+		internal Class1()
+		{
+			this.uint_0 = uint.MaxValue;
+			int num = 0;
+			while ((long)num < 4L)
+			{
+				this.struct1_0[num] = new <Module>.Struct1(6);
+				num++;
+			}
+		}
+
+		// Token: 0x06000018 RID: 24 RVA: 0x00005BCC File Offset: 0x00003DCC
+		internal void method_0(uint uint_3)
+		{
+			if (this.uint_0 != uint_3)
+			{
+				this.uint_0 = uint_3;
+				this.uint_1 = Math.Max(this.uint_0, 1u);
+				uint uint_4 = Math.Max(this.uint_1, 4096u);
+				this.class4_0.method_0(uint_4);
+			}
+		}
+
+		// Token: 0x06000019 RID: 25 RVA: 0x00003503 File Offset: 0x00001703
+		internal void method_1(int int_0, int int_1)
+		{
+			this.class3_0.method_0(int_0, int_1);
+		}
+
+		// Token: 0x0600001A RID: 26 RVA: 0x00005C18 File Offset: 0x00003E18
+		internal void method_2(int int_0)
+		{
+			uint num = 1u << int_0;
+			this.class2_0.method_0(num);
+			this.class2_1.method_0(num);
+			this.uint_2 = num - 1u;
+		}
+
+		// Token: 0x0600001B RID: 27 RVA: 0x00005C50 File Offset: 0x00003E50
+		internal void method_3(Stream stream_0, Stream stream_1)
+		{
+			this.class0_0.method_0(stream_0);
+			this.class4_0.method_1(stream_1, this.bool_0);
+			for (uint num = 0u; num < 12u; num += 1u)
+			{
+				for (uint num2 = 0u; num2 <= this.uint_2; num2 += 1u)
+				{
+					uint num3 = (num << 4) + num2;
+					this.struct0_0[(int)num3].method_0();
+					this.struct0_1[(int)num3].method_0();
+				}
+				this.struct0_2[(int)num].method_0();
+				this.struct0_3[(int)num].method_0();
+				this.struct0_4[(int)num].method_0();
+				this.struct0_5[(int)num].method_0();
+			}
+			this.class3_0.method_1();
+			for (uint num = 0u; num < 4u; num += 1u)
+			{
+				this.struct1_0[(int)num].method_0();
+			}
+			for (uint num = 0u; num < 114u; num += 1u)
+			{
+				this.struct0_6[(int)num].method_0();
+			}
+			this.class2_0.method_1();
+			this.class2_1.method_1();
+			this.struct1_1.method_0();
+		}
+
+		// Token: 0x0600001C RID: 28 RVA: 0x00005D74 File Offset: 0x00003F74
+		internal void method_4(Stream stream_0, Stream stream_1, long long_0, long long_1)
+		{
+			this.method_3(stream_0, stream_1);
+			<Module>.Struct3 @struct = default(<Module>.Struct3);
+			@struct.method_0();
+			uint num = 0u;
+			uint num2 = 0u;
+			uint num3 = 0u;
+			uint num4 = 0u;
+			ulong num5 = 0UL;
+			if (0L < long_1)
+			{
+				this.struct0_0[(int)((int)@struct.uint_0 << 4)].method_1(this.class0_0);
+				@struct.method_1();
+				byte byte_ = this.class3_0.method_3(this.class0_0, 0u, 0);
+				this.class4_0.method_5(byte_);
+				num5 += 1UL;
+			}
+			while (num5 < (ulong)long_1)
+			{
+				uint num6 = (uint)num5 & this.uint_2;
+				if (this.struct0_0[(int)((@struct.uint_0 << 4) + num6)].method_1(this.class0_0) == 0u)
+				{
+					byte byte_2 = this.class4_0.method_6(0u);
+					byte byte_3;
+					if (!@struct.method_5())
+					{
+						byte_3 = this.class3_0.method_4(this.class0_0, (uint)num5, byte_2, this.class4_0.method_6(num));
+					}
+					else
+					{
+						byte_3 = this.class3_0.method_3(this.class0_0, (uint)num5, byte_2);
+					}
+					this.class4_0.method_5(byte_3);
+					@struct.method_1();
+					num5 += 1UL;
+				}
+				else
+				{
+					uint num7;
+					if (this.struct0_2[(int)@struct.uint_0].method_1(this.class0_0) != 1u)
+					{
+						num4 = num3;
+						num3 = num2;
+						num2 = num;
+						num7 = 2u + this.class2_0.method_2(this.class0_0, num6);
+						@struct.method_2();
+						uint num8 = this.struct1_0[(int)<Module>.Class1.smethod_0(num7)].method_1(this.class0_0);
+						if (num8 < 4u)
+						{
+							num = num8;
+						}
+						else
+						{
+							int num9 = (int)((num8 >> 1) - 1u);
+							num = (2u | (num8 & 1u)) << num9;
+							if (num8 < 14u)
+							{
+								num += <Module>.Struct1.smethod_0(this.struct0_6, num - num8 - 1u, this.class0_0, num9);
+							}
+							else
+							{
+								num += this.class0_0.method_3(num9 - 4) << 4;
+								num += this.struct1_1.method_2(this.class0_0);
+							}
+						}
+					}
+					else
+					{
+						if (this.struct0_3[(int)@struct.uint_0].method_1(this.class0_0) == 0u)
+						{
+							if (this.struct0_1[(int)((@struct.uint_0 << 4) + num6)].method_1(this.class0_0) == 0u)
+							{
+								@struct.method_4();
+								this.class4_0.method_5(this.class4_0.method_6(num));
+								num5 += 1UL;
+								continue;
+							}
+						}
+						else
+						{
+							uint num10;
+							if (this.struct0_4[(int)@struct.uint_0].method_1(this.class0_0) != 0u)
+							{
+								if (this.struct0_5[(int)@struct.uint_0].method_1(this.class0_0) != 0u)
+								{
+									num10 = num4;
+									num4 = num3;
+								}
+								else
+								{
+									num10 = num3;
+								}
+								num3 = num2;
+							}
+							else
+							{
+								num10 = num2;
+							}
+							num2 = num;
+							num = num10;
+						}
+						num7 = this.class2_1.method_2(this.class0_0, num6) + 2u;
+						@struct.method_3();
+					}
+					if (((ulong)num >= num5 || num >= this.uint_1) && num == 4294967295u)
+					{
+						break;
+					}
+					this.class4_0.method_4(num, num7);
+					num5 += (ulong)num7;
+				}
+			}
+			this.class4_0.method_3();
+			this.class4_0.method_2();
+			this.class0_0.method_1();
+		}
+
+		// Token: 0x0600001D RID: 29 RVA: 0x000060DC File Offset: 0x000042DC
+		internal void method_5(byte[] byte_0)
+		{
+			int int_ = (int)(byte_0[0] % 9);
+			byte b = byte_0[0] / 9;
+			int int_2 = (int)(b % 5);
+			int int_3 = (int)(b / 5);
+			uint num = 0u;
+			for (int i = 0; i < 4; i++)
+			{
+				num += (uint)((uint)byte_0[1 + i] << i * 8);
+			}
+			this.method_0(num);
+			this.method_1(int_2, int_);
+			this.method_2(int_3);
+		}
+
+		// Token: 0x0600001E RID: 30 RVA: 0x00003512 File Offset: 0x00001712
+		internal static uint smethod_0(uint uint_3)
+		{
+			uint_3 -= 2u;
+			if (uint_3 < 4u)
+			{
+				return uint_3;
+			}
+			return 3u;
+		}
+
+		// Token: 0x04000009 RID: 9
+		internal readonly <Module>.Struct0[] struct0_0 = new <Module>.Struct0[192];
+
+		// Token: 0x0400000A RID: 10
+		internal readonly <Module>.Struct0[] struct0_1 = new <Module>.Struct0[192];
+
+		// Token: 0x0400000B RID: 11
+		internal readonly <Module>.Struct0[] struct0_2 = new <Module>.Struct0[12];
+
+		// Token: 0x0400000C RID: 12
+		internal readonly <Module>.Struct0[] struct0_3 = new <Module>.Struct0[12];
+
+		// Token: 0x0400000D RID: 13
+		internal readonly <Module>.Struct0[] struct0_4 = new <Module>.Struct0[12];
+
+		// Token: 0x0400000E RID: 14
+		internal readonly <Module>.Struct0[] struct0_5 = new <Module>.Struct0[12];
+
+		// Token: 0x0400000F RID: 15
+		internal readonly <Module>.Class1.Class2 class2_0 = new <Module>.Class1.Class2();
+
+		// Token: 0x04000010 RID: 16
+		internal readonly <Module>.Class1.Class3 class3_0 = new <Module>.Class1.Class3();
+
+		// Token: 0x04000011 RID: 17
+		internal readonly <Module>.Class4 class4_0 = new <Module>.Class4();
+
+		// Token: 0x04000012 RID: 18
+		internal readonly <Module>.Struct0[] struct0_6 = new <Module>.Struct0[114];
+
+		// Token: 0x04000013 RID: 19
+		internal readonly <Module>.Struct1[] struct1_0 = new <Module>.Struct1[4];
+
+		// Token: 0x04000014 RID: 20
+		internal readonly <Module>.Class0 class0_0 = new <Module>.Class0();
+
+		// Token: 0x04000015 RID: 21
+		internal readonly <Module>.Class1.Class2 class2_1 = new <Module>.Class1.Class2();
+
+		// Token: 0x04000016 RID: 22
+		internal bool bool_0;
+
+		// Token: 0x04000017 RID: 23
+		internal uint uint_0;
+
+		// Token: 0x04000018 RID: 24
+		internal uint uint_1;
+
+		// Token: 0x04000019 RID: 25
+		internal <Module>.Struct1 struct1_1 = new <Module>.Struct1(4);
+
+		// Token: 0x0400001A RID: 26
+		internal uint uint_2;
+
+		// Token: 0x02000006 RID: 6
+		internal class Class2
+		{
+			// Token: 0x0600001F RID: 31 RVA: 0x00006138 File Offset: 0x00004338
+			internal void method_0(uint uint_1)
+			{
+				for (uint num = this.uint_0; num < uint_1; num += 1u)
+				{
+					this.struct1_0[(int)num] = new <Module>.Struct1(3);
+					this.struct1_1[(int)num] = new <Module>.Struct1(3);
+				}
+				this.uint_0 = uint_1;
+			}
+
+			// Token: 0x06000020 RID: 32 RVA: 0x00006184 File Offset: 0x00004384
+			internal void method_1()
+			{
+				this.struct0_0.method_0();
+				for (uint num = 0u; num < this.uint_0; num += 1u)
+				{
+					this.struct1_0[(int)num].method_0();
+					this.struct1_1[(int)num].method_0();
+				}
+				this.struct0_1.method_0();
+				this.struct1_2.method_0();
+			}
+
+			// Token: 0x06000021 RID: 33 RVA: 0x000061E8 File Offset: 0x000043E8
+			internal uint method_2(<Module>.Class0 class0_0, uint uint_1)
+			{
+				if (this.struct0_0.method_1(class0_0) == 0u)
+				{
+					return this.struct1_0[(int)uint_1].method_1(class0_0);
+				}
+				uint num = 8u;
+				if (this.struct0_1.method_1(class0_0) == 0u)
+				{
+					num += this.struct1_1[(int)uint_1].method_1(class0_0);
+				}
+				else
+				{
+					num += 8u;
+					num += this.struct1_2.method_1(class0_0);
+				}
+				return num;
+			}
+
+			// Token: 0x06000022 RID: 34 RVA: 0x00003520 File Offset: 0x00001720
+			internal Class2()
+			{
+			}
+
+			// Token: 0x0400001B RID: 27
+			internal readonly <Module>.Struct1[] struct1_0 = new <Module>.Struct1[16];
+
+			// Token: 0x0400001C RID: 28
+			internal readonly <Module>.Struct1[] struct1_1 = new <Module>.Struct1[16];
+
+			// Token: 0x0400001D RID: 29
+			internal <Module>.Struct0 struct0_0;
+
+			// Token: 0x0400001E RID: 30
+			internal <Module>.Struct0 struct0_1;
+
+			// Token: 0x0400001F RID: 31
+			internal <Module>.Struct1 struct1_2 = new <Module>.Struct1(8);
+
+			// Token: 0x04000020 RID: 32
+			internal uint uint_0;
+		}
+
+		// Token: 0x02000007 RID: 7
+		internal class Class3
+		{
+			// Token: 0x06000023 RID: 35 RVA: 0x00006254 File Offset: 0x00004454
+			internal void method_0(int int_2, int int_3)
+			{
+				if (this.struct2_0 != null && this.int_1 == int_3 && this.int_0 == int_2)
+				{
+					return;
+				}
+				this.int_0 = int_2;
+				this.uint_0 = (1u << int_2) - 1u;
+				this.int_1 = int_3;
+				uint num = 1u << this.int_1 + this.int_0;
+				this.struct2_0 = new <Module>.Class1.Class3.Struct2[num];
+				for (uint num2 = 0u; num2 < num; num2 += 1u)
+				{
+					this.struct2_0[(int)num2].method_0();
+				}
+			}
+
+			// Token: 0x06000024 RID: 36 RVA: 0x000062D4 File Offset: 0x000044D4
+			internal void method_1()
+			{
+				uint num = 1u << this.int_1 + this.int_0;
+				for (uint num2 = 0u; num2 < num; num2 += 1u)
+				{
+					this.struct2_0[(int)num2].method_1();
+				}
+			}
+
+			// Token: 0x06000025 RID: 37 RVA: 0x0000354E File Offset: 0x0000174E
+			internal uint method_2(uint uint_1, byte byte_0)
+			{
+				return ((uint_1 & this.uint_0) << this.int_1) + (uint)(byte_0 >> 8 - this.int_1);
+			}
+
+			// Token: 0x06000026 RID: 38 RVA: 0x00003570 File Offset: 0x00001770
+			internal byte method_3(<Module>.Class0 class0_0, uint uint_1, byte byte_0)
+			{
+				return this.struct2_0[(int)this.method_2(uint_1, byte_0)].method_2(class0_0);
+			}
+
+			// Token: 0x06000027 RID: 39 RVA: 0x0000358B File Offset: 0x0000178B
+			internal byte method_4(<Module>.Class0 class0_0, uint uint_1, byte byte_0, byte byte_1)
+			{
+				return this.struct2_0[(int)this.method_2(uint_1, byte_0)].method_3(class0_0, byte_1);
+			}
+
+			// Token: 0x06000028 RID: 40 RVA: 0x000034FB File Offset: 0x000016FB
+			internal Class3()
+			{
+			}
+
+			// Token: 0x04000021 RID: 33
+			internal <Module>.Class1.Class3.Struct2[] struct2_0;
+
+			// Token: 0x04000022 RID: 34
+			internal int int_0;
+
+			// Token: 0x04000023 RID: 35
+			internal int int_1;
+
+			// Token: 0x04000024 RID: 36
+			internal uint uint_0;
+
+			// Token: 0x02000008 RID: 8
+			internal struct Struct2
+			{
+				// Token: 0x06000029 RID: 41 RVA: 0x000035A8 File Offset: 0x000017A8
+				internal void method_0()
+				{
+					this.struct0_0 = new <Module>.Struct0[768];
+				}
+
+				// Token: 0x0600002A RID: 42 RVA: 0x00006314 File Offset: 0x00004514
+				internal void method_1()
+				{
+					for (int i = 0; i < 768; i++)
+					{
+						this.struct0_0[i].method_0();
+					}
+				}
+
+				// Token: 0x0600002B RID: 43 RVA: 0x00006344 File Offset: 0x00004544
+				internal byte method_2(<Module>.Class0 class0_0)
+				{
+					uint num = 1u;
+					do
+					{
+						num = (num << 1 | this.struct0_0[(int)num].method_1(class0_0));
+					}
+					while (num < 256u);
+					return (byte)num;
+				}
+
+				// Token: 0x0600002C RID: 44 RVA: 0x00006378 File Offset: 0x00004578
+				internal byte method_3(<Module>.Class0 class0_0, byte byte_0)
+				{
+					uint num = 1u;
+					for (;;)
+					{
+						uint num2 = (uint)(byte_0 >> 7 & 1);
+						byte_0 = (byte)(byte_0 << 1);
+						uint num3 = this.struct0_0[(int)((1u + num2 << 8) + num)].method_1(class0_0);
+						num = (num << 1 | num3);
+						if (num2 != num3)
+						{
+							break;
+						}
+						if (num >= 256u)
+						{
+							goto IL_5C;
+						}
+					}
+					while (num < 256u)
+					{
+						num = (num << 1 | this.struct0_0[(int)num].method_1(class0_0));
+					}
+					IL_5C:
+					return (byte)num;
+				}
+
+				// Token: 0x04000025 RID: 37
+				internal <Module>.Struct0[] struct0_0;
+			}
+		}
+	}
+
+	// Token: 0x02000009 RID: 9
+	internal class Class4
+	{
+		// Token: 0x0600002D RID: 45 RVA: 0x000035BA File Offset: 0x000017BA
+		internal void method_0(uint uint_3)
+		{
+			if (this.uint_2 != uint_3)
+			{
+				this.byte_0 = new byte[uint_3];
+			}
+			this.uint_2 = uint_3;
+			this.uint_0 = 0u;
+			this.uint_1 = 0u;
+		}
+
+		// Token: 0x0600002E RID: 46 RVA: 0x000035E6 File Offset: 0x000017E6
+		internal void method_1(Stream stream_1, bool bool_0)
+		{
+			this.method_2();
+			this.stream_0 = stream_1;
+			if (!bool_0)
+			{
+				this.uint_1 = 0u;
+				this.uint_0 = 0u;
+			}
+		}
+
+		// Token: 0x0600002F RID: 47 RVA: 0x00003606 File Offset: 0x00001806
+		internal void method_2()
+		{
+			this.method_3();
+			this.stream_0 = null;
+			Buffer.BlockCopy(new byte[this.byte_0.Length], 0, this.byte_0, 0, this.byte_0.Length);
+		}
+
+		// Token: 0x06000030 RID: 48 RVA: 0x000063E4 File Offset: 0x000045E4
+		internal void method_3()
+		{
+			uint num = this.uint_0 - this.uint_1;
+			if (num == 0u)
+			{
+				return;
+			}
+			this.stream_0.Write(this.byte_0, (int)this.uint_1, (int)num);
+			if (this.uint_0 >= this.uint_2)
+			{
+				this.uint_0 = 0u;
+			}
+			this.uint_1 = this.uint_0;
+		}
+
+		// Token: 0x06000031 RID: 49 RVA: 0x0000643C File Offset: 0x0000463C
+		internal void method_4(uint uint_3, uint uint_4)
+		{
+			uint num = this.uint_0 - uint_3 - 1u;
+			if (num >= this.uint_2)
+			{
+				num += this.uint_2;
+			}
+			while (uint_4 > 0u)
+			{
+				if (num >= this.uint_2)
+				{
+					num = 0u;
+				}
+				byte[] array = this.byte_0;
+				uint num2 = this.uint_0;
+				this.uint_0 = num2 + 1u;
+				array[(int)num2] = this.byte_0[(int)num++];
+				if (this.uint_0 >= this.uint_2)
+				{
+					this.method_3();
+				}
+				uint_4 -= 1u;
+			}
+		}
+
+		// Token: 0x06000032 RID: 50 RVA: 0x000064B4 File Offset: 0x000046B4
+		internal void method_5(byte byte_1)
+		{
+			byte[] array = this.byte_0;
+			uint num = this.uint_0;
+			this.uint_0 = num + 1u;
+			array[(int)num] = byte_1;
+			if (this.uint_0 >= this.uint_2)
+			{
+				this.method_3();
+			}
+		}
+
+		// Token: 0x06000033 RID: 51 RVA: 0x000064F0 File Offset: 0x000046F0
+		internal byte method_6(uint uint_3)
+		{
+			uint num = this.uint_0 - uint_3 - 1u;
+			if (num >= this.uint_2)
+			{
+				num += this.uint_2;
+			}
+			return this.byte_0[(int)num];
+		}
+
+		// Token: 0x06000034 RID: 52 RVA: 0x000034FB File Offset: 0x000016FB
+		internal Class4()
+		{
+		}
+
+		// Token: 0x04000026 RID: 38
+		internal byte[] byte_0;
+
+		// Token: 0x04000027 RID: 39
+		internal uint uint_0;
+
+		// Token: 0x04000028 RID: 40
+		internal Stream stream_0;
+
+		// Token: 0x04000029 RID: 41
+		internal uint uint_1;
+
+		// Token: 0x0400002A RID: 42
+		internal uint uint_2;
+	}
+
+	// Token: 0x0200000A RID: 10
+	internal struct Struct3
+	{
+		// Token: 0x06000035 RID: 53 RVA: 0x00003637 File Offset: 0x00001837
+		internal void method_0()
+		{
+			this.uint_0 = 0u;
+		}
+
+		// Token: 0x06000036 RID: 54 RVA: 0x00003640 File Offset: 0x00001840
+		internal void method_1()
+		{
+			if (this.uint_0 < 4u)
+			{
+				this.uint_0 = 0u;
+				return;
+			}
+			if (this.uint_0 < 10u)
+			{
+				this.uint_0 -= 3u;
+				return;
+			}
+			this.uint_0 -= 6u;
+		}
+
+		// Token: 0x06000037 RID: 55 RVA: 0x0000367A File Offset: 0x0000187A
+		internal void method_2()
+		{
+			this.uint_0 = ((this.uint_0 < 7u) ? 7u : 10u);
+		}
+
+		// Token: 0x06000038 RID: 56 RVA: 0x00003690 File Offset: 0x00001890
+		internal void method_3()
+		{
+			this.uint_0 = ((this.uint_0 < 7u) ? 8u : 11u);
+		}
+
+		// Token: 0x06000039 RID: 57 RVA: 0x000036A6 File Offset: 0x000018A6
+		internal void method_4()
+		{
+			this.uint_0 = ((this.uint_0 < 7u) ? 9u : 11u);
+		}
+
+		// Token: 0x0600003A RID: 58 RVA: 0x000036BD File Offset: 0x000018BD
+		internal bool method_5()
+		{
+			return this.uint_0 < 7u;
+		}
+
+		// Token: 0x0400002B RID: 43
+		internal uint uint_0;
+	}
+
+	// Token: 0x0200000B RID: 11
+	[StructLayout(LayoutKind.Explicit, Size = 5184)]
+	internal struct Struct4
+	{
+	}
+}

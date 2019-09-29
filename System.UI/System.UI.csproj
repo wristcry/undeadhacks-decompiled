@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1259946F-6C12-4BA8-A078-3C981CFA54A2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>UndeadHacks</RootNamespace>
+    <AssemblyName>System.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\get_cracked_bois\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>..\..\get_cracked_bois\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\get_cracked_bois\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\get_cracked_bois\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>..\..\get_cracked_bois\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\get_cracked_bois\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>..\..\get_cracked_bois\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\get_cracked_bois\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>..\..\get_cracked_bois\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\..\get_cracked_bois\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="-Module-.cs" />
+    <Compile Include="abc.cs" />
+    <Compile Include="AimbotComponent.cs" />
+    <Compile Include="AimbotCoroutines.cs" />
+    <Compile Include="AimbotOptions.cs" />
+    <Compile Include="AimbotTab.cs" />
+    <Compile Include="AttachTab.cs" />
+    <Compile Include="AttributeManager.cs" />
+    <Compile Include="ChatCMD.cs" />
+    <Compile Include="ColorOptions.cs" />
+    <Compile Include="ColorsTab.cs" />
+    <Compile Include="ColorUtilities.cs" />
+    <Compile Include="ColorVariable.cs" />
+    <Compile Include="ComponentAttribute.cs" />
+    <Compile Include="ConfigManager.cs" />
+    <Compile Include="ConfusedByAttribute.cs" />
+    <Compile Include="DebugUtilities.cs" />
+    <Compile Include="Drawing.cs" />
+    <Compile Include="DrawUtilities.cs" />
+    <Compile Include="ESkinType.cs" />
+    <Compile Include="ESPBox.cs" />
+    <Compile Include="ESPBox2.cs" />
+    <Compile Include="ESPComponent.cs" />
+    <Compile Include="ESPCoroutines.cs" />
+    <Compile Include="ESPObject.cs" />
+    <Compile Include="ESPOptions.cs" />
+    <Compile Include="ESPTarget.cs" />
+    <Compile Include="ESPVariables.cs" />
+    <Compile Include="ESPVisual.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="FileThread.cs" />
+    <Compile Include="Fonts.cs" />
+    <Compile Include="FriendUtilities.cs" />
+    <Compile Include="Hotkey.cs" />
+    <Compile Include="HotkeyComponent.cs" />
+    <Compile Include="HotkeyOptions.cs" />
+    <Compile Include="HotkeyTab.cs" />
+    <Compile Include="HotkeyUtilities.cs" />
+    <Compile Include="IcoSphere.cs" />
+    <Compile Include="InfoTab.cs" />
+    <Compile Include="InitializerAttribute.cs" />
+    <Compile Include="InteractionOptions.cs" />
+    <Compile Include="ItemCoroutines.cs" />
+    <Compile Include="ItemOptionList.cs" />
+    <Compile Include="ItemOptions.cs" />
+    <Compile Include="ItemsComponent.cs" />
+    <Compile Include="ItemUtilities.cs" />
+    <Compile Include="LabelLocation.cs" />
+    <Compile Include="LoaderCoroutines.cs" />
+    <Compile Include="LocationUtilities.cs" />
+    <Compile Include="MathUtilities.cs" />
+    <Compile Include="MenuComponent.cs" />
+    <Compile Include="MenuTabOption.cs" />
+    <Compile Include="MenuUtilities.cs" />
+    <Compile Include="MirrorCameraComponent.cs" />
+    <Compile Include="MirrorCameraOptions.cs" />
+    <Compile Include="MiscComponent.cs" />
+    <Compile Include="MiscOptions.cs" />
+    <Compile Include="MiscTab.cs" />
+    <Compile Include="MoreMiscTab.cs" />
+    <Compile Include="Names.cs" />
+    <Compile Include="OffSpyAttribute.cs" />
+    <Compile Include="OnSpyAttribute.cs" />
+    <Compile Include="OptimizationOptions.cs" />
+    <Compile Include="OptimizationVariables.cs" />
+    <Compile Include="OverrideAttribute.cs" />
+    <Compile Include="OverrideManager.cs" />
+    <Compile Include="OverrideType.cs" />
+    <Compile Include="OverrideUtilities.cs" />
+    <Compile Include="OverrideWrapper.cs" />
+    <Compile Include="OV_Cursor.cs" />
+    <Compile Include="OV_DamageTool.cs" />
+    <Compile Include="OV_Input.cs" />
+    <Compile Include="OV_LevelLighting.cs" />
+    <Compile Include="OV_MenuPauseUI.cs" />
+    <Compile Include="OV_Player.cs" />
+    <Compile Include="OV_PlayerDashboardInformationUI.cs" />
+    <Compile Include="OV_PlayerDashboardInventoryUI.cs" />
+    <Compile Include="OV_PlayerEquipment.cs" />
+    <Compile Include="OV_PlayerInteract.cs" />
+    <Compile Include="OV_PlayerLifeUI.cs" />
+    <Compile Include="OV_PlayerPauseUI.cs" />
+    <Compile Include="OV_PlayerUI.cs" />
+    <Compile Include="OV_Provider.cs" />
+    <Compile Include="OV_UseableBarricade.cs" />
+    <Compile Include="OV_UseableGun.cs" />
+    <Compile Include="OV_UseableStructure.cs" />
+    <Compile Include="OV_VendorUI.cs" />
+    <Compile Include="PlayerCoroutines.cs" />
+    <Compile Include="PlayersTab.cs" />
+    <Compile Include="Prefab.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RaycastComponent.cs" />
+    <Compile Include="RaycastCoroutines.cs" />
+    <Compile Include="RaycastOptions.cs" />
+    <Compile Include="RaycastUtilities.cs" />
+    <Compile Include="ReflectionVariables.cs" />
+    <Compile Include="SaveAttribute.cs" />
+    <Compile Include="SectionTab.cs" />
+    <Compile Include="SerializableColor.cs" />
+    <Compile Include="SerializableVector2.cs" />
+    <Compile Include="ServerCrashThread.cs" />
+    <Compile Include="Skin.cs" />
+    <Compile Include="SkinConfig.cs" />
+    <Compile Include="SkinOptionList.cs" />
+    <Compile Include="SkinOptions.cs" />
+    <Compile Include="SkinsTab.cs" />
+    <Compile Include="SkinsUtilities.cs" />
+    <Compile Include="SpammerThread.cs" />
+    <Compile Include="SpectatorComponent.cs" />
+    <Compile Include="SphereOptions.cs" />
+    <Compile Include="SphereUtilities.cs" />
+    <Compile Include="SpyComponentAttribute.cs" />
+    <Compile Include="SpyManager.cs" />
+    <Compile Include="StatsTab.cs" />
+    <Compile Include="TargetMode.cs" />
+    <Compile Include="ThreadAttribute.cs" />
+    <Compile Include="TracerLine.cs" />
+    <Compile Include="TriggerbotComponent.cs" />
+    <Compile Include="TriggerbotOptions.cs" />
+    <Compile Include="VanishPlayerComponent.cs" />
+    <Compile Include="VectorUtilities.cs" />
+    <Compile Include="VisualsTab.cs" />
+    <Compile Include="WeaponComponent.cs" />
+    <Compile Include="WeaponOptions.cs" />
+    <Compile Include="WeaponSave.cs" />
+    <Compile Include="WeaponsTab.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
