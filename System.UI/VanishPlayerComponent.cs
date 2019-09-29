@@ -5,11 +5,11 @@ using UnityEngine;
 namespace UndeadHacks
 {
 	// Token: 0x0200000C RID: 12
-	[SpyComponent]
 	[Component]
+	[SpyComponent]
 	public class VanishPlayerComponent : MonoBehaviour
 	{
-		// Token: 0x0600003B RID: 59 RVA: 0x00006524 File Offset: 0x00004724
+		// Token: 0x0600003B RID: 59 RVA: 0x00006540 File Offset: 0x00004740
 		private void OnGUI()
 		{
 			if (!DrawUtilities.ShouldRun())
@@ -24,7 +24,7 @@ namespace UndeadHacks
 			}
 		}
 
-		// Token: 0x0600003C RID: 60 RVA: 0x00006594 File Offset: 0x00004794
+		// Token: 0x0600003C RID: 60 RVA: 0x000065B0 File Offset: 0x000047B0
 		private void PlayersMenu(int windowID)
 		{
 			Rect position = new Rect(0f, 0f, VanishPlayerComponent.vew.width, 25f);
@@ -34,7 +34,7 @@ namespace UndeadHacks
 				alignment = TextAnchor.MiddleCenter
 			};
 			guistyle.normal.textColor = Color.white;
-			GUI.Label(position, <Module>.smethod_5<string>(4189577711u), guistyle);
+			GUI.Label(position, "Игроки в ванише", guistyle);
 			Drawing.DrawRect(new Rect(0f, 25f, VanishPlayerComponent.vew.width, VanishPlayerComponent.vew.height + 25f), new Color32(34, 34, 34, 200));
 			GUILayout.Space(10f);
 			foreach (SteamPlayer steamPlayer in Provider.clients)

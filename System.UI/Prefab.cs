@@ -7,7 +7,7 @@ namespace UndeadHacks
 	// Token: 0x02000088 RID: 136
 	public static class Prefab
 	{
-		// Token: 0x06000206 RID: 518 RVA: 0x00013840 File Offset: 0x00011A40
+		// Token: 0x06000205 RID: 517 RVA: 0x00013598 File Offset: 0x00011798
 		static Prefab()
 		{
 			Prefab._None = new GUIStyle();
@@ -70,53 +70,53 @@ namespace UndeadHacks
 			Fonts.Apply();
 		}
 
-		// Token: 0x06000207 RID: 519 RVA: 0x00013A14 File Offset: 0x00011C14
+		// Token: 0x06000206 RID: 518 RVA: 0x00013764 File Offset: 0x00011964
 		public static void UpdateColors()
 		{
-			Prefab._MenuTabStyle.normal.textColor = ColorUtilities.getColor(<Module>.smethod_6<string>(4232730376u));
-			Prefab._MenuTabStyle.onNormal.textColor = ColorUtilities.getColor(<Module>.smethod_6<string>(1469619316u));
-			Prefab._MenuTabStyle.hover.textColor = ColorUtilities.getColor(<Module>.smethod_6<string>(1169017904u));
-			Prefab._MenuTabStyle.onHover.textColor = ColorUtilities.getColor(<Module>.smethod_7<string>(1658958713u));
-			Prefab._MenuTabStyle.active.textColor = ColorUtilities.getColor(<Module>.smethod_8<string>(4209917272u));
-			Prefab._MenuTabStyle.onActive.textColor = ColorUtilities.getColor(<Module>.smethod_6<string>(1469619316u));
-			Prefab._MenuTabStyle.focused.textColor = ColorUtilities.getColor(<Module>.smethod_8<string>(1495143092u));
-			Prefab._MenuTabStyle.onFocused.textColor = ColorUtilities.getColor(<Module>.smethod_5<string>(3153491551u));
-			Prefab._TextStyle.normal.textColor = ColorUtilities.getColor(<Module>.smethod_7<string>(3999805508u));
-			Prefab._TextStyle.onNormal.textColor = ColorUtilities.getColor(<Module>.smethod_6<string>(3767403670u));
-			Prefab._TextStyle.hover.textColor = ColorUtilities.getColor(<Module>.smethod_6<string>(1057806081u));
-			Prefab._TextStyle.onHover.textColor = ColorUtilities.getColor(<Module>.smethod_5<string>(232503785u));
-			Prefab._TextStyle.active.textColor = ColorUtilities.getColor(<Module>.smethod_6<string>(3767403670u));
-			Prefab._TextStyle.onActive.textColor = ColorUtilities.getColor(<Module>.smethod_6<string>(3767403670u));
-			Prefab._TextStyle.focused.textColor = ColorUtilities.getColor(<Module>.smethod_6<string>(1988459493u));
-			Prefab._TextStyle.onFocused.textColor = ColorUtilities.getColor(<Module>.smethod_7<string>(3999805508u));
-			Prefab._HeaderStyle.normal.textColor = ColorUtilities.getColor(<Module>.smethod_7<string>(3278672529u));
-			Prefab._listStyle.normal.textColor = ColorUtilities.getColor(<Module>.smethod_5<string>(232503785u));
-			Prefab._listStyle.onNormal.textColor = ColorUtilities.getColor(<Module>.smethod_4<string>(995770109u));
-			Prefab._listStyle.hover.textColor = ColorUtilities.getColor(<Module>.smethod_5<string>(3681784749u));
-			Prefab._ButtonStyle.normal.textColor = ColorUtilities.getColor(<Module>.smethod_7<string>(1243108963u));
-			Prefab._ButtonStyle.onNormal.textColor = ColorUtilities.getColor(<Module>.smethod_8<string>(259434482u));
-			Prefab._ButtonStyle.hover.textColor = ColorUtilities.getColor(<Module>.smethod_4<string>(694105841u));
-			Prefab._ButtonStyle.onHover.textColor = ColorUtilities.getColor(<Module>.smethod_6<string>(3524500610u));
+			Prefab._MenuTabStyle.normal.textColor = ColorUtilities.getColor("_MenuTabOff");
+			Prefab._MenuTabStyle.onNormal.textColor = ColorUtilities.getColor("_MenuTabOn");
+			Prefab._MenuTabStyle.hover.textColor = ColorUtilities.getColor("_MenuTabHover");
+			Prefab._MenuTabStyle.onHover.textColor = ColorUtilities.getColor("_MenuTabOn");
+			Prefab._MenuTabStyle.active.textColor = ColorUtilities.getColor("_MenuTabOn");
+			Prefab._MenuTabStyle.onActive.textColor = ColorUtilities.getColor("_MenuTabOn");
+			Prefab._MenuTabStyle.focused.textColor = ColorUtilities.getColor("_MenuTabOff");
+			Prefab._MenuTabStyle.onFocused.textColor = ColorUtilities.getColor("_MenuTabOff");
+			Prefab._TextStyle.normal.textColor = ColorUtilities.getColor("_TextStyleOff");
+			Prefab._TextStyle.onNormal.textColor = ColorUtilities.getColor("_TextStyleOn");
+			Prefab._TextStyle.hover.textColor = ColorUtilities.getColor("_TextStyleHover");
+			Prefab._TextStyle.onHover.textColor = ColorUtilities.getColor("_TextStyleOn");
+			Prefab._TextStyle.active.textColor = ColorUtilities.getColor("_TextStyleOn");
+			Prefab._TextStyle.onActive.textColor = ColorUtilities.getColor("_TextStyleOn");
+			Prefab._TextStyle.focused.textColor = ColorUtilities.getColor("_TextStyleOff");
+			Prefab._TextStyle.onFocused.textColor = ColorUtilities.getColor("_TextStyleOff");
+			Prefab._HeaderStyle.normal.textColor = ColorUtilities.getColor("_HeaderStyle");
+			Prefab._listStyle.normal.textColor = ColorUtilities.getColor("_TextStyleOn");
+			Prefab._listStyle.onNormal.textColor = ColorUtilities.getColor("_TextStyleOn");
+			Prefab._listStyle.hover.textColor = ColorUtilities.getColor("_OutlineBorderBlack");
+			Prefab._ButtonStyle.normal.textColor = ColorUtilities.getColor("_TextStyleOn");
+			Prefab._ButtonStyle.onNormal.textColor = ColorUtilities.getColor("_TextStyleOn");
+			Prefab._ButtonStyle.hover.textColor = ColorUtilities.getColor("_OutlineBorderBlack");
+			Prefab._ButtonStyle.onHover.textColor = ColorUtilities.getColor("_OutlineBorderBlack");
 			Texture2D texture2D = new Texture2D(1, 1);
-			texture2D.SetPixel(0, 0, ColorUtilities.getColor(<Module>.smethod_8<string>(3167001849u)));
+			texture2D.SetPixel(0, 0, ColorUtilities.getColor("_TextStyleHover"));
 			texture2D.Apply();
 			Prefab._ButtonStyle.hover.background = texture2D;
 			Texture2D texture2D2 = new Texture2D(1, 1);
-			texture2D2.SetPixel(0, 0, ColorUtilities.getColor(<Module>.smethod_6<string>(510116728u)));
+			texture2D2.SetPixel(0, 0, ColorUtilities.getColor("_ButtonBG"));
 			texture2D2.Apply();
 			Prefab._ButtonStyle.normal.background = texture2D2;
 			Texture2D texture2D3 = new Texture2D(1, 1);
-			texture2D3.SetPixel(0, 0, ColorUtilities.getColor(<Module>.smethod_8<string>(259434482u)));
+			texture2D3.SetPixel(0, 0, ColorUtilities.getColor("_TextStyleOn"));
 			texture2D3.Apply();
 			Prefab._ButtonStyle.active.background = texture2D3;
 			Prefab._listStyle.hover.background = texture2D3;
 			Prefab._listStyle.onHover.background = texture2D3;
 			Prefab._listStyle.normal.background = texture2D2;
 			Prefab._listStyle.onNormal.background = texture2D2;
-			Prefab._ToggleBoxBG = ColorUtilities.getColor(<Module>.smethod_8<string>(3410358809u));
+			Prefab._ToggleBoxBG = ColorUtilities.getColor("_ToggleBoxBG");
 		}
 
-		// Token: 0x06000208 RID: 520 RVA: 0x00013E70 File Offset: 0x00012070
+		// Token: 0x06000207 RID: 519 RVA: 0x00013B34 File Offset: 0x00011D34
 		public static bool MenuTab(string text, ref bool state, int fontsize = 29)
 		{
 			bool result = false;
@@ -132,7 +132,7 @@ namespace UndeadHacks
 			return result;
 		}
 
-		// Token: 0x06000209 RID: 521 RVA: 0x00013EC8 File Offset: 0x000120C8
+		// Token: 0x06000208 RID: 520 RVA: 0x00013B8C File Offset: 0x00011D8C
 		public static bool IMenuTab(int i, ref bool state)
 		{
 			GUI.color = (state ? Prefab._MenuTabStyle.active.textColor : Prefab._MenuTabStyle.normal.textColor);
@@ -146,7 +146,7 @@ namespace UndeadHacks
 			return true;
 		}
 
-		// Token: 0x0600020A RID: 522 RVA: 0x00013F34 File Offset: 0x00012134
+		// Token: 0x06000209 RID: 521 RVA: 0x00013BF8 File Offset: 0x00011DF8
 		public static bool MenuTabAbsolute(Vector2 pos, string text, ref bool state, int fontsize = 29)
 		{
 			bool result = false;
@@ -164,7 +164,7 @@ namespace UndeadHacks
 			return result;
 		}
 
-		// Token: 0x0600020B RID: 523 RVA: 0x00013FA4 File Offset: 0x000121A4
+		// Token: 0x0600020A RID: 522 RVA: 0x00013C68 File Offset: 0x00011E68
 		public static void MenuArea(Rect area, string header, Action code)
 		{
 			Rect rect = new Rect(area.x, area.y + 5f, area.width, area.height - 5f);
@@ -193,7 +193,7 @@ namespace UndeadHacks
 			GUILayout.EndArea();
 		}
 
-		// Token: 0x0600020C RID: 524 RVA: 0x00014100 File Offset: 0x00012300
+		// Token: 0x0600020B RID: 523 RVA: 0x00013DC4 File Offset: 0x00011FC4
 		public static void SectionTabButton(string text, Action code, float space = 0f, int fontsize = 20)
 		{
 			bool flag = false;
@@ -205,7 +205,7 @@ namespace UndeadHacks
 			GUILayout.Space(space);
 		}
 
-		// Token: 0x0600020D RID: 525 RVA: 0x00014134 File Offset: 0x00012334
+		// Token: 0x0600020C RID: 524 RVA: 0x00013DF8 File Offset: 0x00011FF8
 		public static bool Toggle(string text, ref bool state)
 		{
 			bool result = false;
@@ -238,7 +238,7 @@ namespace UndeadHacks
 			return result;
 		}
 
-		// Token: 0x0600020E RID: 526 RVA: 0x0001427C File Offset: 0x0001247C
+		// Token: 0x0600020D RID: 525 RVA: 0x00013F40 File Offset: 0x00012140
 		public static void ToggleLast(ref bool state)
 		{
 			Rect lastRect = GUILayoutUtility.GetLastRect();
@@ -256,7 +256,7 @@ namespace UndeadHacks
 			}
 		}
 
-		// Token: 0x0600020F RID: 527 RVA: 0x00014314 File Offset: 0x00012514
+		// Token: 0x0600020E RID: 526 RVA: 0x00013FD8 File Offset: 0x000121D8
 		public static float Slider(float left, float right, float value, int size)
 		{
 			GUIStyle sliderThumbStyle = Prefab._sliderThumbStyle;
@@ -276,7 +276,7 @@ namespace UndeadHacks
 			return value;
 		}
 
-		// Token: 0x06000210 RID: 528 RVA: 0x0001446C File Offset: 0x0001266C
+		// Token: 0x0600020F RID: 527 RVA: 0x00014130 File Offset: 0x00012330
 		public static void VerticalSlider(Rect pos, float top, float bottom, ref float value)
 		{
 			GUIStyle sliderVThumbStyle = Prefab._sliderVThumbStyle;
@@ -292,7 +292,7 @@ namespace UndeadHacks
 			Drawing.DrawRect(MenuUtilities.Inline(rect, 1f), Prefab._MenuTabStyle.onNormal.textColor);
 		}
 
-		// Token: 0x06000211 RID: 529 RVA: 0x000145AC File Offset: 0x000127AC
+		// Token: 0x06000210 RID: 528 RVA: 0x00014270 File Offset: 0x00012470
 		public static void ScrollView(Rect area, string title, ref Vector2 scrollpos, Action code, int padding = 20)
 		{
 			Drawing.DrawRect(area, MenuComponent._OutlineBorderBlack);
@@ -345,7 +345,7 @@ namespace UndeadHacks
 			GUILayout.EndArea();
 		}
 
-		// Token: 0x06000212 RID: 530 RVA: 0x00014828 File Offset: 0x00012A28
+		// Token: 0x06000211 RID: 529 RVA: 0x000144EC File Offset: 0x000126EC
 		public static int Arrows(float width, int listEntry, string content, int max)
 		{
 			Rect rect = GUILayoutUtility.GetRect(width, 25f, new GUILayoutOption[]
@@ -353,12 +353,12 @@ namespace UndeadHacks
 				GUILayout.Height(25f),
 				GUILayout.Width(width)
 			});
-			if (Prefab.Button(<Module>.smethod_7<string>(735500719u), new Rect(rect.x, rect.y, 25f, 25f)))
+			if (Prefab.Button("<", new Rect(rect.x, rect.y, 25f, 25f)))
 			{
 				listEntry--;
 			}
 			GUI.Label(MenuUtilities.Inline(new Rect(rect.x + 25f, rect.y, rect.width - 50f, 25f), 1f), content, Prefab._listStyle);
-			if (Prefab.Button(<Module>.smethod_6<string>(3541240134u), new Rect(rect.x + rect.width - 25f, rect.y, 25f, 25f)))
+			if (Prefab.Button(">", new Rect(rect.x + rect.width - 25f, rect.y, 25f, 25f)))
 			{
 				listEntry++;
 			}
@@ -376,7 +376,7 @@ namespace UndeadHacks
 			return listEntry;
 		}
 
-		// Token: 0x06000213 RID: 531 RVA: 0x00014924 File Offset: 0x00012B24
+		// Token: 0x06000212 RID: 530 RVA: 0x000145DC File Offset: 0x000127DC
 		public static bool Button(string text, float width, float height = 25f)
 		{
 			Rect rect = GUILayoutUtility.GetRect(width, height, new GUILayoutOption[]
@@ -388,14 +388,14 @@ namespace UndeadHacks
 			return GUI.Button(MenuUtilities.Inline(rect, 1f), text, Prefab._ButtonStyle);
 		}
 
-		// Token: 0x06000214 RID: 532 RVA: 0x0000473D File Offset: 0x0000293D
+		// Token: 0x06000213 RID: 531 RVA: 0x0000477D File Offset: 0x0000297D
 		public static bool Button(string text, Rect rect)
 		{
 			Drawing.DrawRect(rect, MenuComponent._OutlineBorderBlack);
 			return GUI.Button(MenuUtilities.Inline(rect, 1f), text, Prefab._ButtonStyle);
 		}
 
-		// Token: 0x06000215 RID: 533 RVA: 0x00014978 File Offset: 0x00012B78
+		// Token: 0x06000214 RID: 532 RVA: 0x00014630 File Offset: 0x00012830
 		public static bool ColorButton(float width, ColorVariable color, float height = 25f)
 		{
 			Rect rect = GUILayoutUtility.GetRect(width, height, new GUILayoutOption[]
@@ -405,21 +405,21 @@ namespace UndeadHacks
 			});
 			Drawing.DrawRect(rect, MenuComponent._OutlineBorderBlack);
 			Rect rect2 = new Rect(rect.x + 4f, rect.y + 4f, rect.height - 8f, rect.height - 8f);
-			bool result = GUI.Button(MenuUtilities.Inline(rect, 1f), <Module>.smethod_6<string>(4052155540u) + color.name, Prefab._ButtonStyle);
+			bool result = GUI.Button(MenuUtilities.Inline(rect, 1f), "      " + color.name, Prefab._ButtonStyle);
 			Drawing.DrawRect(rect2, MenuComponent._OutlineBorderBlack);
 			Drawing.DrawRect(MenuUtilities.Inline(rect2, 1f), MenuComponent._OutlineBorderLightGray);
 			Drawing.DrawRect(MenuUtilities.Inline(rect2, 2f), color.color);
 			return result;
 		}
 
-		// Token: 0x06000216 RID: 534 RVA: 0x00014A60 File Offset: 0x00012C60
+		// Token: 0x06000215 RID: 533 RVA: 0x00014714 File Offset: 0x00012914
 		public static string TextField(string text, string label, float width)
 		{
 			GUILayout.BeginHorizontal(Array.Empty<GUILayoutOption>());
 			GUILayout.Label(label, Prefab._TextStyle, Array.Empty<GUILayoutOption>());
 			int fontSize = Prefab._TextStyle.fontSize;
 			Prefab._TextStyle.fontSize = 13;
-			float y = Prefab._TextStyle.CalcSize(new GUIContent(<Module>.smethod_5<string>(4153270910u))).y;
+			float y = Prefab._TextStyle.CalcSize(new GUIContent("asdf")).y;
 			Rect rect = GUILayoutUtility.GetRect(width, y);
 			Drawing.DrawRect(new Rect(rect.x, rect.y + 2f, rect.width, rect.height + 1f), MenuComponent._OutlineBorderLightGray);
 			Drawing.DrawRect(new Rect(rect.x, rect.y + 2f, rect.width, rect.height), MenuComponent._FillLightBlack);
@@ -430,7 +430,7 @@ namespace UndeadHacks
 			return text;
 		}
 
-		// Token: 0x06000217 RID: 535 RVA: 0x00014B88 File Offset: 0x00012D88
+		// Token: 0x06000216 RID: 534 RVA: 0x00014838 File Offset: 0x00012A38
 		public static string TextField(string text, string label, float width, float spacer)
 		{
 			GUILayout.BeginHorizontal(Array.Empty<GUILayoutOption>());
@@ -438,7 +438,7 @@ namespace UndeadHacks
 			int fontSize = Prefab._TextStyle.fontSize;
 			Prefab._TextStyle.fontSize = 13;
 			Rect lastRect = GUILayoutUtility.GetLastRect();
-			lastRect.height = Prefab._TextStyle.CalcSize(new GUIContent(<Module>.smethod_4<string>(934913224u))).y;
+			lastRect.height = Prefab._TextStyle.CalcSize(new GUIContent("asdf")).y;
 			lastRect.x += spacer;
 			lastRect.width = width;
 			Drawing.DrawRect(new Rect(lastRect.x, lastRect.y + 2f, lastRect.width, lastRect.height + 1f), MenuComponent._OutlineBorderLightGray);
@@ -450,14 +450,14 @@ namespace UndeadHacks
 			return text;
 		}
 
-		// Token: 0x06000218 RID: 536 RVA: 0x00014CCC File Offset: 0x00012ECC
+		// Token: 0x06000217 RID: 535 RVA: 0x00014978 File Offset: 0x00012B78
 		public static int TextField(int text, string label, int width, int min = 0, int max = 255)
 		{
 			GUILayout.BeginHorizontal(Array.Empty<GUILayoutOption>());
 			GUILayout.Label(label, Prefab._TextStyle, Array.Empty<GUILayoutOption>());
 			int fontSize = Prefab._TextStyle.fontSize;
 			Prefab._TextStyle.fontSize = 13;
-			float y = Prefab._TextStyle.CalcSize(new GUIContent(<Module>.smethod_6<string>(304877597u))).y;
+			float y = Prefab._TextStyle.CalcSize(new GUIContent("asdf")).y;
 			Rect rect = GUILayoutUtility.GetRect((float)width, y);
 			Drawing.DrawRect(new Rect(rect.x, rect.y + 2f, rect.width, rect.height + 1f), MenuComponent._OutlineBorderLightGray);
 			Drawing.DrawRect(new Rect(rect.x, rect.y + 2f, rect.width, rect.height), MenuComponent._FillLightBlack);
@@ -478,7 +478,7 @@ namespace UndeadHacks
 			return text;
 		}
 
-		// Token: 0x06000219 RID: 537 RVA: 0x00014E30 File Offset: 0x00013030
+		// Token: 0x06000218 RID: 536 RVA: 0x00014AD8 File Offset: 0x00012CD8
 		public static void ScrollView(Rect area, string title, ref SerializableVector2 scrollpos, Action code, int padding = 20)
 		{
 			Drawing.DrawRect(area, MenuComponent._OutlineBorderBlack);
@@ -562,6 +562,6 @@ namespace UndeadHacks
 		public static Color32 _ToggleBoxBG;
 
 		// Token: 0x040001E7 RID: 487
-		public static Regex digitsOnly = new Regex(<Module>.smethod_8<string>(155955205u));
+		public static Regex digitsOnly = new Regex("[^\\d]");
 	}
 }

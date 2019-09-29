@@ -9,13 +9,13 @@ namespace UndeadHacks
 	// Token: 0x02000082 RID: 130
 	public class OV_UseableGun
 	{
-		// Token: 0x060001EA RID: 490 RVA: 0x0001297C File Offset: 0x00010B7C
+		// Token: 0x060001E9 RID: 489 RVA: 0x0001276C File Offset: 0x0001096C
 		public static bool IsRaycastInvalid(RaycastInfo info)
 		{
 			return info.player == null && info.zombie == null && info.animal == null && info.vehicle == null && info.transform == null;
 		}
 
-		// Token: 0x060001EB RID: 491 RVA: 0x000129D0 File Offset: 0x00010BD0
+		// Token: 0x060001EA RID: 490 RVA: 0x000127C0 File Offset: 0x000109C0
 		[Override(typeof(UseableGun), "ballistics", BindingFlags.Instance | BindingFlags.NonPublic, 0)]
 		public void OV_ballistics()
 		{
@@ -30,8 +30,8 @@ namespace UndeadHacks
 				PlayerLifeUI.hitmarkers[0].hitCriticalImage.isVisible = false;
 				PlayerLifeUI.hitmarkers[0].hitEntitiyImage.isVisible = false;
 			}
-			ItemGunAsset itemGunAsset = (ItemGunAsset)OptimizationVariables.MainPlayer.equipment.asset;
-			PlayerLook look = OptimizationVariables.MainPlayer.look;
+			ItemGunAsset itemGunAsset = (ItemGunAsset)Player.player.equipment.asset;
+			PlayerLook look = Player.player.look;
 			if (itemGunAsset.projectile != null)
 			{
 				return;
@@ -52,7 +52,7 @@ namespace UndeadHacks
 				{
 					if (AimbotCoroutines.IsAiming && AimbotCoroutines.LockedObject != null)
 					{
-						Vector3 aimPosition = AimbotCoroutines.GetAimPosition(AimbotCoroutines.LockedObject.transform, <Module>.smethod_5<string>(221210629u));
+						Vector3 aimPosition = AimbotCoroutines.GetAimPosition(AimbotCoroutines.LockedObject.transform, "Skull");
 						Ray aimRay = VectorUtilities.GetAimRay(look.aim.position, aimPosition);
 						float maxDistance = Vector3.Distance(look.aim.position, aimPosition);
 						RaycastHit raycastHit;
@@ -70,12 +70,12 @@ namespace UndeadHacks
 				for (int i = 0; i < list.Count; i++)
 				{
 					BulletInfo bulletInfo = list[i];
-					float num = Vector3.Distance(OptimizationVariables.MainPlayer.transform.position, raycastInfo.point);
+					float num = Vector3.Distance(Player.player.transform.position, raycastInfo.point);
 					if ((float)bulletInfo.steps * itemGunAsset.ballisticTravel >= num)
 					{
 						EPlayerHit newHit = OV_UseableGun.CalcHitMarker(itemGunAsset, ref raycastInfo);
 						PlayerUI.hitmark(0, Vector3.zero, false, newHit);
-						OptimizationVariables.MainPlayer.input.sendRaycast(raycastInfo);
+						Player.player.input.sendRaycast(raycastInfo);
 						bulletInfo.steps = 254;
 					}
 				}
@@ -99,12 +99,12 @@ namespace UndeadHacks
 			{
 				EPlayerHit newHit2 = OV_UseableGun.CalcHitMarker(itemGunAsset, ref raycastInfo);
 				PlayerUI.hitmark(0, Vector3.zero, false, newHit2);
-				OptimizationVariables.MainPlayer.input.sendRaycast(raycastInfo);
+				Player.player.input.sendRaycast(raycastInfo);
 			}
 			list.Clear();
 		}
 
-		// Token: 0x060001EC RID: 492 RVA: 0x00012C74 File Offset: 0x00010E74
+		// Token: 0x060001EB RID: 491 RVA: 0x00012A58 File Offset: 0x00010C58
 		public static EPlayerHit CalcHitMarker(ItemGunAsset PAsset, ref RaycastInfo ri)
 		{
 			EPlayerHit eplayerHit = EPlayerHit.NONE;
@@ -119,7 +119,7 @@ namespace UndeadHacks
 							eplayerHit = EPlayerHit.BUILD;
 						}
 					}
-					else if (ri.transform.CompareTag(<Module>.smethod_8<string>(620491067u)) && PAsset.barricadeDamage > 1f)
+					else if (ri.transform.CompareTag("Barricade") && PAsset.barricadeDamage > 1f)
 					{
 						InteractableDoorHinge component = ri.transform.GetComponent<InteractableDoorHinge>();
 						if (component != null)
@@ -141,7 +141,7 @@ namespace UndeadHacks
 							eplayerHit = EPlayerHit.BUILD;
 						}
 					}
-					else if (ri.transform.CompareTag(<Module>.smethod_7<string>(3864361830u)) && PAsset.structureDamage > 1f)
+					else if (ri.transform.CompareTag("Structure") && PAsset.structureDamage > 1f)
 					{
 						ushort id2;
 						if (!ushort.TryParse(ri.transform.name, out id2))
@@ -158,27 +158,7 @@ namespace UndeadHacks
 							eplayerHit = EPlayerHit.BUILD;
 						}
 					}
-					else if (!ri.transform.CompareTag(<Module>.smethod_5<string>(2433233968u)) || PAsset.resourceDamage <= 1f)
-					{
-						if (PAsset.objectDamage > 1f)
-						{
-							InteractableObjectRubble component2 = ri.transform.GetComponent<InteractableObjectRubble>();
-							if (component2 == null)
-							{
-								return eplayerHit;
-							}
-							ri.section = component2.getSection(ri.collider.transform);
-							if (component2.isSectionDead(ri.section) || (!component2.asset.rubbleIsVulnerable && !PAsset.isInvulnerable))
-							{
-								return eplayerHit;
-							}
-							if (eplayerHit == EPlayerHit.NONE)
-							{
-								eplayerHit = EPlayerHit.BUILD;
-							}
-						}
-					}
-					else
+					else if (ri.transform.CompareTag("Resource") && PAsset.resourceDamage > 1f)
 					{
 						byte x;
 						byte y;
@@ -189,6 +169,23 @@ namespace UndeadHacks
 						}
 						ResourceSpawnpoint resourceSpawnpoint = ResourceManager.getResourceSpawnpoint(x, y, index);
 						if (resourceSpawnpoint == null || resourceSpawnpoint.isDead || resourceSpawnpoint.asset.bladeID != PAsset.bladeID)
+						{
+							return eplayerHit;
+						}
+						if (eplayerHit == EPlayerHit.NONE)
+						{
+							eplayerHit = EPlayerHit.BUILD;
+						}
+					}
+					else if (PAsset.objectDamage > 1f)
+					{
+						InteractableObjectRubble component2 = ri.transform.GetComponent<InteractableObjectRubble>();
+						if (component2 == null)
+						{
+							return eplayerHit;
+						}
+						ri.section = component2.getSection(ri.collider.transform);
+						if (component2.isSectionDead(ri.section) || (!component2.asset.rubbleIsVulnerable && !PAsset.isInvulnerable))
 						{
 							return eplayerHit;
 						}

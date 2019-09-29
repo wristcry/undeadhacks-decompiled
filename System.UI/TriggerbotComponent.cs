@@ -10,13 +10,13 @@ namespace UndeadHacks
 	[Component]
 	public class TriggerbotComponent : MonoBehaviour
 	{
-		// Token: 0x06000274 RID: 628 RVA: 0x00004A0B File Offset: 0x00002C0B
+		// Token: 0x06000271 RID: 625 RVA: 0x00004A3B File Offset: 0x00002C3B
 		public void Start()
 		{
 			base.StartCoroutine(TriggerbotComponent.CheckTrigger());
 		}
 
-		// Token: 0x06000275 RID: 629 RVA: 0x00004A19 File Offset: 0x00002C19
+		// Token: 0x06000272 RID: 626 RVA: 0x00004A49 File Offset: 0x00002C49
 		public static IEnumerator CheckTrigger()
 		{
 			return new TriggerbotComponent.<CheckTrigger>d__2(0);

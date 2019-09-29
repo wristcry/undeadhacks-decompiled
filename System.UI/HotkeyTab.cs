@@ -8,7 +8,7 @@ namespace UndeadHacks
 	// Token: 0x0200003F RID: 63
 	public static class HotkeyTab
 	{
-		// Token: 0x06000101 RID: 257 RVA: 0x0000CDBC File Offset: 0x0000AFBC
+		// Token: 0x06000101 RID: 257 RVA: 0x0000CF94 File Offset: 0x0000B194
 		public static void Tab()
 		{
 			if (HotkeyTab.chat)
@@ -16,7 +16,7 @@ namespace UndeadHacks
 				ChatCMD.Tab();
 				return;
 			}
-			Prefab.ScrollView(new Rect(0f, 0f, 611f, 406f), <Module>.smethod_6<string>(1259305322u), ref HotkeyTab.HotkeyScroll, delegate()
+			Prefab.ScrollView(new Rect(0f, 0f, 611f, 406f), "Бинды", ref HotkeyTab.HotkeyScroll, delegate()
 			{
 				foreach (KeyValuePair<string, Dictionary<string, Hotkey>> keyValuePair in HotkeyOptions.HotkeyDict)
 				{
@@ -35,13 +35,13 @@ namespace UndeadHacks
 					}
 				}
 			}, 20);
-			if (Prefab.Button(<Module>.smethod_4<string>(4042312791u), new Rect(0f, 0f, 100f, 21f)))
+			if (Prefab.Button("Чат команды", new Rect(0f, 0f, 100f, 21f)))
 			{
 				HotkeyTab.chat = !HotkeyTab.chat;
 			}
 		}
 
-		// Token: 0x06000102 RID: 258 RVA: 0x00003E13 File Offset: 0x00002013
+		// Token: 0x06000102 RID: 258 RVA: 0x00003E1F File Offset: 0x0000201F
 		public static void DrawSpacer(string Text, bool First)
 		{
 			if (!First)
@@ -54,14 +54,14 @@ namespace UndeadHacks
 			GUILayout.Space(8f);
 		}
 
-		// Token: 0x06000103 RID: 259 RVA: 0x0000CE5C File Offset: 0x0000B05C
+		// Token: 0x06000103 RID: 259 RVA: 0x0000D02C File Offset: 0x0000B22C
 		public static void DrawButton(string Option, string Identifier)
 		{
 			GUILayout.BeginHorizontal(Array.Empty<GUILayoutOption>());
 			GUILayout.Label(Option, Prefab._TextStyle, Array.Empty<GUILayoutOption>());
 			if (HotkeyTab.ClickedOption == Identifier)
 			{
-				if (Prefab.Button(<Module>.smethod_4<string>(767336661u), 75f, 25f))
+				if (Prefab.Button("Убрать", 75f, 25f))
 				{
 					HotkeyComponent.Clear();
 					HotkeyOptions.UnorganizedHotkeys[Identifier].Keys = new KeyCode[0];
@@ -72,7 +72,7 @@ namespace UndeadHacks
 					string text;
 					if (HotkeyOptions.UnorganizedHotkeys[Identifier].Keys.Length != 0)
 					{
-						text = string.Join(<Module>.smethod_7<string>(3825577831u), HotkeyOptions.UnorganizedHotkeys[Identifier].Keys.Select(delegate(KeyCode k)
+						text = string.Join(" + ", HotkeyOptions.UnorganizedHotkeys[Identifier].Keys.Select(delegate(KeyCode k)
 						{
 							KeyCode keyCode = k;
 							return keyCode.ToString();
@@ -80,7 +80,7 @@ namespace UndeadHacks
 					}
 					else
 					{
-						text = <Module>.smethod_5<string>(4141456235u);
+						text = "Нет";
 					}
 					Prefab.Button(text, 200f, 25f);
 				}
@@ -88,7 +88,7 @@ namespace UndeadHacks
 				{
 					HotkeyOptions.UnorganizedHotkeys[Identifier].Keys = HotkeyComponent.CurrentKeys.ToArray();
 					HotkeyComponent.Clear();
-					Prefab.Button(string.Join(<Module>.smethod_8<string>(3789737526u), HotkeyOptions.UnorganizedHotkeys[Identifier].Keys.Select(delegate(KeyCode k)
+					Prefab.Button(string.Join(" + ", HotkeyOptions.UnorganizedHotkeys[Identifier].Keys.Select(delegate(KeyCode k)
 					{
 						KeyCode keyCode = k;
 						return keyCode.ToString();
@@ -101,7 +101,7 @@ namespace UndeadHacks
 				string text2;
 				if (HotkeyOptions.UnorganizedHotkeys[Identifier].Keys.Length != 0)
 				{
-					text2 = string.Join(<Module>.smethod_4<string>(1593946513u), HotkeyOptions.UnorganizedHotkeys[Identifier].Keys.Select(delegate(KeyCode k)
+					text2 = string.Join(" + ", HotkeyOptions.UnorganizedHotkeys[Identifier].Keys.Select(delegate(KeyCode k)
 					{
 						KeyCode keyCode = k;
 						return keyCode.ToString();
@@ -109,7 +109,7 @@ namespace UndeadHacks
 				}
 				else
 				{
-					text2 = <Module>.smethod_4<string>(2965097687u);
+					text2 = "Нет";
 				}
 				if (Prefab.Button(text2, 200f, 25f))
 				{

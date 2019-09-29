@@ -9,7 +9,7 @@ namespace UndeadHacks
 	public static class OV_PlayerDashboardInformationUI
 	{
 		// Token: 0x17000024 RID: 36
-		// (get) Token: 0x060001C8 RID: 456 RVA: 0x00004523 File Offset: 0x00002723
+		// (get) Token: 0x060001C7 RID: 455 RVA: 0x00004528 File Offset: 0x00002728
 		private static Sleek mapDynamicContainer
 		{
 			get
@@ -18,10 +18,10 @@ namespace UndeadHacks
 			}
 		}
 
-		// Token: 0x060001C9 RID: 457 RVA: 0x000111E8 File Offset: 0x0000F3E8
+		// Token: 0x060001C8 RID: 456 RVA: 0x00011088 File Offset: 0x0000F288
 		public static int GetMap()
 		{
-			PlayerInventory inventory = OptimizationVariables.MainPlayer.inventory;
+			PlayerInventory inventory = Player.player.inventory;
 			if (!MiscOptions.GPS && inventory.has(1176) == null)
 			{
 				return 0;
@@ -29,7 +29,7 @@ namespace UndeadHacks
 			return 1;
 		}
 
-		// Token: 0x060001CA RID: 458 RVA: 0x00011218 File Offset: 0x0000F418
+		// Token: 0x060001C9 RID: 457 RVA: 0x000110B8 File Offset: 0x0000F2B8
 		[OnSpy]
 		public static void Disable()
 		{
@@ -41,14 +41,14 @@ namespace UndeadHacks
 			OV_PlayerDashboardInformationUI.WasGPSEnabled = MiscOptions.GPS;
 			MiscOptions.ShowPlayersOnMap = false;
 			MiscOptions.GPS = false;
-			OV_PlayerDashboardInformationUI.RefreshStaticMap.Invoke(OptimizationVariables.MainPlayer.inventory, new object[]
+			OV_PlayerDashboardInformationUI.RefreshStaticMap.Invoke(Player.player.inventory, new object[]
 			{
 				OV_PlayerDashboardInformationUI.GetMap()
 			});
 			OV_PlayerDashboardInformationUI.OV_refreshDynamicMap();
 		}
 
-		// Token: 0x060001CB RID: 459 RVA: 0x0001127C File Offset: 0x0000F47C
+		// Token: 0x060001CA RID: 458 RVA: 0x0001111C File Offset: 0x0000F31C
 		[OffSpy]
 		public static void Enable()
 		{
@@ -58,14 +58,14 @@ namespace UndeadHacks
 			}
 			MiscOptions.ShowPlayersOnMap = OV_PlayerDashboardInformationUI.WasEnabled;
 			MiscOptions.GPS = OV_PlayerDashboardInformationUI.WasGPSEnabled;
-			OV_PlayerDashboardInformationUI.RefreshStaticMap.Invoke(OptimizationVariables.MainPlayer.inventory, new object[]
+			OV_PlayerDashboardInformationUI.RefreshStaticMap.Invoke(Player.player.inventory, new object[]
 			{
 				OV_PlayerDashboardInformationUI.GetMap()
 			});
 			OV_PlayerDashboardInformationUI.OV_refreshDynamicMap();
 		}
 
-		// Token: 0x060001CC RID: 460 RVA: 0x000112D4 File Offset: 0x0000F4D4
+		// Token: 0x060001CB RID: 459 RVA: 0x00011174 File Offset: 0x0000F374
 		[Override(typeof(PlayerDashboardInformationUI), "searchForMapsInInventory", BindingFlags.Static | BindingFlags.NonPublic, 0)]
 		public static void OV_searchForMapsInInventory(ref bool enableChart, ref bool enableMap)
 		{
@@ -104,7 +104,7 @@ namespace UndeadHacks
 			}
 		}
 
-		// Token: 0x060001CD RID: 461 RVA: 0x000113A8 File Offset: 0x0000F5A8
+		// Token: 0x060001CC RID: 460 RVA: 0x00011248 File Offset: 0x0000F448
 		[Override(typeof(PlayerDashboardInformationUI), "refreshDynamicMap", BindingFlags.Static | BindingFlags.Public, 0)]
 		public static void OV_refreshDynamicMap()
 		{
@@ -117,8 +117,8 @@ namespace UndeadHacks
 			{
 				if (LevelManager.levelType == ELevelType.ARENA)
 				{
-					Texture2D newTexture = PlayerDashboardInformationUI.icons.load<Texture2D>(<Module>.smethod_5<string>(271418181u));
-					Texture2D newTexture2 = (Texture2D)Resources.Load(<Module>.smethod_5<string>(521232641u));
+					Texture2D newTexture = PlayerDashboardInformationUI.icons.load<Texture2D>("Arena_Area");
+					Texture2D newTexture2 = (Texture2D)Resources.Load("Materials/Pixel");
 					if ((double)Mathf.Abs(LevelManager.arenaTargetRadius - 0.5f) > 0.01)
 					{
 						SleekImageTexture sleekImageTexture = new SleekImageTexture(newTexture);
@@ -180,7 +180,7 @@ namespace UndeadHacks
 					sleekImageTexture10.sizeScale_Y = 1f - sleekImageTexture6.positionScale_Y - sleekImageTexture6.sizeScale_Y;
 					OV_PlayerDashboardInformationUI.mapDynamicContainer.add(sleekImageTexture10);
 				}
-				Texture2D newTexture3 = PlayerDashboardInformationUI.icons.load<Texture2D>(<Module>.smethod_7<string>(758696872u));
+				Texture2D newTexture3 = PlayerDashboardInformationUI.icons.load<Texture2D>("Marker");
 				foreach (SteamPlayer steamPlayer in Provider.clients)
 				{
 					if (!(steamPlayer.model == null))
@@ -252,7 +252,7 @@ namespace UndeadHacks
 					sleekImageTexture13.sizeOffset_Y = 20;
 					sleekImageTexture13.isAngled = true;
 					sleekImageTexture13.angle = Player.player.transform.rotation.eulerAngles.y;
-					sleekImageTexture13.texture = PlayerDashboardInformationUI.icons.load<Texture2D>(<Module>.smethod_4<string>(280019277u));
+					sleekImageTexture13.texture = PlayerDashboardInformationUI.icons.load<Texture2D>("Player");
 					sleekImageTexture13.backgroundTint = ESleekTint.FOREGROUND;
 					if (string.IsNullOrEmpty(Characters.active.nick))
 					{
@@ -267,7 +267,7 @@ namespace UndeadHacks
 			}
 		}
 
-		// Token: 0x060001CF RID: 463 RVA: 0x000036F7 File Offset: 0x000018F7
+		// Token: 0x060001CE RID: 462 RVA: 0x000036F7 File Offset: 0x000018F7
 		MethodInfo method_0(string string_0, BindingFlags bindingFlags_0)
 		{
 			return base.GetMethod(string_0, bindingFlags_0);
@@ -280,9 +280,9 @@ namespace UndeadHacks
 		public static bool WasEnabled;
 
 		// Token: 0x040001BD RID: 445
-		public static MethodInfo RefreshStaticMap = typeof(PlayerDashboardInformationUI).method_0(<Module>.smethod_5<string>(1184161668u), BindingFlags.Static | BindingFlags.NonPublic);
+		public static MethodInfo RefreshStaticMap = typeof(PlayerDashboardInformationUI).method_0("refreshStaticMap", BindingFlags.Static | BindingFlags.NonPublic);
 
 		// Token: 0x040001BE RID: 446
-		public static FieldInfo DynamicContainerInfo = typeof(PlayerDashboardInformationUI).GetField(<Module>.smethod_6<string>(2771572126u), ReflectionVariables.PrivateStatic);
+		public static FieldInfo DynamicContainerInfo = typeof(PlayerDashboardInformationUI).GetField("mapDynamicContainer", ReflectionVariables.PrivateStatic);
 	}
 }

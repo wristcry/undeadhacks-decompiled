@@ -9,7 +9,7 @@ namespace UndeadHacks
 	[Component]
 	public class ItemsComponent : MonoBehaviour
 	{
-		// Token: 0x06000133 RID: 307 RVA: 0x0000E360 File Offset: 0x0000C560
+		// Token: 0x06000133 RID: 307 RVA: 0x0000E4D0 File Offset: 0x0000C6D0
 		public static void RefreshItems()
 		{
 			ItemsComponent.items.Clear();
@@ -23,7 +23,7 @@ namespace UndeadHacks
 			}
 		}
 
-		// Token: 0x06000134 RID: 308 RVA: 0x00003F4D File Offset: 0x0000214D
+		// Token: 0x06000134 RID: 308 RVA: 0x00003F59 File Offset: 0x00002159
 		public void Start()
 		{
 			base.StartCoroutine(ItemCoroutines.PickupItems());

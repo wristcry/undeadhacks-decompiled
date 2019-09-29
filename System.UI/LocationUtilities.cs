@@ -8,7 +8,7 @@ namespace UndeadHacks
 	// Token: 0x02000055 RID: 85
 	public static class LocationUtilities
 	{
-		// Token: 0x06000149 RID: 329 RVA: 0x0000EC38 File Offset: 0x0000CE38
+		// Token: 0x06000149 RID: 329 RVA: 0x0000ECD0 File Offset: 0x0000CED0
 		public static LocationNode GetClosestLocation(Vector3 pos)
 		{
 			float num = 1337420f;

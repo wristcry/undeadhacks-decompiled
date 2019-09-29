@@ -5,7 +5,7 @@ namespace UndeadHacks
 	// Token: 0x020000B4 RID: 180
 	public class WeaponSave
 	{
-		// Token: 0x060002A1 RID: 673 RVA: 0x00004BFB File Offset: 0x00002DFB
+		// Token: 0x0600029E RID: 670 RVA: 0x00004C2B File Offset: 0x00002E2B
 		public WeaponSave(ushort WeaponID, int SkinID)
 		{
 			this.WeaponID = WeaponID;

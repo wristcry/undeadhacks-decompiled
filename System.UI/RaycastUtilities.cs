@@ -9,15 +9,15 @@ namespace UndeadHacks
 	// Token: 0x02000090 RID: 144
 	public static class RaycastUtilities
 	{
-		// Token: 0x06000237 RID: 567 RVA: 0x00015578 File Offset: 0x00013778
+		// Token: 0x06000236 RID: 566 RVA: 0x0001526C File Offset: 0x0001346C
 		public static bool WallCheck(Transform transform)
 		{
-			Vector3 direction = AimbotCoroutines.GetAimPosition(transform, <Module>.smethod_8<string>(629351294u)) - Player.player.look.aim.position;
+			Vector3 direction = AimbotCoroutines.GetAimPosition(transform, "Skull") - Player.player.look.aim.position;
 			RaycastHit raycastHit;
 			return PhysicsUtility.raycast(new Ray(Player.player.look.aim.position, direction), out raycastHit, direction.magnitude + 1f, RayMasks.DAMAGE_CLIENT, QueryTriggerInteraction.UseGlobal) && raycastHit.transform.IsChildOf(transform);
 		}
 
-		// Token: 0x06000238 RID: 568 RVA: 0x000155F4 File Offset: 0x000137F4
+		// Token: 0x06000237 RID: 567 RVA: 0x000152E4 File Offset: 0x000134E4
 		public static RaycastInfo GenerateOriginalRaycast(Ray ray, float range, int mask, Player ignorePlayer = null)
 		{
 			RaycastHit hit;
@@ -28,9 +28,9 @@ namespace UndeadHacks
 			};
 			if (!(raycastInfo.transform == null))
 			{
-				if (!raycastInfo.transform.CompareTag(<Module>.smethod_7<string>(4131887178u)))
+				if (!raycastInfo.transform.CompareTag("Barricade"))
 				{
-					if (raycastInfo.transform.CompareTag(<Module>.smethod_5<string>(2183419508u)))
+					if (raycastInfo.transform.CompareTag("Structure"))
 					{
 						raycastInfo.transform = DamageTool.getStructureRootTransform(raycastInfo.transform);
 					}
@@ -39,7 +39,7 @@ namespace UndeadHacks
 				{
 					raycastInfo.transform = DamageTool.getBarricadeRootTransform(raycastInfo.transform);
 				}
-				if (raycastInfo.transform.CompareTag(<Module>.smethod_8<string>(4226489351u)))
+				if (raycastInfo.transform.CompareTag("Enemy"))
 				{
 					raycastInfo.player = DamageTool.getPlayer(raycastInfo.transform);
 					if (raycastInfo.player == ignorePlayer)
@@ -47,11 +47,11 @@ namespace UndeadHacks
 						raycastInfo.player = null;
 					}
 				}
-				if (raycastInfo.transform.CompareTag(<Module>.smethod_7<string>(2006246122u)))
+				if (raycastInfo.transform.CompareTag("Zombie"))
 				{
 					raycastInfo.zombie = DamageTool.getZombie(raycastInfo.transform);
 				}
-				if (raycastInfo.transform.CompareTag(<Module>.smethod_8<string>(2576808652u)))
+				if (raycastInfo.transform.CompareTag("Animal"))
 				{
 					raycastInfo.animal = DamageTool.getAnimal(raycastInfo.transform);
 				}
@@ -67,7 +67,7 @@ namespace UndeadHacks
 				{
 					raycastInfo.limb = MathUtilities.RandomEnumValue<ELimb>();
 				}
-				if (raycastInfo.transform.CompareTag(<Module>.smethod_4<string>(2487578172u)))
+				if (raycastInfo.transform.CompareTag("Vehicle"))
 				{
 					raycastInfo.vehicle = DamageTool.getVehicle(raycastInfo.transform);
 				}
@@ -84,23 +84,23 @@ namespace UndeadHacks
 			return raycastInfo;
 		}
 
-		// Token: 0x06000239 RID: 569 RVA: 0x000157B8 File Offset: 0x000139B8
+		// Token: 0x06000238 RID: 568 RVA: 0x00015488 File Offset: 0x00013688
 		public static bool GenerateRaycast(out RaycastInfo info)
 		{
-			ItemWeaponAsset itemWeaponAsset = OptimizationVariables.MainPlayer.equipment.asset as ItemWeaponAsset;
+			ItemWeaponAsset itemWeaponAsset = Player.player.equipment.asset as ItemWeaponAsset;
 			float range = (itemWeaponAsset != null) ? Mathf.Max(itemWeaponAsset.range, 20f) : 20f;
 			GameObject @object;
 			Vector3 point;
 			if (!RaycastUtilities.GetTargetObject(out @object, out point, range))
 			{
-				info = RaycastUtilities.GenerateOriginalRaycast(new Ray(OptimizationVariables.MainPlayer.look.aim.position, OptimizationVariables.MainPlayer.look.aim.forward), range, RayMasks.DAMAGE_CLIENT, null);
+				info = RaycastUtilities.GenerateOriginalRaycast(new Ray(Player.player.look.aim.position, Player.player.look.aim.forward), range, RayMasks.DAMAGE_CLIENT, null);
 				return false;
 			}
 			info = RaycastUtilities.GenerateRaycast(@object, point);
 			return true;
 		}
 
-		// Token: 0x0600023A RID: 570 RVA: 0x00015848 File Offset: 0x00013A48
+		// Token: 0x06000239 RID: 569 RVA: 0x00015518 File Offset: 0x00013718
 		public static RaycastInfo GenerateRaycast(GameObject Object, Vector3 Point)
 		{
 			ELimb limb = RaycastOptions.TargetLimb;
@@ -113,7 +113,7 @@ namespace UndeadHacks
 			return new RaycastInfo(Object.transform)
 			{
 				point = Point,
-				direction = OptimizationVariables.MainPlayer.look.aim.forward,
+				direction = Player.player.look.aim.forward,
 				limb = limb,
 				material = material,
 				player = Object.GetComponent<Player>(),
@@ -123,15 +123,15 @@ namespace UndeadHacks
 			};
 		}
 
-		// Token: 0x0600023B RID: 571 RVA: 0x000158F4 File Offset: 0x00013AF4
+		// Token: 0x0600023A RID: 570 RVA: 0x000155C4 File Offset: 0x000137C4
 		public static bool GetTargetObject(out GameObject Object, out Vector3 Point, float Range)
 		{
 			float num = Range + 1f;
 			float num2 = RaycastOptions.SilentAimFOV;
 			Object = null;
 			Point = Vector3.zero;
-			Vector3 position = OptimizationVariables.MainPlayer.look.aim.position;
-			Vector3 forward = OptimizationVariables.MainPlayer.look.aim.forward;
+			Vector3 position = Player.player.look.aim.position;
+			Vector3 forward = Player.player.look.aim.forward;
 			foreach (GameObject gameObject in RaycastUtilities.Objects)
 			{
 				if (gameObject)
@@ -154,11 +154,11 @@ namespace UndeadHacks
 							{
 								if (RaycastOptions.SilentAimUseFOV)
 								{
-									if (transform.CompareTag(<Module>.smethod_7<string>(959340883u)) || transform.CompareTag(<Module>.smethod_8<string>(4226489351u)) || transform.CompareTag(<Module>.smethod_4<string>(753399450u)) || transform.CompareTag(<Module>.smethod_4<string>(2578335059u)))
+									if (transform.CompareTag("Player") || transform.CompareTag("Enemy") || transform.CompareTag("Zombie") || transform.CompareTag("Animal"))
 									{
 										foreach (Transform transform2 in transform.GetComponentsInChildren<Transform>())
 										{
-											if (transform2.name.Equals(<Module>.smethod_7<string>(3290527135u)))
+											if (transform2.name.Equals("Skull"))
 											{
 												vector = transform2.position + new Vector3(0f, 0.4f, 0f);
 												break;

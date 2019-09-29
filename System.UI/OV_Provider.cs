@@ -9,7 +9,7 @@ namespace UndeadHacks
 	// Token: 0x02000081 RID: 129
 	public static class OV_Provider
 	{
-		// Token: 0x060001E8 RID: 488 RVA: 0x00012904 File Offset: 0x00010B04
+		// Token: 0x060001E7 RID: 487 RVA: 0x000126F4 File Offset: 0x000108F4
 		public static void OV_receiveClient(CSteamID steamID, byte[] packet, int offset, int size, int channel)
 		{
 			if (!OV_Provider.IsConnected)
@@ -37,7 +37,7 @@ namespace UndeadHacks
 			});
 		}
 
-		// Token: 0x060001E9 RID: 489 RVA: 0x00004697 File Offset: 0x00002897
+		// Token: 0x060001E8 RID: 488 RVA: 0x000046D7 File Offset: 0x000028D7
 		[Override(typeof(Provider), "OnApplicationQuit", BindingFlags.Instance | BindingFlags.NonPublic, 0)]
 		public static void OV_OnApplicationQuit()
 		{

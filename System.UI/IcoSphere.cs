@@ -7,7 +7,7 @@ namespace UndeadHacks
 	// Token: 0x02000042 RID: 66
 	public static class IcoSphere
 	{
-		// Token: 0x0600010F RID: 271 RVA: 0x0000D6CC File Offset: 0x0000B8CC
+		// Token: 0x0600010F RID: 271 RVA: 0x0000D704 File Offset: 0x0000B904
 		public static GameObject Create(string name, float radius)
 		{
 			GameObject gameObject = new GameObject(name);
@@ -88,7 +88,7 @@ namespace UndeadHacks
 		// Token: 0x02000043 RID: 67
 		private struct TriangleIndices
 		{
-			// Token: 0x06000110 RID: 272 RVA: 0x00003E8F File Offset: 0x0000208F
+			// Token: 0x06000110 RID: 272 RVA: 0x00003E9B File Offset: 0x0000209B
 			public TriangleIndices(int v1, int v2, int v3)
 			{
 				this.v1 = v1;

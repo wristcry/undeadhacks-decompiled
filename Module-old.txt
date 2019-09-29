@@ -9,7 +9,7 @@ using System.Threading;
 // Token: 0x02000001 RID: 1
 internal class <Module>
 {
-	// Token: 0x06000001 RID: 1 RVA: 0x00004C50 File Offset: 0x00002E50
+	// Token: 0x06000001 RID: 1 RVA: 0x00004C20 File Offset: 0x00002E20
 	static <Module>()
 	{
 		/*
@@ -31,17 +31,17 @@ Parameter name: length
 */;
 	}
 
-	// Token: 0x06000002 RID: 2 RVA: 0x00004C68 File Offset: 0x00002E68
+	// Token: 0x06000002 RID: 2 RVA: 0x00004C38 File Offset: 0x00002E38
 	private static void smethod_0()
 	{
-		string str = "COR";
-		MethodInfo method = typeof(Environment).GetMethod("GetEnvironmentVariable", new Type[]
+		string str = <Module>.smethod_4<string>(232593208u);
+		MethodInfo method = typeof(Environment).GetMethod(<Module>.smethod_5<string>(3228712748u), new Type[]
 		{
 			typeof(string)
 		});
-		if (method != null && "1".Equals(method.Invoke(null, new object[]
+		if (method != null && <Module>.smethod_5<string>(1393497175u).Equals(method.Invoke(null, new object[]
 		{
-			str + "_ENABLE_PROFILING"
+			str + <Module>.smethod_4<string>(3247166217u)
 		})))
 		{
 			Environment.FailFast(null);
@@ -52,7 +52,7 @@ Parameter name: length
 		}.Start(null);
 	}
 
-	// Token: 0x06000003 RID: 3 RVA: 0x00004CF4 File Offset: 0x00002EF4
+	// Token: 0x06000003 RID: 3 RVA: 0x00004CD8 File Offset: 0x00002ED8
 	private static void smethod_1(object object_0)
 	{
 		Thread thread = object_0 as Thread;
@@ -77,7 +77,7 @@ Parameter name: length
 		}
 	}
 
-	// Token: 0x06000004 RID: 4 RVA: 0x00004D6C File Offset: 0x00002F6C
+	// Token: 0x06000004 RID: 4 RVA: 0x00004D50 File Offset: 0x00002F50
 	internal static byte[] smethod_2(byte[] byte_1)
 	{
 		MemoryStream memoryStream = new MemoryStream(byte_1);
@@ -98,7 +98,7 @@ Parameter name: length
 		return array;
 	}
 
-	// Token: 0x06000005 RID: 5 RVA: 0x00004E00 File Offset: 0x00003000
+	// Token: 0x06000005 RID: 5 RVA: 0x00004DE4 File Offset: 0x00002FE4
 	internal static byte[] smethod_3(byte[] A_0)
 	{
 		uint num = 1296u;
@@ -151,7 +151,7 @@ Parameter name: length
 		return array3;
 	}
 
-	// Token: 0x06000006 RID: 6 RVA: 0x00004FD4 File Offset: 0x000031D4
+	// Token: 0x06000006 RID: 6 RVA: 0x00004FB8 File Offset: 0x000031B8
 	internal static T smethod_4<T>(uint uint_0)
 	{
 		if (Assembly.GetExecutingAssembly() == Assembly.GetCallingAssembly())
@@ -185,7 +185,7 @@ Parameter name: length
 		return default(T);
 	}
 
-	// Token: 0x06000007 RID: 7 RVA: 0x00005184 File Offset: 0x00003384
+	// Token: 0x06000007 RID: 7 RVA: 0x00005168 File Offset: 0x00003368
 	internal static T smethod_5<T>(uint uint_0)
 	{
 		if (Assembly.GetExecutingAssembly() == Assembly.GetCallingAssembly())
@@ -222,7 +222,7 @@ Parameter name: length
 		return default(T);
 	}
 
-	// Token: 0x06000008 RID: 8 RVA: 0x00005334 File Offset: 0x00003534
+	// Token: 0x06000008 RID: 8 RVA: 0x00005318 File Offset: 0x00003518
 	internal static T smethod_6<T>(uint uint_0)
 	{
 		if (Assembly.GetExecutingAssembly() == Assembly.GetCallingAssembly())
@@ -259,7 +259,7 @@ Parameter name: length
 		return default(T);
 	}
 
-	// Token: 0x06000009 RID: 9 RVA: 0x000054E4 File Offset: 0x000036E4
+	// Token: 0x06000009 RID: 9 RVA: 0x000054C8 File Offset: 0x000036C8
 	internal static T smethod_7<T>(uint uint_0)
 	{
 		if (Assembly.GetExecutingAssembly() == Assembly.GetCallingAssembly())
@@ -293,7 +293,7 @@ Parameter name: length
 		return default(T);
 	}
 
-	// Token: 0x0600000A RID: 10 RVA: 0x00005694 File Offset: 0x00003894
+	// Token: 0x0600000A RID: 10 RVA: 0x00005678 File Offset: 0x00003878
 	internal static T smethod_8<T>(uint uint_0)
 	{
 		if (Assembly.GetExecutingAssembly() == Assembly.GetCallingAssembly())
@@ -345,7 +345,7 @@ Parameter name: length
 			this.uint_0 = 1024u;
 		}
 
-		// Token: 0x0600000C RID: 12 RVA: 0x00005844 File Offset: 0x00003A44
+		// Token: 0x0600000C RID: 12 RVA: 0x00005828 File Offset: 0x00003A28
 		internal uint method_1(<Module>.Class0 class0_0)
 		{
 			uint num = (class0_0.uint_1 >> 11) * this.uint_0;
@@ -385,7 +385,7 @@ Parameter name: length
 			this.struct0_0 = new <Module>.Struct0[1 << int_1];
 		}
 
-		// Token: 0x0600000E RID: 14 RVA: 0x00005930 File Offset: 0x00003B30
+		// Token: 0x0600000E RID: 14 RVA: 0x00005914 File Offset: 0x00003B14
 		internal void method_0()
 		{
 			uint num = 1u;
@@ -396,7 +396,7 @@ Parameter name: length
 			}
 		}
 
-		// Token: 0x0600000F RID: 15 RVA: 0x00005968 File Offset: 0x00003B68
+		// Token: 0x0600000F RID: 15 RVA: 0x0000594C File Offset: 0x00003B4C
 		internal uint method_1(<Module>.Class0 class0_0)
 		{
 			uint num = 1u;
@@ -407,7 +407,7 @@ Parameter name: length
 			return num - (1u << this.int_0);
 		}
 
-		// Token: 0x06000010 RID: 16 RVA: 0x000059AC File Offset: 0x00003BAC
+		// Token: 0x06000010 RID: 16 RVA: 0x00005990 File Offset: 0x00003B90
 		internal uint method_2(<Module>.Class0 class0_0)
 		{
 			uint num = 1u;
@@ -422,7 +422,7 @@ Parameter name: length
 			return num2;
 		}
 
-		// Token: 0x06000011 RID: 17 RVA: 0x000059F4 File Offset: 0x00003BF4
+		// Token: 0x06000011 RID: 17 RVA: 0x000059D8 File Offset: 0x00003BD8
 		internal static uint smethod_0(<Module>.Struct0[] struct0_1, uint uint_0, <Module>.Class0 class0_0, int int_1)
 		{
 			uint num = 1u;
@@ -447,7 +447,7 @@ Parameter name: length
 	// Token: 0x02000004 RID: 4
 	internal class Class0
 	{
-		// Token: 0x06000012 RID: 18 RVA: 0x00005A34 File Offset: 0x00003C34
+		// Token: 0x06000012 RID: 18 RVA: 0x00005A18 File Offset: 0x00003C18
 		internal void method_0(Stream stream_1)
 		{
 			this.stream_0 = stream_1;
@@ -475,7 +475,7 @@ Parameter name: length
 			}
 		}
 
-		// Token: 0x06000015 RID: 21 RVA: 0x00005A80 File Offset: 0x00003C80
+		// Token: 0x06000015 RID: 21 RVA: 0x00005A64 File Offset: 0x00003C64
 		internal uint method_3(int int_0)
 		{
 			uint num = this.uint_1;
@@ -516,7 +516,7 @@ Parameter name: length
 	// Token: 0x02000005 RID: 5
 	internal class Class1
 	{
-		// Token: 0x06000017 RID: 23 RVA: 0x00005AF4 File Offset: 0x00003CF4
+		// Token: 0x06000017 RID: 23 RVA: 0x00005AD8 File Offset: 0x00003CD8
 		internal Class1()
 		{
 			this.uint_0 = uint.MaxValue;
@@ -528,7 +528,7 @@ Parameter name: length
 			}
 		}
 
-		// Token: 0x06000018 RID: 24 RVA: 0x00005BE8 File Offset: 0x00003DE8
+		// Token: 0x06000018 RID: 24 RVA: 0x00005BCC File Offset: 0x00003DCC
 		internal void method_0(uint uint_3)
 		{
 			if (this.uint_0 != uint_3)
@@ -546,7 +546,7 @@ Parameter name: length
 			this.class3_0.method_0(int_0, int_1);
 		}
 
-		// Token: 0x0600001A RID: 26 RVA: 0x00005C34 File Offset: 0x00003E34
+		// Token: 0x0600001A RID: 26 RVA: 0x00005C18 File Offset: 0x00003E18
 		internal void method_2(int int_0)
 		{
 			uint num = 1u << int_0;
@@ -555,7 +555,7 @@ Parameter name: length
 			this.uint_2 = num - 1u;
 		}
 
-		// Token: 0x0600001B RID: 27 RVA: 0x00005C6C File Offset: 0x00003E6C
+		// Token: 0x0600001B RID: 27 RVA: 0x00005C50 File Offset: 0x00003E50
 		internal void method_3(Stream stream_0, Stream stream_1)
 		{
 			this.class0_0.method_0(stream_0);
@@ -587,7 +587,7 @@ Parameter name: length
 			this.struct1_1.method_0();
 		}
 
-		// Token: 0x0600001C RID: 28 RVA: 0x00005D90 File Offset: 0x00003F90
+		// Token: 0x0600001C RID: 28 RVA: 0x00005D74 File Offset: 0x00003F74
 		internal void method_4(Stream stream_0, Stream stream_1, long long_0, long long_1)
 		{
 			this.method_3(stream_0, stream_1);
@@ -706,7 +706,7 @@ Parameter name: length
 			this.class0_0.method_1();
 		}
 
-		// Token: 0x0600001D RID: 29 RVA: 0x000060F8 File Offset: 0x000042F8
+		// Token: 0x0600001D RID: 29 RVA: 0x000060DC File Offset: 0x000042DC
 		internal void method_5(byte[] byte_0)
 		{
 			int int_ = (int)(byte_0[0] % 9);
@@ -791,7 +791,7 @@ Parameter name: length
 		// Token: 0x02000006 RID: 6
 		internal class Class2
 		{
-			// Token: 0x0600001F RID: 31 RVA: 0x00006154 File Offset: 0x00004354
+			// Token: 0x0600001F RID: 31 RVA: 0x00006138 File Offset: 0x00004338
 			internal void method_0(uint uint_1)
 			{
 				for (uint num = this.uint_0; num < uint_1; num += 1u)
@@ -802,7 +802,7 @@ Parameter name: length
 				this.uint_0 = uint_1;
 			}
 
-			// Token: 0x06000020 RID: 32 RVA: 0x000061A0 File Offset: 0x000043A0
+			// Token: 0x06000020 RID: 32 RVA: 0x00006184 File Offset: 0x00004384
 			internal void method_1()
 			{
 				this.struct0_0.method_0();
@@ -815,7 +815,7 @@ Parameter name: length
 				this.struct1_2.method_0();
 			}
 
-			// Token: 0x06000021 RID: 33 RVA: 0x00006204 File Offset: 0x00004404
+			// Token: 0x06000021 RID: 33 RVA: 0x000061E8 File Offset: 0x000043E8
 			internal uint method_2(<Module>.Class0 class0_0, uint uint_1)
 			{
 				if (this.struct0_0.method_1(class0_0) == 0u)
@@ -862,7 +862,7 @@ Parameter name: length
 		// Token: 0x02000007 RID: 7
 		internal class Class3
 		{
-			// Token: 0x06000023 RID: 35 RVA: 0x00006270 File Offset: 0x00004470
+			// Token: 0x06000023 RID: 35 RVA: 0x00006254 File Offset: 0x00004454
 			internal void method_0(int int_2, int int_3)
 			{
 				if (this.struct2_0 != null && this.int_1 == int_3 && this.int_0 == int_2)
@@ -880,7 +880,7 @@ Parameter name: length
 				}
 			}
 
-			// Token: 0x06000024 RID: 36 RVA: 0x000062F0 File Offset: 0x000044F0
+			// Token: 0x06000024 RID: 36 RVA: 0x000062D4 File Offset: 0x000044D4
 			internal void method_1()
 			{
 				uint num = 1u << this.int_1 + this.int_0;
@@ -934,7 +934,7 @@ Parameter name: length
 					this.struct0_0 = new <Module>.Struct0[768];
 				}
 
-				// Token: 0x0600002A RID: 42 RVA: 0x00006330 File Offset: 0x00004530
+				// Token: 0x0600002A RID: 42 RVA: 0x00006314 File Offset: 0x00004514
 				internal void method_1()
 				{
 					for (int i = 0; i < 768; i++)
@@ -943,7 +943,7 @@ Parameter name: length
 					}
 				}
 
-				// Token: 0x0600002B RID: 43 RVA: 0x00006360 File Offset: 0x00004560
+				// Token: 0x0600002B RID: 43 RVA: 0x00006344 File Offset: 0x00004544
 				internal byte method_2(<Module>.Class0 class0_0)
 				{
 					uint num = 1u;
@@ -955,7 +955,7 @@ Parameter name: length
 					return (byte)num;
 				}
 
-				// Token: 0x0600002C RID: 44 RVA: 0x00006394 File Offset: 0x00004594
+				// Token: 0x0600002C RID: 44 RVA: 0x00006378 File Offset: 0x00004578
 				internal byte method_3(<Module>.Class0 class0_0, byte byte_0)
 				{
 					uint num = 1u;
@@ -1023,7 +1023,7 @@ Parameter name: length
 			Buffer.BlockCopy(new byte[this.byte_0.Length], 0, this.byte_0, 0, this.byte_0.Length);
 		}
 
-		// Token: 0x06000030 RID: 48 RVA: 0x00006400 File Offset: 0x00004600
+		// Token: 0x06000030 RID: 48 RVA: 0x000063E4 File Offset: 0x000045E4
 		internal void method_3()
 		{
 			uint num = this.uint_0 - this.uint_1;
@@ -1039,7 +1039,7 @@ Parameter name: length
 			this.uint_1 = this.uint_0;
 		}
 
-		// Token: 0x06000031 RID: 49 RVA: 0x00006458 File Offset: 0x00004658
+		// Token: 0x06000031 RID: 49 RVA: 0x0000643C File Offset: 0x0000463C
 		internal void method_4(uint uint_3, uint uint_4)
 		{
 			uint num = this.uint_0 - uint_3 - 1u;
@@ -1065,7 +1065,7 @@ Parameter name: length
 			}
 		}
 
-		// Token: 0x06000032 RID: 50 RVA: 0x000064D0 File Offset: 0x000046D0
+		// Token: 0x06000032 RID: 50 RVA: 0x000064B4 File Offset: 0x000046B4
 		internal void method_5(byte byte_1)
 		{
 			byte[] array = this.byte_0;
@@ -1078,7 +1078,7 @@ Parameter name: length
 			}
 		}
 
-		// Token: 0x06000033 RID: 51 RVA: 0x0000650C File Offset: 0x0000470C
+		// Token: 0x06000033 RID: 51 RVA: 0x000064F0 File Offset: 0x000046F0
 		internal byte method_6(uint uint_3)
 		{
 			uint num = this.uint_0 - uint_3 - 1u;

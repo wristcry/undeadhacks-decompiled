@@ -7,7 +7,7 @@ namespace UndeadHacks
 	[Component]
 	public class AimbotComponent : MonoBehaviour
 	{
-		// Token: 0x0600004D RID: 77 RVA: 0x00003724 File Offset: 0x00001924
+		// Token: 0x0600004D RID: 77 RVA: 0x0000371F File Offset: 0x0000191F
 		public void Start()
 		{
 			base.StartCoroutine(RaycastCoroutines.UpdateObjects());

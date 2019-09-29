@@ -8,23 +8,23 @@ using UnityEngine;
 namespace UndeadHacks
 {
 	// Token: 0x020000B1 RID: 177
-	[SpyComponent]
 	[Component]
+	[SpyComponent]
 	public class WeaponComponent : MonoBehaviour
 	{
-		// Token: 0x06000292 RID: 658 RVA: 0x00004B8B File Offset: 0x00002D8B
+		// Token: 0x0600028F RID: 655 RVA: 0x00004BBB File Offset: 0x00002DBB
 		public static byte Ammo()
 		{
-			return (byte)WeaponComponent.AmmoInfo.GetValue(OptimizationVariables.MainPlayer.equipment.useable);
+			return (byte)WeaponComponent.AmmoInfo.GetValue(Player.player.equipment.useable);
 		}
 
-		// Token: 0x06000293 RID: 659 RVA: 0x00004BAB File Offset: 0x00002DAB
+		// Token: 0x06000290 RID: 656 RVA: 0x00004BDB File Offset: 0x00002DDB
 		public void Start()
 		{
 			base.StartCoroutine(WeaponComponent.UpdateWeapon());
 		}
 
-		// Token: 0x06000294 RID: 660 RVA: 0x00017C20 File Offset: 0x00015E20
+		// Token: 0x06000291 RID: 657 RVA: 0x00017940 File Offset: 0x00015B40
 		public void OnGUI()
 		{
 			if (!DrawUtilities.ShouldRun())
@@ -35,15 +35,15 @@ namespace UndeadHacks
 			{
 				WeaponComponent.MainCamera = Camera.main;
 			}
-			if (WeaponOptions.NoSway && OptimizationVariables.MainPlayer.animator != null)
+			if (WeaponOptions.NoSway && Player.player.animator != null)
 			{
-				OptimizationVariables.MainPlayer.animator.viewSway = Vector3.zero;
+				Player.player.animator.viewSway = Vector3.zero;
 			}
 			if (Event.current.type == EventType.Repaint)
 			{
 				if (WeaponOptions.ShowWeaponInfo)
 				{
-					ItemAsset asset = OptimizationVariables.MainPlayer.equipment.asset;
+					ItemAsset asset = Player.player.equipment.asset;
 					if (asset == null)
 					{
 						return;
@@ -53,15 +53,15 @@ namespace UndeadHacks
 					if (asset is ItemWeaponAsset)
 					{
 						ItemWeaponAsset itemWeaponAsset = (ItemWeaponAsset)asset;
-						content = string.Format(<Module>.smethod_4<string>(3015099822u), itemWeaponAsset.itemName, itemWeaponAsset.range, itemWeaponAsset.playerDamageMultiplier.damage);
+						content = string.Format("{0}\nДальность: {1}\nУрон: {2}", itemWeaponAsset.itemName, itemWeaponAsset.range, itemWeaponAsset.playerDamageMultiplier.damage);
 					}
-					DrawUtilities.DrawLabel(ESPComponent.ESPFont, LabelLocation.MiddleLeft, new Vector2((float)(Screen.width - 20), (float)(Screen.height / 2)), content, ColorUtilities.getColor(<Module>.smethod_5<string>(4267928022u)), 1, 15);
+					DrawUtilities.DrawLabel(ESPComponent.ESPFont, LabelLocation.MiddleLeft, new Vector2((float)(Screen.width - 20), (float)(Screen.height / 2)), content, ColorUtilities.getColor("_WeaponInfoColor"), 1, 15);
 				}
 				return;
 			}
 		}
 
-		// Token: 0x06000295 RID: 661 RVA: 0x00017D30 File Offset: 0x00015F30
+		// Token: 0x06000292 RID: 658 RVA: 0x00017A44 File Offset: 0x00015C44
 		public static void DisableHacks(ItemGunAsset gun)
 		{
 			gun.recoilMax_x = WeaponComponent.AssetBackups[gun][0];
@@ -78,29 +78,29 @@ namespace UndeadHacks
 			gun.ballisticDrop = WeaponComponent.AssetBackups[gun][11];
 		}
 
-		// Token: 0x06000296 RID: 662 RVA: 0x00004BB9 File Offset: 0x00002DB9
+		// Token: 0x06000293 RID: 659 RVA: 0x00004BE9 File Offset: 0x00002DE9
 		public static IEnumerator UpdateWeapon()
 		{
 			return new WeaponComponent.<UpdateWeapon>d__11(0);
 		}
 
-		// Token: 0x06000299 RID: 665 RVA: 0x000036F7 File Offset: 0x000018F7
+		// Token: 0x06000296 RID: 662 RVA: 0x000036F7 File Offset: 0x000018F7
 		MethodInfo method_0(string string_0, BindingFlags bindingFlags_0)
 		{
 			return base.GetMethod(string_0, bindingFlags_0);
 		}
 
 		// Token: 0x04000256 RID: 598
-		public static FieldInfo fov = typeof(PlayerLook).GetField(<Module>.smethod_6<string>(2677099827u), BindingFlags.Instance | BindingFlags.NonPublic);
+		public static FieldInfo fov = typeof(PlayerLook).GetField("fov", BindingFlags.Instance | BindingFlags.NonPublic);
 
 		// Token: 0x04000257 RID: 599
 		public static Dictionary<ItemGunAsset, float[]> AssetBackups = new Dictionary<ItemGunAsset, float[]>();
 
 		// Token: 0x04000258 RID: 600
-		public static FieldInfo AmmoInfo = typeof(UseableGun).GetField(<Module>.smethod_8<string>(3059967485u), BindingFlags.Instance | BindingFlags.NonPublic);
+		public static FieldInfo AmmoInfo = typeof(UseableGun).GetField("ammo", BindingFlags.Instance | BindingFlags.NonPublic);
 
 		// Token: 0x04000259 RID: 601
-		public static FieldInfo ZoomInfo = typeof(UseableGun).GetField(<Module>.smethod_8<string>(2269870927u), BindingFlags.Instance | BindingFlags.NonPublic);
+		public static FieldInfo ZoomInfo = typeof(UseableGun).GetField("zoom", BindingFlags.Instance | BindingFlags.NonPublic);
 
 		// Token: 0x0400025A RID: 602
 		public static List<TracerLine> Tracers = new List<TracerLine>();
@@ -109,6 +109,6 @@ namespace UndeadHacks
 		public static Camera MainCamera;
 
 		// Token: 0x0400025C RID: 604
-		public static MethodInfo UpdateCrosshair = typeof(UseableGun).method_0(<Module>.smethod_6<string>(1581721121u), BindingFlags.Instance | BindingFlags.NonPublic);
+		public static MethodInfo UpdateCrosshair = typeof(UseableGun).method_0("updateCrosshair", BindingFlags.Instance | BindingFlags.NonPublic);
 	}
 }

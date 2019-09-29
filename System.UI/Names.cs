@@ -5,46 +5,46 @@ namespace UndeadHacks
 	// Token: 0x02000015 RID: 21
 	public static class Names
 	{
-		// Token: 0x06000065 RID: 101 RVA: 0x000037EB File Offset: 0x000019EB
+		// Token: 0x06000065 RID: 101 RVA: 0x000037E6 File Offset: 0x000019E6
 		[Initializer]
 		public static void Init()
 		{
 			Names.All = Names.RUS;
 		}
 
-		// Token: 0x06000066 RID: 102 RVA: 0x000073A8 File Offset: 0x000055A8
+		// Token: 0x06000066 RID: 102 RVA: 0x000073FC File Offset: 0x000055FC
 		public static void EN()
 		{
-			MenuTabOption.tabs[0].name = <Module>.smethod_8<string>(3587482434u);
-			MenuTabOption.tabs[1].name = <Module>.smethod_8<string>(2746822103u);
-			MenuTabOption.tabs[2].name = <Module>.smethod_5<string>(3343891379u);
-			MenuTabOption.tabs[3].name = <Module>.smethod_4<string>(1221121096u);
-			MenuTabOption.tabs[4].name = <Module>.smethod_6<string>(28050498u);
-			MenuTabOption.tabs[5].name = <Module>.smethod_5<string>(4179849112u);
-			MenuTabOption.tabs[6].name = <Module>.smethod_5<string>(2094819079u);
-			MenuTabOption.tabs[7].name = <Module>.smethod_4<string>(4235694105u);
-			MenuTabOption.tabs[8].name = <Module>.smethod_7<string>(801355938u);
-			MenuTabOption.tabs[9].name = <Module>.smethod_6<string>(1996384264u);
-			MenuTabOption.tabs[10].name = <Module>.smethod_6<string>(81563969u);
-			MenuTabOption.tabs[11].name = <Module>.smethod_8<string>(3435791115u);
+			MenuTabOption.tabs[0].name = "visuals";
+			MenuTabOption.tabs[1].name = "aimbot";
+			MenuTabOption.tabs[2].name = "weapons";
+			MenuTabOption.tabs[3].name = "players";
+			MenuTabOption.tabs[4].name = "stats";
+			MenuTabOption.tabs[5].name = "skins";
+			MenuTabOption.tabs[6].name = "misc";
+			MenuTabOption.tabs[7].name = "misc 2";
+			MenuTabOption.tabs[8].name = "colors";
+			MenuTabOption.tabs[9].name = "hotkeys";
+			MenuTabOption.tabs[10].name = "info";
+			MenuTabOption.tabs[11].name = "attachments";
 			Names.All = Names.ENG;
 		}
 
-		// Token: 0x06000067 RID: 103 RVA: 0x000074CC File Offset: 0x000056CC
+		// Token: 0x06000067 RID: 103 RVA: 0x000074E4 File Offset: 0x000056E4
 		public static void RU()
 		{
-			MenuTabOption.tabs[0].name = <Module>.smethod_8<string>(2990179063u);
-			MenuTabOption.tabs[1].name = <Module>.smethod_8<string>(670453162u);
-			MenuTabOption.tabs[2].name = <Module>.smethod_5<string>(615389517u);
-			MenuTabOption.tabs[3].name = <Module>.smethod_5<string>(865203977u);
-			MenuTabOption.tabs[4].name = <Module>.smethod_8<string>(1116065214u);
-			MenuTabOption.tabs[5].name = <Module>.smethod_6<string>(929854734u);
-			MenuTabOption.tabs[6].name = <Module>.smethod_6<string>(600404146u);
-			MenuTabOption.tabs[7].name = <Module>.smethod_5<string>(3862977497u);
-			MenuTabOption.tabs[8].name = <Module>.smethod_6<string>(2515224441u);
-			MenuTabOption.tabs[9].name = <Module>.smethod_8<string>(619889389u);
-			MenuTabOption.tabs[10].name = <Module>.smethod_4<string>(2449949972u);
-			MenuTabOption.tabs[11].name = <Module>.smethod_5<string>(2863719657u);
+			MenuTabOption.tabs[0].name = "визуалы";
+			MenuTabOption.tabs[1].name = "аимбот";
+			MenuTabOption.tabs[2].name = "оружия";
+			MenuTabOption.tabs[3].name = "игроки";
+			MenuTabOption.tabs[4].name = "статы";
+			MenuTabOption.tabs[5].name = "скины";
+			MenuTabOption.tabs[6].name = "прочее";
+			MenuTabOption.tabs[7].name = "прочее 2";
+			MenuTabOption.tabs[8].name = "цвета";
+			MenuTabOption.tabs[9].name = "бинды";
+			MenuTabOption.tabs[10].name = "инфо";
+			MenuTabOption.tabs[11].name = "моды";
 			Names.All = Names.RUS;
 		}
 

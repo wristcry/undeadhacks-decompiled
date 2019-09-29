@@ -12,7 +12,7 @@ namespace UndeadHacks
 	[Component]
 	public class MiscComponent : MonoBehaviour
 	{
-		// Token: 0x0600016C RID: 364 RVA: 0x0000418D File Offset: 0x0000238D
+		// Token: 0x0600016C RID: 364 RVA: 0x00004199 File Offset: 0x00002399
 		[OnSpy]
 		public static void Disable()
 		{
@@ -28,7 +28,7 @@ namespace UndeadHacks
 			}
 		}
 
-		// Token: 0x0600016D RID: 365 RVA: 0x000041B5 File Offset: 0x000023B5
+		// Token: 0x0600016D RID: 365 RVA: 0x000041C1 File Offset: 0x000023C1
 		[OffSpy]
 		public static void Enable()
 		{
@@ -44,28 +44,28 @@ namespace UndeadHacks
 			}
 		}
 
-		// Token: 0x0600016E RID: 366 RVA: 0x0000F818 File Offset: 0x0000DA18
+		// Token: 0x0600016E RID: 366 RVA: 0x0000F864 File Offset: 0x0000DA64
 		private void Start()
 		{
 			MiscComponent.Instance = this;
 			new Thread(new ThreadStart(DrawUtilities.Min)).Start();
-			HotkeyComponent.ActionDict.Add(<Module>.smethod_6<string>(662732370u), delegate
+			HotkeyComponent.ActionDict.Add("_VFToggle", delegate
 			{
 				MiscOptions.VehicleFly = !MiscOptions.VehicleFly;
 			});
-			HotkeyComponent.ActionDict.Add(<Module>.smethod_6<string>(3129426899u), delegate
+			HotkeyComponent.ActionDict.Add("_ToggleSilent", delegate
 			{
 				RaycastOptions.Enabled = !RaycastOptions.Enabled;
 			});
-			HotkeyComponent.ActionDict.Add(<Module>.smethod_7<string>(245816211u), delegate
+			HotkeyComponent.ActionDict.Add("_ToggleAimbot", delegate
 			{
 				AimbotOptions.Enabled = !AimbotOptions.Enabled;
 			});
-			HotkeyComponent.ActionDict.Add(<Module>.smethod_7<string>(260377939u), delegate
+			HotkeyComponent.ActionDict.Add("_ToggleFreecam", delegate
 			{
 				MiscOptions.Freecam = !MiscOptions.Freecam;
 			});
-			HotkeyComponent.ActionDict.Add(<Module>.smethod_8<string>(1659550564u), delegate
+			HotkeyComponent.ActionDict.Add("_PanicButton", delegate
 			{
 				MiscOptions.PanicMode = !MiscOptions.PanicMode;
 				if (MiscOptions.PanicMode)
@@ -76,18 +76,18 @@ namespace UndeadHacks
 				}
 				PlayerCoroutines.EnableAllVisuals();
 			});
-			HotkeyComponent.ActionDict.Add(<Module>.smethod_5<string>(798668341u), delegate
+			HotkeyComponent.ActionDict.Add("_AutoPickup", delegate
 			{
 				ItemOptions.AutoItemPickup = !ItemOptions.AutoItemPickup;
 			});
-			HotkeyComponent.ActionDict.Add(<Module>.smethod_4<string>(2138994230u), delegate
+			HotkeyComponent.ActionDict.Add("_ToggleSlowFall", delegate
 			{
 				MiscOptions.SlowFall = !MiscOptions.SlowFall;
 			});
 			SkinsUtilities.RefreshEconInfo();
 		}
 
-		// Token: 0x0600016F RID: 367 RVA: 0x0000F9AC File Offset: 0x0000DBAC
+		// Token: 0x0600016F RID: 367 RVA: 0x0000F9D4 File Offset: 0x0000DBD4
 		public void Update()
 		{
 			OptimizationVariables.MainCam = Camera.main;
@@ -128,20 +128,20 @@ namespace UndeadHacks
 			MiscOptions.WasNightVision = true;
 		}
 
-		// Token: 0x06000170 RID: 368 RVA: 0x000041DD File Offset: 0x000023DD
+		// Token: 0x06000170 RID: 368 RVA: 0x000041E9 File Offset: 0x000023E9
 		public void FixedUpdate()
 		{
-			if (!OptimizationVariables.MainPlayer)
+			if (!Player.player)
 			{
 				return;
 			}
 			MiscComponent.VehicleFlight();
 		}
 
-		// Token: 0x06000171 RID: 369 RVA: 0x0000FAD0 File Offset: 0x0000DCD0
+		// Token: 0x06000171 RID: 369 RVA: 0x0000FAF8 File Offset: 0x0000DCF8
 		public static void VehicleFlight()
 		{
-			InteractableVehicle vehicle = OptimizationVariables.MainPlayer.movement.getVehicle();
+			InteractableVehicle vehicle = Player.player.movement.getVehicle();
 			if (vehicle == null)
 			{
 				return;
@@ -171,51 +171,51 @@ namespace UndeadHacks
 			Transform transform = component.transform;
 			Vector3 zero = Vector3.zero;
 			Vector3 vector = Vector3.zero;
-			if (HotkeyUtilities.IsHotkeyHeld(<Module>.smethod_4<string>(3519943273u)))
+			if (HotkeyUtilities.IsHotkeyHeld("_VFRotateRight"))
 			{
 				zero.y += 2f;
 			}
-			if (HotkeyUtilities.IsHotkeyHeld(<Module>.smethod_5<string>(2557098160u)))
+			if (HotkeyUtilities.IsHotkeyHeld("_VFRotateLeft"))
 			{
 				zero.y += -2f;
 			}
-			if (HotkeyUtilities.IsHotkeyHeld(<Module>.smethod_4<string>(3007371624u)))
+			if (HotkeyUtilities.IsHotkeyHeld("_VFRollLeft"))
 			{
 				zero.z += 2f;
 			}
-			if (HotkeyUtilities.IsHotkeyHeld(<Module>.smethod_6<string>(1206681833u)))
+			if (HotkeyUtilities.IsHotkeyHeld("_VFRollRight"))
 			{
 				zero.z += -2f;
 			}
-			if (HotkeyUtilities.IsHotkeyHeld(<Module>.smethod_6<string>(386795253u)))
+			if (HotkeyUtilities.IsHotkeyHeld("_VFRotateUp"))
 			{
 				zero.x += -1.5f;
 			}
-			if (HotkeyUtilities.IsHotkeyHeld(<Module>.smethod_8<string>(3967161990u)))
+			if (HotkeyUtilities.IsHotkeyHeld("_VFRotateDown"))
 			{
 				zero.x += 1.5f;
 			}
-			if (HotkeyUtilities.IsHotkeyHeld(<Module>.smethod_7<string>(1909215211u)))
+			if (HotkeyUtilities.IsHotkeyHeld("_VFStrafeUp"))
 			{
 				vector.y += 0.6f;
 			}
-			if (HotkeyUtilities.IsHotkeyHeld(<Module>.smethod_4<string>(2994997689u)))
+			if (HotkeyUtilities.IsHotkeyHeld("_VFStrafeDown"))
 			{
 				vector.y -= 0.6f;
 			}
-			if (HotkeyUtilities.IsHotkeyHeld(<Module>.smethod_8<string>(2076776901u)))
+			if (HotkeyUtilities.IsHotkeyHeld("_VFStrafeLeft"))
 			{
 				vector -= transform.right;
 			}
-			if (HotkeyUtilities.IsHotkeyHeld(<Module>.smethod_8<string>(3758097563u)))
+			if (HotkeyUtilities.IsHotkeyHeld("_VFStrafeRight"))
 			{
 				vector += transform.right;
 			}
-			if (HotkeyUtilities.IsHotkeyHeld(<Module>.smethod_4<string>(3711254916u)))
+			if (HotkeyUtilities.IsHotkeyHeld("_VFMoveForward"))
 			{
 				vector += transform.forward;
 			}
-			if (HotkeyUtilities.IsHotkeyHeld(<Module>.smethod_6<string>(2631066136u)))
+			if (HotkeyUtilities.IsHotkeyHeld("_VFMoveBackward"))
 			{
 				vector -= transform.forward;
 			}
@@ -249,12 +249,12 @@ namespace UndeadHacks
 		public static bool NightvisionBeforeSpy;
 
 		// Token: 0x04000152 RID: 338
-		public static FieldInfo Primary = typeof(PlayerEquipment).GetField(<Module>.smethod_5<string>(3106413113u), BindingFlags.Instance | BindingFlags.NonPublic);
+		public static FieldInfo Primary = typeof(PlayerEquipment).GetField("_primary", BindingFlags.Instance | BindingFlags.NonPublic);
 
 		// Token: 0x04000153 RID: 339
-		public static FieldInfo Sequence = typeof(PlayerInput).GetField(<Module>.smethod_5<string>(1271197540u), BindingFlags.Instance | BindingFlags.NonPublic);
+		public static FieldInfo Sequence = typeof(PlayerInput).GetField("sequence", BindingFlags.Instance | BindingFlags.NonPublic);
 
 		// Token: 0x04000154 RID: 340
-		public static FieldInfo CPField = typeof(PlayerInput).GetField(<Module>.smethod_4<string>(377997967u), BindingFlags.Instance | BindingFlags.NonPublic);
+		public static FieldInfo CPField = typeof(PlayerInput).GetField("clientsidePackets", BindingFlags.Instance | BindingFlags.NonPublic);
 	}
 }

@@ -8,10 +8,10 @@ namespace UndeadHacks
 	// Token: 0x0200000F RID: 15
 	public static class ChatCMD
 	{
-		// Token: 0x06000044 RID: 68 RVA: 0x00006A08 File Offset: 0x00004C08
+		// Token: 0x06000044 RID: 68 RVA: 0x00006A00 File Offset: 0x00004C00
 		public static void Tab()
 		{
-			Prefab.ScrollView(new Rect(0f, 0f, 611f, 370f), <Module>.smethod_7<string>(653031536u), ref ChatCMD.HotkeyScroll, delegate()
+			Prefab.ScrollView(new Rect(0f, 0f, 611f, 370f), "Бинды чата", ref ChatCMD.HotkeyScroll, delegate()
 			{
 				GUILayout.Space(10f);
 				foreach (KeyValuePair<string, Hotkey> keyValuePair in HotkeyOptions.ChatKeys)
@@ -21,7 +21,7 @@ namespace UndeadHacks
 			}, 20);
 			GUILayout.Space(380f);
 			GUILayout.BeginHorizontal(Array.Empty<GUILayoutOption>());
-			if (Prefab.Button(<Module>.smethod_6<string>(2107596087u), 75f, 25f) && !HotkeyOptions.ChatKeys.ContainsKey(ChatCMD.NewKey))
+			if (Prefab.Button("Добавить", 75f, 25f) && !HotkeyOptions.ChatKeys.ContainsKey(ChatCMD.NewKey))
 			{
 				HotkeyOptions.ChatKeys.Add(ChatCMD.NewKey, new Hotkey
 				{
@@ -32,21 +32,21 @@ namespace UndeadHacks
 			GUILayout.Space(10f);
 			GUILayout.BeginVertical(Array.Empty<GUILayoutOption>());
 			GUILayout.Space(5f);
-			ChatCMD.NewKey = Prefab.TextField(ChatCMD.NewKey, <Module>.smethod_6<string>(958703910u), 477f);
+			ChatCMD.NewKey = Prefab.TextField(ChatCMD.NewKey, "Текст: ", 477f);
 			GUILayout.EndVertical();
 			GUILayout.EndHorizontal();
-			if (Prefab.Button(<Module>.smethod_5<string>(1220468469u), new Rect(0f, 0f, 100f, 21f)))
+			if (Prefab.Button("Бинды", new Rect(0f, 0f, 100f, 21f)))
 			{
 				HotkeyTab.chat = !HotkeyTab.chat;
 			}
 		}
 
-		// Token: 0x06000045 RID: 69 RVA: 0x00006B4C File Offset: 0x00004D4C
+		// Token: 0x06000045 RID: 69 RVA: 0x00006B30 File Offset: 0x00004D30
 		public static void DrawButton(string Identifier)
 		{
 			GUILayout.BeginHorizontal(Array.Empty<GUILayoutOption>());
 			GUILayout.Label(Identifier, Prefab._TextStyle, Array.Empty<GUILayoutOption>());
-			if (Prefab.Button(<Module>.smethod_5<string>(1470282929u), 75f, 25f))
+			if (Prefab.Button("Убрать", 75f, 25f))
 			{
 				HotkeyComponent.Clear();
 				HotkeyOptions.ChatKeys.Remove(Identifier);
@@ -58,7 +58,7 @@ namespace UndeadHacks
 				{
 					HotkeyOptions.ChatKeys[Identifier].Keys = HotkeyComponent.CurrentKeys.ToArray();
 					HotkeyComponent.Clear();
-					Prefab.Button(string.Join(<Module>.smethod_4<string>(1593946513u), HotkeyOptions.ChatKeys[Identifier].Keys.Select(delegate(KeyCode k)
+					Prefab.Button(string.Join(" + ", HotkeyOptions.ChatKeys[Identifier].Keys.Select(delegate(KeyCode k)
 					{
 						KeyCode keyCode = k;
 						return keyCode.ToString();
@@ -70,11 +70,11 @@ namespace UndeadHacks
 					string text;
 					if (HotkeyOptions.ChatKeys[Identifier].Keys.Length == 0)
 					{
-						text = <Module>.smethod_4<string>(2965097687u);
+						text = "Нет";
 					}
 					else
 					{
-						text = string.Join(<Module>.smethod_8<string>(3789737526u), HotkeyOptions.ChatKeys[Identifier].Keys.Select(delegate(KeyCode k)
+						text = string.Join(" + ", HotkeyOptions.ChatKeys[Identifier].Keys.Select(delegate(KeyCode k)
 						{
 							KeyCode keyCode = k;
 							return keyCode.ToString();
@@ -88,7 +88,7 @@ namespace UndeadHacks
 				string text2;
 				if (HotkeyOptions.ChatKeys[Identifier].Keys.Length != 0)
 				{
-					text2 = string.Join(<Module>.smethod_8<string>(3789737526u), HotkeyOptions.ChatKeys[Identifier].Keys.Select(delegate(KeyCode k)
+					text2 = string.Join(" + ", HotkeyOptions.ChatKeys[Identifier].Keys.Select(delegate(KeyCode k)
 					{
 						KeyCode keyCode = k;
 						return keyCode.ToString();
@@ -96,7 +96,7 @@ namespace UndeadHacks
 				}
 				else
 				{
-					text2 = <Module>.smethod_6<string>(4187141676u);
+					text2 = "Нет";
 				}
 				if (Prefab.Button(text2, 200f, 25f))
 				{
@@ -110,7 +110,7 @@ namespace UndeadHacks
 		}
 
 		// Token: 0x04000032 RID: 50
-		public static string NewKey = <Module>.smethod_5<string>(2306240662u);
+		public static string NewKey = "/home";
 
 		// Token: 0x04000033 RID: 51
 		public static Vector2 HotkeyScroll;

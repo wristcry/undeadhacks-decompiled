@@ -8,7 +8,7 @@ namespace UndeadHacks
 	// Token: 0x0200001C RID: 28
 	public class OV_UseableStructure
 	{
-		// Token: 0x06000076 RID: 118 RVA: 0x000085D4 File Offset: 0x000067D4
+		// Token: 0x06000076 RID: 118 RVA: 0x00008524 File Offset: 0x00006724
 		[Override(typeof(UseableStructure), "checkSpace", BindingFlags.Instance | BindingFlags.NonPublic, 0)]
 		public bool OV_checkSpace()
 		{

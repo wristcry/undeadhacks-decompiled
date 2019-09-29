@@ -8,11 +8,11 @@ namespace UndeadHacks
 	// Token: 0x02000083 RID: 131
 	public static class PlayerCoroutines
 	{
-		// Token: 0x060001EF RID: 495 RVA: 0x000046C8 File Offset: 0x000028C8
+		// Token: 0x060001EE RID: 494 RVA: 0x00004708 File Offset: 0x00002908
 		public static IEnumerator TakeScreenshot()
 		{
-			Player mainPlayer = OptimizationVariables.MainPlayer;
-			SteamChannel channel = mainPlayer.channel;
+			Player player = Player.player;
+			SteamChannel channel = player.channel;
 			if (Time.realtimeSinceStartup - PlayerCoroutines.LastSpy >= 0.5f && !PlayerCoroutines.IsSpying)
 			{
 				PlayerCoroutines.IsSpying = true;
@@ -25,13 +25,13 @@ namespace UndeadHacks
 				yield return new WaitForEndOfFrame();
 				Texture2D texture2D = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false)
 				{
-					name = <Module>.smethod_8<string>(3923106713u),
+					name = "Screenshot_Raw",
 					hideFlags = HideFlags.HideAndDontSave
 				};
 				texture2D.ReadPixels(new Rect(0f, 0f, (float)Screen.width, (float)Screen.height), 0, 0, false);
 				Texture2D texture2D2 = new Texture2D(640, 480, TextureFormat.RGB24, false)
 				{
-					name = <Module>.smethod_6<string>(3809252480u),
+					name = "Screenshot_Final",
 					hideFlags = HideFlags.HideAndDontSave
 				};
 				Color[] pixels = texture2D.GetPixels();
@@ -55,7 +55,7 @@ namespace UndeadHacks
 					channel.longBinaryData = true;
 					channel.openWrite();
 					channel.write(array2);
-					channel.closeWrite(<Module>.smethod_5<string>(1136040192u), ESteamCall.SERVER, ESteamPacket.UPDATE_RELIABLE_CHUNK_BUFFER);
+					channel.closeWrite("tellScreenshotRelay", ESteamCall.SERVER, ESteamPacket.UPDATE_RELIABLE_CHUNK_BUFFER);
 					channel.longBinaryData = false;
 				}
 				PlayerCoroutines.IsSpying = false;
@@ -65,20 +65,20 @@ namespace UndeadHacks
 				}
 				if (MiscOptions.AlertOnSpy && !MiscOptions.PanicMode)
 				{
-					OptimizationVariables.MainPlayer.StartCoroutine(PlayerCoroutines.ScreenShotMessageCoroutine());
+					Player.player.StartCoroutine(PlayerCoroutines.ScreenShotMessageCoroutine());
 				}
 				yield break;
 			}
 			yield break;
 		}
 
-		// Token: 0x060001F0 RID: 496 RVA: 0x000046D0 File Offset: 0x000028D0
+		// Token: 0x060001EF RID: 495 RVA: 0x00004710 File Offset: 0x00002910
 		public static IEnumerator ScreenShotMessageCoroutine()
 		{
 			return new PlayerCoroutines.<ScreenShotMessageCoroutine>d__4(0);
 		}
 
-		// Token: 0x060001F1 RID: 497 RVA: 0x00012F44 File Offset: 0x00011144
+		// Token: 0x060001F0 RID: 496 RVA: 0x00012D1C File Offset: 0x00010F1C
 		public static void DisableAllVisuals()
 		{
 			try
@@ -95,7 +95,7 @@ namespace UndeadHacks
 			}
 			try
 			{
-				UseableGun useableGun = OptimizationVariables.MainPlayer.equipment.useable as UseableGun;
+				UseableGun useableGun = Player.player.equipment.useable as UseableGun;
 				if (useableGun != null)
 				{
 					WeaponComponent.UpdateCrosshair.Invoke(useableGun, null);
@@ -114,7 +114,7 @@ namespace UndeadHacks
 			}
 		}
 
-		// Token: 0x060001F2 RID: 498 RVA: 0x00013018 File Offset: 0x00011218
+		// Token: 0x060001F1 RID: 497 RVA: 0x00012DF0 File Offset: 0x00010FF0
 		public static void EnableAllVisuals()
 		{
 			try

@@ -5,7 +5,7 @@ namespace UndeadHacks
 	// Token: 0x02000098 RID: 152
 	public class Skin
 	{
-		// Token: 0x0600024F RID: 591 RVA: 0x0000495E File Offset: 0x00002B5E
+		// Token: 0x0600024C RID: 588 RVA: 0x0000498E File Offset: 0x00002B8E
 		public Skin(string Name, int ID)
 		{
 			this.Name = Name;

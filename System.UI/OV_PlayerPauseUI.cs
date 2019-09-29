@@ -8,7 +8,7 @@ namespace UndeadHacks
 	// Token: 0x0200007F RID: 127
 	public static class OV_PlayerPauseUI
 	{
-		// Token: 0x060001E5 RID: 485 RVA: 0x000127C8 File Offset: 0x000109C8
+		// Token: 0x060001E4 RID: 484 RVA: 0x000125B8 File Offset: 0x000107B8
 		[Override(typeof(PlayerPauseUI), "onClickedExitButton", BindingFlags.Static | BindingFlags.NonPublic, 0)]
 		public static void OV_onClickedExitButton(SleekButton button)
 		{

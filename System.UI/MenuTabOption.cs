@@ -5,7 +5,7 @@ namespace UndeadHacks
 	// Token: 0x02000059 RID: 89
 	public class MenuTabOption
 	{
-		// Token: 0x0600015A RID: 346 RVA: 0x0000407C File Offset: 0x0000227C
+		// Token: 0x0600015A RID: 346 RVA: 0x00004088 File Offset: 0x00002288
 		public MenuTabOption(string name, MenuTabOption.MenuTab tab)
 		{
 			this.tab = tab;

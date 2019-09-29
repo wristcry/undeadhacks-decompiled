@@ -8,7 +8,7 @@ namespace UndeadHacks
 	// Token: 0x0200000E RID: 14
 	public class OV_PlayerDashboardInventoryUI
 	{
-		// Token: 0x06000040 RID: 64 RVA: 0x00006740 File Offset: 0x00004940
+		// Token: 0x06000040 RID: 64 RVA: 0x00006744 File Offset: 0x00004944
 		[Override(typeof(PlayerDashboardInventoryUI), "updateNearbyDrops", BindingFlags.Static | BindingFlags.NonPublic, 0)]
 		public static void updateNearbyDrops()
 		{
@@ -86,9 +86,9 @@ namespace UndeadHacks
 		private static List<RegionCoordinate> regionsInRadius = new List<RegionCoordinate>(4);
 
 		// Token: 0x04000030 RID: 48
-		private static FieldInfo itemsfield = typeof(PlayerDashboardInventoryUI).GetField(<Module>.smethod_4<string>(595620756u), BindingFlags.Static | BindingFlags.NonPublic);
+		private static FieldInfo itemsfield = typeof(PlayerDashboardInventoryUI).GetField("items", BindingFlags.Static | BindingFlags.NonPublic);
 
 		// Token: 0x04000031 RID: 49
-		private static MethodInfo updateBoxAreasfield = typeof(PlayerDashboardInventoryUI).method_0(<Module>.smethod_8<string>(831606386u), BindingFlags.Static | BindingFlags.NonPublic);
+		private static MethodInfo updateBoxAreasfield = typeof(PlayerDashboardInventoryUI).method_0("updateBoxAreas", BindingFlags.Static | BindingFlags.NonPublic);
 	}
 }

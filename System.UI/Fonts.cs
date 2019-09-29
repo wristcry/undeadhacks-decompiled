@@ -6,20 +6,20 @@ namespace UndeadHacks
 	// Token: 0x0200003A RID: 58
 	public static class Fonts
 	{
-		// Token: 0x060000F7 RID: 247 RVA: 0x0000CB40 File Offset: 0x0000AD40
+		// Token: 0x060000F7 RID: 247 RVA: 0x0000CD2C File Offset: 0x0000AF2C
 		public static void Apply()
 		{
 			if (string.IsNullOrEmpty(MiscOptions.TabFont))
 			{
-				MiscOptions.TabFont = <Module>.smethod_7<string>(1999292701u);
+				MiscOptions.TabFont = "Comic Sans MS";
 			}
 			if (string.IsNullOrEmpty(MiscOptions.TextFont))
 			{
-				MiscOptions.TextFont = <Module>.smethod_8<string>(1163374739u);
+				MiscOptions.TextFont = "Arial";
 			}
 			if (string.IsNullOrEmpty(MiscOptions.EspFont))
 			{
-				MiscOptions.EspFont = <Module>.smethod_6<string>(1296969251u);
+				MiscOptions.EspFont = "Arial";
 			}
 			Fonts.tab = Font.CreateDynamicFontFromOSFont(MiscOptions.TabFont, 29);
 			Fonts.text = Font.CreateDynamicFontFromOSFont(MiscOptions.TextFont, 15);

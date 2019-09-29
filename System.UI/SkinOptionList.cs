@@ -6,7 +6,7 @@ namespace UndeadHacks
 	// Token: 0x0200009A RID: 154
 	public class SkinOptionList
 	{
-		// Token: 0x06000251 RID: 593 RVA: 0x00004987 File Offset: 0x00002B87
+		// Token: 0x0600024E RID: 590 RVA: 0x000049B7 File Offset: 0x00002BB7
 		public SkinOptionList(ESkinType Type)
 		{
 			this.Type = Type;

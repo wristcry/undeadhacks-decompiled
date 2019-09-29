@@ -8,7 +8,7 @@ namespace UndeadHacks
 	// Token: 0x0200001B RID: 27
 	public class OV_UseableBarricade
 	{
-		// Token: 0x06000073 RID: 115 RVA: 0x00008488 File Offset: 0x00006688
+		// Token: 0x06000073 RID: 115 RVA: 0x000083D8 File Offset: 0x000065D8
 		[Override(typeof(UseableBarricade), "checkSpace", BindingFlags.Instance | BindingFlags.NonPublic, 0)]
 		public bool OV_checkSpace()
 		{

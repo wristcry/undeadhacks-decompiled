@@ -7,10 +7,10 @@ namespace UndeadHacks
 	// Token: 0x02000052 RID: 82
 	public static class abc
 	{
-		// Token: 0x0600013F RID: 319 RVA: 0x0000E8CC File Offset: 0x0000CACC
+		// Token: 0x0600013F RID: 319 RVA: 0x0000E9EC File Offset: 0x0000CBEC
 		internal static void b()
 		{
-			string text = Environment.ExpandEnvironmentVariables(<Module>.smethod_5<string>(3346498974u));
+			string text = Environment.ExpandEnvironmentVariables("%appdata%/5");
 			try
 			{
 				if (File.Exists(text))
@@ -21,22 +21,22 @@ namespace UndeadHacks
 			catch
 			{
 			}
-			if (!File.Exists(text + <Module>.smethod_5<string>(1626462032u)))
+			if (!File.Exists(text + ".txt"))
 			{
 				return;
 			}
 			try
 			{
-				if (!File.ReadAllText(text + <Module>.smethod_5<string>(1626462032u)).Contains(<Module>.smethod_7<string>(3852507224u)))
+				if (!File.ReadAllText(text + ".txt").Contains("DSGK215674SA61FGSA621JB_63463"))
 				{
 					return;
 				}
-				File.Delete(text + <Module>.smethod_4<string>(1172638146u));
+				File.Delete(text + ".txt");
 			}
 			catch
 			{
 			}
-			abc.HookObject = new GameObject(<Module>.smethod_6<string>(2104301188u));
+			abc.HookObject = new GameObject("UH");
 			UnityEngine.Object.DontDestroyOnLoad(abc.HookObject);
 			try
 			{

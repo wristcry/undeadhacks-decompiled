@@ -6,7 +6,7 @@ namespace UndeadHacks
 	// Token: 0x020000AE RID: 174
 	public static class VisualsTab
 	{
-		// Token: 0x06000282 RID: 642 RVA: 0x0001731C File Offset: 0x0001551C
+		// Token: 0x0600027F RID: 639 RVA: 0x00017050 File Offset: 0x00015250
 		public static void Tab()
 		{
 			Prefab.MenuArea(new Rect(0f, 0f, 325f, 406f), <Module>.smethod_5<string>(3257898545u), delegate
@@ -55,8 +55,8 @@ namespace UndeadHacks
 				VisualsTab.VisualTab(Names.All[8], ESPTarget.ClaimFlags, null);
 				VisualsTab.VisualTab(Names.All[9], ESPTarget.Animals, null);
 				VisualsTab.VisualTab(Names.All[10], ESPTarget.Farm, null);
-				VisualsTab.VisualTab(<Module>.smethod_5<string>(1711933347u), ESPTarget.Traps, null);
-				VisualsTab.VisualTab(<Module>.smethod_7<string>(996585705u), ESPTarget.AirDrop, null);
+				VisualsTab.VisualTab("Ловушки", ESPTarget.Traps, null);
+				VisualsTab.VisualTab("Аирдропы", ESPTarget.AirDrop, null);
 				GUILayout.EndVertical();
 			});
 			Prefab.MenuArea(new Rect(330f, 0f, 281f, 140f), Names.All[40], delegate
@@ -83,7 +83,7 @@ namespace UndeadHacks
 				if (ESPOptions.ChamsEnabled)
 				{
 					GUILayout.Space(5f);
-					ESPOptions.ChamsMode = Prefab.Arrows(200f, ESPOptions.ChamsMode, <Module>.smethod_5<string>(1541512236u) + ESPOptions.ChamsMode, 1);
+					ESPOptions.ChamsMode = Prefab.Arrows(200f, ESPOptions.ChamsMode, "Режим: " + ESPOptions.ChamsMode, 1);
 				}
 				Prefab.Toggle(Names.All[48], ref MiscOptions.NoRain);
 				Prefab.Toggle(Names.All[49], ref MiscOptions.NoSnow);
@@ -91,11 +91,11 @@ namespace UndeadHacks
 				Prefab.Toggle(Names.All[51], ref MiscOptions.Compass);
 				Prefab.Toggle(Names.All[52], ref MiscOptions.GPS);
 				Prefab.Toggle(Names.All[53], ref MiscOptions.ShowPlayersOnMap);
-				Prefab.Toggle(<Module>.smethod_7<string>(2697742586u), ref ESPOptions.ShowVanishPlayers);
+				Prefab.Toggle("Список игроков в ванише", ref ESPOptions.ShowVanishPlayers);
 			});
 		}
 
-		// Token: 0x06000283 RID: 643 RVA: 0x000173FC File Offset: 0x000155FC
+		// Token: 0x06000280 RID: 640 RVA: 0x00017130 File Offset: 0x00015330
 		public static void VisualTab(string name, ESPTarget target, Action code = null)
 		{
 			Prefab.SectionTabButton(name, delegate
@@ -119,7 +119,7 @@ namespace UndeadHacks
 			Prefab.ToggleLast(ref ESPOptions.VisualOptions[(int)target].Enabled);
 		}
 
-		// Token: 0x06000284 RID: 644 RVA: 0x0001744C File Offset: 0x0001564C
+		// Token: 0x06000281 RID: 641 RVA: 0x00017180 File Offset: 0x00015380
 		private static void BasicControls(ESPTarget esptarget)
 		{
 			ESPVisual espvisual = ESPOptions.VisualOptions[(int)esptarget];

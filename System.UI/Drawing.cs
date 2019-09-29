@@ -6,7 +6,7 @@ namespace UndeadHacks
 	// Token: 0x02000029 RID: 41
 	public static class Drawing
 	{
-		// Token: 0x060000AB RID: 171 RVA: 0x00003A4A File Offset: 0x00001C4A
+		// Token: 0x060000AB RID: 171 RVA: 0x00003A83 File Offset: 0x00001C83
 		public static void DrawRect(Rect position, Color color)
 		{
 			Color backgroundColor = GUI.backgroundColor;
@@ -15,7 +15,7 @@ namespace UndeadHacks
 			GUI.backgroundColor = backgroundColor;
 		}
 
-		// Token: 0x060000AC RID: 172 RVA: 0x00003A6C File Offset: 0x00001C6C
+		// Token: 0x060000AC RID: 172 RVA: 0x00003AA5 File Offset: 0x00001CA5
 		public static void LayoutBox(Color color, GUIContent content = null)
 		{
 			Color backgroundColor = GUI.backgroundColor;

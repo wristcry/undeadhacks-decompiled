@@ -8,7 +8,7 @@ namespace UndeadHacks
 	// Token: 0x02000076 RID: 118
 	public static class OV_DamageTool
 	{
-		// Token: 0x060001BC RID: 444 RVA: 0x00010FE4 File Offset: 0x0000F1E4
+		// Token: 0x060001BB RID: 443 RVA: 0x00010E84 File Offset: 0x0000F084
 		[Override(typeof(DamageTool), "raycast", BindingFlags.Static | BindingFlags.Public, 1)]
 		public static RaycastInfo OV_raycast(Ray ray, float range, int mask, Player ignorePlayer)
 		{

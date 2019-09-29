@@ -7,7 +7,7 @@ namespace UndeadHacks
 	// Token: 0x02000080 RID: 128
 	public class OV_PlayerUI
 	{
-		// Token: 0x060001E6 RID: 486 RVA: 0x00012860 File Offset: 0x00010A60
+		// Token: 0x060001E5 RID: 485 RVA: 0x00012650 File Offset: 0x00010850
 		[Override(typeof(PlayerUI), "updateCrosshair", BindingFlags.Static | BindingFlags.Public, 0)]
 		public static void updateCrosshair(float spread)
 		{

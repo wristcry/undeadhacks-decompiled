@@ -7,7 +7,7 @@ namespace UndeadHacks
 	// Token: 0x02000017 RID: 23
 	public class OV_VendorUI
 	{
-		// Token: 0x0600006A RID: 106 RVA: 0x00007D58 File Offset: 0x00005F58
+		// Token: 0x0600006A RID: 106 RVA: 0x00007D34 File Offset: 0x00005F34
 		[Override(typeof(PlayerNPCVendorUI), "onClickedBuyingButton", BindingFlags.Static | BindingFlags.NonPublic, 0)]
 		public static void onClickedBuyingButton(SleekButton button)
 		{
@@ -28,7 +28,7 @@ namespace UndeadHacks
 			});
 		}
 
-		// Token: 0x0600006B RID: 107 RVA: 0x00007DA0 File Offset: 0x00005FA0
+		// Token: 0x0600006B RID: 107 RVA: 0x00007D7C File Offset: 0x00005F7C
 		[Override(typeof(PlayerNPCVendorUI), "onClickedSellingButton", BindingFlags.Static | BindingFlags.NonPublic, 0)]
 		public static void onClickedSellingButton(SleekButton button)
 		{

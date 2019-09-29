@@ -6,7 +6,7 @@ namespace UndeadHacks
 	// Token: 0x0200009C RID: 156
 	public static class SkinsTab
 	{
-		// Token: 0x06000253 RID: 595 RVA: 0x00015D48 File Offset: 0x00013F48
+		// Token: 0x06000250 RID: 592 RVA: 0x00015AD4 File Offset: 0x00013CD4
 		public static void Tab()
 		{
 			SkinsUtilities.DrawSkins(SkinOptions.SkinWeapons);

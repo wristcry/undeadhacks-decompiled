@@ -9,22 +9,22 @@ namespace UndeadHacks
 	// Token: 0x0200001E RID: 30
 	public static class AttachTab
 	{
-		// Token: 0x0600007A RID: 122 RVA: 0x00008794 File Offset: 0x00006994
+		// Token: 0x0600007A RID: 122 RVA: 0x000086D0 File Offset: 0x000068D0
 		public static void Tab()
 		{
 			Prefab.MenuArea(new Rect(0f, 0f, 611f, 406f), <Module>.smethod_4<string>(3463225730u), delegate
 			{
-				AttachTab.sightID = Prefab.TextField(AttachTab.sightID, <Module>.smethod_8<string>(2180857856u), 100f, 100f);
+				AttachTab.sightID = Prefab.TextField(AttachTab.sightID, "Прицел:", 100f, 100f);
 				GUILayout.Space(2f);
-				AttachTab.tacticalID = Prefab.TextField(AttachTab.tacticalID, <Module>.smethod_6<string>(3285782431u), 100f, 100f);
+				AttachTab.tacticalID = Prefab.TextField(AttachTab.tacticalID, "Тактич:", 100f, 100f);
 				GUILayout.Space(2f);
-				AttachTab.gripID = Prefab.TextField(AttachTab.gripID, <Module>.smethod_7<string>(2775452411u), 100f, 100f);
+				AttachTab.gripID = Prefab.TextField(AttachTab.gripID, "Приклад:", 100f, 100f);
 				GUILayout.Space(2f);
-				AttachTab.barrelID = Prefab.TextField(AttachTab.barrelID, <Module>.smethod_4<string>(561581412u), 100f, 100f);
+				AttachTab.barrelID = Prefab.TextField(AttachTab.barrelID, "Ствол:", 100f, 100f);
 				GUILayout.Space(2f);
-				AttachTab.magazineID = Prefab.TextField(AttachTab.magazineID, <Module>.smethod_6<string>(959148901u), 100f, 100f);
+				AttachTab.magazineID = Prefab.TextField(AttachTab.magazineID, "Магазин:", 100f, 100f);
 				GUILayout.Space(5f);
-				if (Prefab.Button(<Module>.smethod_5<string>(4113834995u), 200f, 25f) && Player.player.equipment.useable != null)
+				if (Prefab.Button("Прочитать", 200f, 25f) && Player.player.equipment.useable != null)
 				{
 					Attachments attachments = (Attachments)AttachTab.attachments1.GetValue(Player.player.equipment.useable);
 					if (attachments != null)
@@ -37,7 +37,7 @@ namespace UndeadHacks
 					}
 				}
 				GUILayout.Space(5f);
-				if (Prefab.Button(<Module>.smethod_6<string>(4269949314u), 200f, 25f))
+				if (Prefab.Button("Применить", 200f, 25f))
 				{
 					UseableGun obj = (UseableGun)Player.player.equipment.useable;
 					if (Player.player.equipment.useable != null)
@@ -79,14 +79,14 @@ namespace UndeadHacks
 						}
 					}
 				}
-				Prefab.MenuArea(new Rect(230f, 15f, 230f, 130f), <Module>.smethod_7<string>(754450573u), delegate
+				Prefab.MenuArea(new Rect(230f, 15f, 230f, 130f), "StatTrack", delegate
 				{
 					GUILayout.Space(5f);
-					AttachTab.id = Prefab.TextField(AttachTab.id, <Module>.smethod_8<string>(3558795880u), 100f, 100f);
+					AttachTab.id = Prefab.TextField(AttachTab.id, "ID оружия:", 100f, 100f);
 					GUILayout.Space(2f);
-					AttachTab.count = Prefab.TextField(AttachTab.count, <Module>.smethod_5<string>(3402784492u), 100f, 100f);
+					AttachTab.count = Prefab.TextField(AttachTab.count, "Убийства:", 100f, 100f);
 					GUILayout.Space(5f);
-					if (Prefab.Button(<Module>.smethod_8<string>(4096073573u), 200f, 25f) && Player.player)
+					if (Prefab.Button("Выбрать текущее оружие", 200f, 25f) && Player.player)
 					{
 						ItemAsset asset = Player.player.equipment.asset;
 						if (asset != null)
@@ -101,7 +101,7 @@ namespace UndeadHacks
 					GUILayout.Space(5f);
 					ushort itemID;
 					int newValue;
-					if (Prefab.Button(<Module>.smethod_7<string>(1423263943u), 200f, 25f) && ushort.TryParse(AttachTab.id, out itemID) && int.TryParse(AttachTab.count, out newValue))
+					if (Prefab.Button("Применить", 200f, 25f) && ushort.TryParse(AttachTab.id, out itemID) && int.TryParse(AttachTab.count, out newValue))
 					{
 						SkinsUtilities.incrementStatTrackerValue(itemID, newValue);
 					}
@@ -116,13 +116,13 @@ namespace UndeadHacks
 		}
 
 		// Token: 0x0400005A RID: 90
-		public static FieldInfo attachments1 = typeof(UseableGun).GetField(<Module>.smethod_8<string>(155052688u), BindingFlags.Instance | BindingFlags.NonPublic);
+		public static FieldInfo attachments1 = typeof(UseableGun).GetField("firstAttachments", BindingFlags.Instance | BindingFlags.NonPublic);
 
 		// Token: 0x0400005B RID: 91
-		public static FieldInfo attachments3 = typeof(UseableGun).GetField(<Module>.smethod_7<string>(1905995030u), BindingFlags.Instance | BindingFlags.NonPublic);
+		public static FieldInfo attachments3 = typeof(UseableGun).GetField("thirdAttachments", BindingFlags.Instance | BindingFlags.NonPublic);
 
 		// Token: 0x0400005C RID: 92
-		public static MethodInfo upattachments = typeof(UseableGun).method_0(<Module>.smethod_7<string>(1705351019u), BindingFlags.Instance | BindingFlags.NonPublic);
+		public static MethodInfo upattachments = typeof(UseableGun).method_0("updateAttachments", BindingFlags.Instance | BindingFlags.NonPublic);
 
 		// Token: 0x0400005D RID: 93
 		private static string id;

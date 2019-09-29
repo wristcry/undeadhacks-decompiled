@@ -10,51 +10,51 @@ namespace UndeadHacks
 	public static class AimbotCoroutines
 	{
 		// Token: 0x17000001 RID: 1
-		// (get) Token: 0x0600004F RID: 79 RVA: 0x0000374A File Offset: 0x0000194A
-		// (set) Token: 0x06000050 RID: 80 RVA: 0x0000375B File Offset: 0x0000195B
+		// (get) Token: 0x0600004F RID: 79 RVA: 0x00003745 File Offset: 0x00001945
+		// (set) Token: 0x06000050 RID: 80 RVA: 0x00003756 File Offset: 0x00001956
 		public static float Pitch
 		{
 			get
 			{
-				return OptimizationVariables.MainPlayer.look.pitch;
+				return Player.player.look.pitch;
 			}
 			set
 			{
-				AimbotCoroutines.PitchInfo.SetValue(OptimizationVariables.MainPlayer.look, value);
+				AimbotCoroutines.PitchInfo.SetValue(Player.player.look, value);
 			}
 		}
 
 		// Token: 0x17000002 RID: 2
-		// (get) Token: 0x06000051 RID: 81 RVA: 0x00003777 File Offset: 0x00001977
-		// (set) Token: 0x06000052 RID: 82 RVA: 0x00003788 File Offset: 0x00001988
+		// (get) Token: 0x06000051 RID: 81 RVA: 0x00003772 File Offset: 0x00001972
+		// (set) Token: 0x06000052 RID: 82 RVA: 0x00003783 File Offset: 0x00001983
 		public static float Yaw
 		{
 			get
 			{
-				return OptimizationVariables.MainPlayer.look.yaw;
+				return Player.player.look.yaw;
 			}
 			set
 			{
-				AimbotCoroutines.YawInfo.SetValue(OptimizationVariables.MainPlayer.look, value);
+				AimbotCoroutines.YawInfo.SetValue(Player.player.look, value);
 			}
 		}
 
-		// Token: 0x06000053 RID: 83 RVA: 0x000037A4 File Offset: 0x000019A4
+		// Token: 0x06000053 RID: 83 RVA: 0x0000379F File Offset: 0x0000199F
 		public static IEnumerator SetLockedObject()
 		{
 			return new AimbotCoroutines.<SetLockedObject>d__11(0);
 		}
 
-		// Token: 0x06000054 RID: 84 RVA: 0x000037AC File Offset: 0x000019AC
+		// Token: 0x06000054 RID: 84 RVA: 0x000037A7 File Offset: 0x000019A7
 		public static IEnumerator AimToObject()
 		{
 			return new AimbotCoroutines.<AimToObject>d__12(0);
 		}
 
-		// Token: 0x06000055 RID: 85 RVA: 0x00006DE4 File Offset: 0x00004FE4
+		// Token: 0x06000055 RID: 85 RVA: 0x00006DAC File Offset: 0x00004FAC
 		public static void Aim(GameObject obj)
 		{
-			Vector3 aimPosition = AimbotCoroutines.GetAimPosition(obj.transform, <Module>.smethod_8<string>(629351294u));
+			Vector3 aimPosition = AimbotCoroutines.GetAimPosition(obj.transform, "Skull");
 			if (aimPosition == AimbotCoroutines.PiVector)
 			{
 				return;
@@ -75,15 +75,15 @@ namespace UndeadHacks
 			AimbotCoroutines.Yaw = eulerAngles.y;
 		}
 
-		// Token: 0x06000056 RID: 86 RVA: 0x00006E74 File Offset: 0x00005074
+		// Token: 0x06000056 RID: 86 RVA: 0x00006E38 File Offset: 0x00005038
 		public static void SmoothAim(GameObject obj)
 		{
-			Vector3 aimPosition = AimbotCoroutines.GetAimPosition(obj.transform, <Module>.smethod_8<string>(629351294u));
+			Vector3 aimPosition = AimbotCoroutines.GetAimPosition(obj.transform, "Skull");
 			if (aimPosition == AimbotCoroutines.PiVector)
 			{
 				return;
 			}
-			Transform transform = OptimizationVariables.MainPlayer.transform;
+			Transform transform = Player.player.transform;
 			Transform transform2 = OptimizationVariables.MainCam.transform;
 			float num = Time.deltaTime * AimbotOptions.AimSpeed;
 			transform.rotation = Quaternion.Slerp(Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(aimPosition - transform.position), num), Quaternion.LookRotation(aimPosition - transform.position), num);
@@ -102,7 +102,7 @@ namespace UndeadHacks
 			AimbotCoroutines.Yaw = transform.eulerAngles.y;
 		}
 
-		// Token: 0x06000057 RID: 87 RVA: 0x00006FC0 File Offset: 0x000051C0
+		// Token: 0x06000057 RID: 87 RVA: 0x00006F84 File Offset: 0x00005184
 		public static Vector3 GetAimPosition(Transform parent, string name)
 		{
 			Transform[] componentsInChildren = parent.GetComponentsInChildren<Transform>();
@@ -130,9 +130,9 @@ namespace UndeadHacks
 		public static bool IsAiming;
 
 		// Token: 0x0400003E RID: 62
-		public static FieldInfo PitchInfo = typeof(PlayerLook).GetField(<Module>.smethod_6<string>(1806994675u), BindingFlags.Instance | BindingFlags.NonPublic);
+		public static FieldInfo PitchInfo = typeof(PlayerLook).GetField("_pitch", BindingFlags.Instance | BindingFlags.NonPublic);
 
 		// Token: 0x0400003F RID: 63
-		public static FieldInfo YawInfo = typeof(PlayerLook).GetField(<Module>.smethod_4<string>(1674905531u), BindingFlags.Instance | BindingFlags.NonPublic);
+		public static FieldInfo YawInfo = typeof(PlayerLook).GetField("_yaw", BindingFlags.Instance | BindingFlags.NonPublic);
 	}
 }

@@ -10,41 +10,41 @@ namespace UndeadHacks
 	public static class SkinsUtilities
 	{
 		// Token: 0x17000035 RID: 53
-		// (get) Token: 0x06000254 RID: 596 RVA: 0x000049A8 File Offset: 0x00002BA8
+		// (get) Token: 0x06000251 RID: 593 RVA: 0x000049D8 File Offset: 0x00002BD8
 		private static HumanClothes CharacterClothes
 		{
 			get
 			{
-				return OptimizationVariables.MainPlayer.clothing.characterClothes;
+				return Player.player.clothing.characterClothes;
 			}
 		}
 
 		// Token: 0x17000036 RID: 54
-		// (get) Token: 0x06000255 RID: 597 RVA: 0x000049B9 File Offset: 0x00002BB9
+		// (get) Token: 0x06000252 RID: 594 RVA: 0x000049E9 File Offset: 0x00002BE9
 		private static HumanClothes FirstClothes
 		{
 			get
 			{
-				return OptimizationVariables.MainPlayer.clothing.firstClothes;
+				return Player.player.clothing.firstClothes;
 			}
 		}
 
 		// Token: 0x17000037 RID: 55
-		// (get) Token: 0x06000256 RID: 598 RVA: 0x000049CA File Offset: 0x00002BCA
+		// (get) Token: 0x06000253 RID: 595 RVA: 0x000049FA File Offset: 0x00002BFA
 		private static HumanClothes ThirdClothes
 		{
 			get
 			{
-				return OptimizationVariables.MainPlayer.clothing.thirdClothes;
+				return Player.player.clothing.thirdClothes;
 			}
 		}
 
-		// Token: 0x06000257 RID: 599 RVA: 0x00015DC8 File Offset: 0x00013FC8
+		// Token: 0x06000254 RID: 596 RVA: 0x00015B54 File Offset: 0x00013D54
 		public static void Apply(Skin skin, ESkinType skinType)
 		{
 			if (skinType == ESkinType.WEAPONS)
 			{
-				Dictionary<ushort, int> itemSkins = OptimizationVariables.MainPlayer.channel.owner.itemSkins;
+				Dictionary<ushort, int> itemSkins = Player.player.channel.owner.itemSkins;
 				if (itemSkins == null)
 				{
 					return;
@@ -60,8 +60,8 @@ namespace UndeadHacks
 				{
 					itemSkins.Add(inventoryItemID, skin.ID);
 				}
-				OptimizationVariables.MainPlayer.equipment.applySkinVisual();
-				OptimizationVariables.MainPlayer.equipment.applyMythicVisual();
+				Player.player.equipment.applySkinVisual();
+				Player.player.equipment.applyMythicVisual();
 				using (Dictionary<ushort, int>.Enumerator enumerator = itemSkins.GetEnumerator())
 				{
 					while (enumerator.MoveNext())
@@ -75,7 +75,7 @@ namespace UndeadHacks
 			SkinsUtilities.ApplyClothing(skin, skinType);
 		}
 
-		// Token: 0x06000258 RID: 600 RVA: 0x00015EC8 File Offset: 0x000140C8
+		// Token: 0x06000255 RID: 597 RVA: 0x00015C54 File Offset: 0x00013E54
 		private static void ApplyClothing(Skin skin, ESkinType type)
 		{
 			switch (type)
@@ -128,7 +128,7 @@ namespace UndeadHacks
 			SkinsUtilities.ThirdClothes.apply();
 		}
 
-		// Token: 0x06000259 RID: 601 RVA: 0x000160F8 File Offset: 0x000142F8
+		// Token: 0x06000256 RID: 598 RVA: 0x00015E84 File Offset: 0x00014084
 		public static void ApplyFromConfig()
 		{
 			Dictionary<ushort, int> dictionary = new Dictionary<ushort, int>();
@@ -136,7 +136,7 @@ namespace UndeadHacks
 			{
 				dictionary[weaponSave.WeaponID] = weaponSave.SkinID;
 			}
-			OptimizationVariables.MainPlayer.channel.owner.itemSkins = dictionary;
+			Player.player.channel.owner.itemSkins = dictionary;
 			if (SkinOptions.SkinConfig.ShirtID != 0)
 			{
 				SkinsUtilities.CharacterClothes.visualShirt = SkinOptions.SkinConfig.ShirtID;
@@ -184,14 +184,14 @@ namespace UndeadHacks
 			SkinsUtilities.ThirdClothes.apply();
 		}
 
-		// Token: 0x0600025A RID: 602 RVA: 0x0001638C File Offset: 0x0001458C
+		// Token: 0x06000257 RID: 599 RVA: 0x00016118 File Offset: 0x00014318
 		public static void DrawSkins(SkinOptionList OptionList)
 		{
 			Prefab.SectionTabButton(OptionList.Type.ToString(), delegate
 			{
 				GUILayout.BeginHorizontal(Array.Empty<GUILayoutOption>());
 				GUILayout.Space(60f);
-				SkinsUtilities.SearchString = Prefab.TextField(SkinsUtilities.SearchString, <Module>.smethod_6<string>(107118246u), 480f);
+				SkinsUtilities.SearchString = Prefab.TextField(SkinsUtilities.SearchString, "Поиск:", 480f);
 				GUILayout.EndHorizontal();
 				Rect area = new Rect(70f, 40f, 540f, 395f);
 				string title = OptionList.Type.ToString();
@@ -199,7 +199,7 @@ namespace UndeadHacks
 			}, 0f, 20);
 		}
 
-		// Token: 0x0600025B RID: 603 RVA: 0x000163D4 File Offset: 0x000145D4
+		// Token: 0x06000258 RID: 600 RVA: 0x00016160 File Offset: 0x00014360
 		public static void RefreshEconInfo()
 		{
 			if (SkinOptions.SkinWeapons.Skins.Count > 5)
@@ -208,42 +208,42 @@ namespace UndeadHacks
 			}
 			foreach (UnturnedEconInfo unturnedEconInfo in TempSteamworksEconomy.econInfo)
 			{
-				if (unturnedEconInfo.type.Contains(<Module>.smethod_5<string>(99954032u)))
+				if (unturnedEconInfo.type.Contains("Skin"))
 				{
 					SkinOptions.SkinWeapons.Skins.Add(new Skin(unturnedEconInfo.name, unturnedEconInfo.itemdefid));
 				}
-				if (unturnedEconInfo.type.Contains(<Module>.smethod_6<string>(3859026061u)))
+				if (unturnedEconInfo.type.Contains("Shirt"))
 				{
 					SkinOptions.SkinClothesShirts.Skins.Add(new Skin(unturnedEconInfo.name, unturnedEconInfo.itemdefid));
 				}
-				if (unturnedEconInfo.type.Contains(<Module>.smethod_6<string>(3476062002u)))
+				if (unturnedEconInfo.type.Contains("Pants"))
 				{
 					SkinOptions.SkinClothesPants.Skins.Add(new Skin(unturnedEconInfo.name, unturnedEconInfo.itemdefid));
 				}
-				if (unturnedEconInfo.type.Contains(<Module>.smethod_5<string>(2598098632u)))
+				if (unturnedEconInfo.type.Contains("Backpack"))
 				{
 					SkinOptions.SkinClothesBackpack.Skins.Add(new Skin(unturnedEconInfo.name, unturnedEconInfo.itemdefid));
 				}
-				if (unturnedEconInfo.type.Contains(<Module>.smethod_7<string>(150324477u)))
+				if (unturnedEconInfo.type.Contains("Vest"))
 				{
 					SkinOptions.SkinClothesVest.Skins.Add(new Skin(unturnedEconInfo.name, unturnedEconInfo.itemdefid));
 				}
-				if (unturnedEconInfo.type.Contains(<Module>.smethod_7<string>(284087151u)))
+				if (unturnedEconInfo.type.Contains("Hat"))
 				{
 					SkinOptions.SkinClothesHats.Skins.Add(new Skin(unturnedEconInfo.name, unturnedEconInfo.itemdefid));
 				}
-				if (unturnedEconInfo.type.Contains(<Module>.smethod_8<string>(4222934264u)))
+				if (unturnedEconInfo.type.Contains("Mask"))
 				{
 					SkinOptions.SkinClothesMask.Skins.Add(new Skin(unturnedEconInfo.name, unturnedEconInfo.itemdefid));
 				}
-				if (unturnedEconInfo.type.Contains(<Module>.smethod_5<string>(887790289u)))
+				if (unturnedEconInfo.type.Contains("Glass"))
 				{
 					SkinOptions.SkinClothesGlasses.Skins.Add(new Skin(unturnedEconInfo.name, unturnedEconInfo.itemdefid));
 				}
 			}
 		}
 
-		// Token: 0x0600025C RID: 604 RVA: 0x00016608 File Offset: 0x00014808
+		// Token: 0x06000259 RID: 601 RVA: 0x0001636C File Offset: 0x0001456C
 		public static void incrementStatTrackerValue(ushort itemID, int newValue)
 		{
 			if (Player.player == null)

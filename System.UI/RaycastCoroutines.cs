@@ -8,7 +8,7 @@ namespace UndeadHacks
 	// Token: 0x0200008C RID: 140
 	public class RaycastCoroutines
 	{
-		// Token: 0x0600022A RID: 554 RVA: 0x000047CD File Offset: 0x000029CD
+		// Token: 0x06000229 RID: 553 RVA: 0x0000480D File Offset: 0x00002A0D
 		public static IEnumerator UpdateObjects()
 		{
 			return new RaycastCoroutines.<UpdateObjects>d__1(0);

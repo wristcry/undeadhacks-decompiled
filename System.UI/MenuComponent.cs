@@ -9,17 +9,17 @@ namespace UndeadHacks
 	[Component]
 	public class MenuComponent : MonoBehaviour
 	{
-		// Token: 0x0600014F RID: 335 RVA: 0x0000ED08 File Offset: 0x0000CF08
+		// Token: 0x0600014F RID: 335 RVA: 0x0000EDA0 File Offset: 0x0000CFA0
 		private void Update()
 		{
-			if (!HotkeyOptions.UnorganizedHotkeys.ContainsKey(<Module>.smethod_5<string>(2211040748u)))
+			if (!HotkeyOptions.UnorganizedHotkeys.ContainsKey("_Menu"))
 			{
-				HotkeyUtilities.AddHotkey(<Module>.smethod_7<string>(2682667799u), <Module>.smethod_8<string>(1122874549u), <Module>.smethod_5<string>(2211040748u), new KeyCode[]
+				HotkeyUtilities.AddHotkey("Misc", "Menu", "_Menu", new KeyCode[]
 				{
 					KeyCode.F1
 				});
 			}
-			if ((HotkeyOptions.UnorganizedHotkeys[<Module>.smethod_5<string>(2211040748u)].Keys.Length == 0 && Input.GetKeyDown(MenuComponent.MenuKey)) || HotkeyUtilities.IsHotkeyDown(<Module>.smethod_4<string>(485774526u)))
+			if ((HotkeyOptions.UnorganizedHotkeys["_Menu"].Keys.Length == 0 && Input.GetKeyDown(MenuComponent.MenuKey)) || HotkeyUtilities.IsHotkeyDown("_Menu"))
 			{
 				MenuComponent.IsInMenu = !MenuComponent.IsInMenu;
 				if (MenuComponent.IsInMenu)
@@ -29,14 +29,14 @@ namespace UndeadHacks
 			}
 		}
 
-		// Token: 0x06000150 RID: 336 RVA: 0x0000EDB0 File Offset: 0x0000CFB0
+		// Token: 0x06000150 RID: 336 RVA: 0x0000EE2C File Offset: 0x0000D02C
 		private void OnGUI()
 		{
 			if (MenuComponent.IsInMenu && MenuComponent._LogoTexLarge != null)
 			{
 				if (this._cursorTexture == null)
 				{
-					this._cursorTexture = (Resources.Load(<Module>.smethod_6<string>(597109247u)) as Texture);
+					this._cursorTexture = (Resources.Load("UI/Cursor") as Texture);
 				}
 				GUI.depth = -1;
 				MenuComponent.MenuRect = GUI.Window(0, MenuComponent.MenuRect, new GUI.WindowFunction(this.DoMenu), string.Empty);
@@ -53,7 +53,7 @@ namespace UndeadHacks
 			}
 		}
 
-		// Token: 0x06000151 RID: 337 RVA: 0x0000EEC0 File Offset: 0x0000D0C0
+		// Token: 0x06000151 RID: 337 RVA: 0x0000EF38 File Offset: 0x0000D138
 		private void DoMenu(int id)
 		{
 			if (SectionTab.CurrentSectionTab == null)
@@ -69,7 +69,7 @@ namespace UndeadHacks
 			GUI.DragWindow(new Rect(0f, 0f, MenuComponent.MenuRect.width, 25f));
 		}
 
-		// Token: 0x06000152 RID: 338 RVA: 0x0000EF14 File Offset: 0x0000D114
+		// Token: 0x06000152 RID: 338 RVA: 0x0000EF8C File Offset: 0x0000D18C
 		private void DoBorder()
 		{
 			Rect rect = new Rect(0f, 0f, MenuComponent.MenuRect.width, MenuComponent.MenuRect.height);
@@ -86,7 +86,7 @@ namespace UndeadHacks
 			Drawing.DrawRect(new Rect(position.x + 2f, position.y + 4f, position.width - 4f, 2f), MenuComponent._Accent2);
 		}
 
-		// Token: 0x06000153 RID: 339 RVA: 0x0000F044 File Offset: 0x0000D244
+		// Token: 0x06000153 RID: 339 RVA: 0x0000F0BC File Offset: 0x0000D2BC
 		private void DoTabs()
 		{
 			GUILayout.BeginArea(new Rect(15f, 25f, 620f, 100f));
@@ -108,7 +108,7 @@ namespace UndeadHacks
 			GUILayout.EndArea();
 		}
 
-		// Token: 0x06000154 RID: 340 RVA: 0x00003FE4 File Offset: 0x000021E4
+		// Token: 0x06000154 RID: 340 RVA: 0x00003FF0 File Offset: 0x000021F0
 		private void DrawTabs()
 		{
 			GUILayout.BeginArea(new Rect(15f, 80f, 611f, 406f));
@@ -119,7 +119,7 @@ namespace UndeadHacks
 			GUILayout.EndArea();
 		}
 
-		// Token: 0x06000155 RID: 341 RVA: 0x0000F0F8 File Offset: 0x0000D2F8
+		// Token: 0x06000155 RID: 341 RVA: 0x0000F170 File Offset: 0x0000D370
 		private void DoSectionTab()
 		{
 			if (SectionTab.CurrentSectionTab != null)
@@ -127,25 +127,25 @@ namespace UndeadHacks
 				this.DoBorder();
 				Prefab.MenuArea(new Rect(10f, 20f, MenuComponent.MenuRect.width - 20f, MenuComponent.MenuRect.height - 30f), SectionTab.CurrentSectionTab.name.ToUpper(), SectionTab.CurrentSectionTab.code);
 				bool flag = false;
-				if (Prefab.MenuTabAbsolute(new Vector2(17f, 448f), <Module>.smethod_5<string>(2818205776u), ref flag, 29))
+				if (Prefab.MenuTabAbsolute(new Vector2(17f, 448f), "назад", ref flag, 29))
 				{
 					SectionTab.CurrentSectionTab = null;
 				}
 			}
 		}
 
-		// Token: 0x06000156 RID: 342 RVA: 0x0000F18C File Offset: 0x0000D38C
+		// Token: 0x06000156 RID: 342 RVA: 0x0000F200 File Offset: 0x0000D400
 		public static void UpdateColors()
 		{
-			MenuComponent._OutlineBorderBlack = ColorUtilities.getColor(<Module>.smethod_7<string>(1481510855u));
-			MenuComponent._OutlineBorderLightGray = ColorUtilities.getColor(<Module>.smethod_6<string>(1197867080u));
-			MenuComponent._OutlineBorderDarkGray = ColorUtilities.getColor(<Module>.smethod_5<string>(3470363166u));
-			MenuComponent._FillLightBlack = ColorUtilities.getColor(<Module>.smethod_7<string>(2848261051u));
-			MenuComponent._Accent1 = ColorUtilities.getColor(<Module>.smethod_7<string>(3784599769u));
-			MenuComponent._Accent2 = ColorUtilities.getColor(<Module>.smethod_8<string>(4067687858u));
+			MenuComponent._OutlineBorderBlack = ColorUtilities.getColor("_OutlineBorderBlack");
+			MenuComponent._OutlineBorderLightGray = ColorUtilities.getColor("_OutlineBorderLightGray");
+			MenuComponent._OutlineBorderDarkGray = ColorUtilities.getColor("_OutlineBorderDarkGray");
+			MenuComponent._FillLightBlack = ColorUtilities.getColor("_FillLightBlack");
+			MenuComponent._Accent1 = ColorUtilities.getColor("_Accent1");
+			MenuComponent._Accent2 = ColorUtilities.getColor("_Accent2");
 		}
 
-		// Token: 0x06000157 RID: 343 RVA: 0x0000401F File Offset: 0x0000221F
+		// Token: 0x06000157 RID: 343 RVA: 0x0000402B File Offset: 0x0000222B
 		public static void SetGUIColors()
 		{
 			MenuComponent.UpdateColors();

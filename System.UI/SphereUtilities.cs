@@ -7,7 +7,7 @@ namespace UndeadHacks
 	// Token: 0x020000A2 RID: 162
 	public static class SphereUtilities
 	{
-		// Token: 0x06000265 RID: 613 RVA: 0x000168F0 File Offset: 0x00014AF0
+		// Token: 0x06000262 RID: 610 RVA: 0x0001664C File Offset: 0x0001484C
 		public static bool GetRaycast(GameObject Target, Vector3 StartPos, out Vector3 Point)
 		{
 			Point = Vector3.zero;
@@ -32,7 +32,7 @@ namespace UndeadHacks
 				}
 				return false;
 			}
-			Point = OptimizationVariables.MainPlayer.transform.position;
+			Point = Player.player.transform.position;
 			return true;
 		}
 	}

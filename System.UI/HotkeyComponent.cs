@@ -10,7 +10,7 @@ namespace UndeadHacks
 	[Component]
 	public class HotkeyComponent : MonoBehaviour
 	{
-		// Token: 0x060000FC RID: 252 RVA: 0x0000CCB0 File Offset: 0x0000AEB0
+		// Token: 0x060000FC RID: 252 RVA: 0x0000CE8C File Offset: 0x0000B08C
 		public void Update()
 		{
 			if (HotkeyComponent.NeedsKeys)
@@ -37,14 +37,14 @@ namespace UndeadHacks
 			}
 			foreach (KeyValuePair<string, Newtonsoft.Json.Serialization.Action> keyValuePair in HotkeyComponent.ActionDict)
 			{
-				if ((!MiscOptions.PanicMode || keyValuePair.Key == <Module>.smethod_5<string>(2576033839u)) && HotkeyUtilities.IsHotkeyDown(keyValuePair.Key))
+				if ((!MiscOptions.PanicMode || keyValuePair.Key == "_PanicButton") && HotkeyUtilities.IsHotkeyDown(keyValuePair.Key))
 				{
 					keyValuePair.Value();
 				}
 			}
 		}
 
-		// Token: 0x060000FD RID: 253 RVA: 0x00003DB0 File Offset: 0x00001FB0
+		// Token: 0x060000FD RID: 253 RVA: 0x00003DBC File Offset: 0x00001FBC
 		public static void Clear()
 		{
 			HotkeyComponent.NeedsKeys = false;

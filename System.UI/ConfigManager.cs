@@ -11,7 +11,7 @@ namespace UndeadHacks
 	// Token: 0x02000026 RID: 38
 	public class ConfigManager
 	{
-		// Token: 0x0600009B RID: 155 RVA: 0x00009CA8 File Offset: 0x00007EA8
+		// Token: 0x0600009B RID: 155 RVA: 0x00009A10 File Offset: 0x00007C10
 		public static void Init()
 		{
 			ConfigManager.LoadConfig(ConfigManager.GetConfig());
@@ -39,13 +39,13 @@ namespace UndeadHacks
 			}
 		}
 
-		// Token: 0x0600009C RID: 156 RVA: 0x00009D6C File Offset: 0x00007F6C
+		// Token: 0x0600009C RID: 156 RVA: 0x00009AD4 File Offset: 0x00007CD4
 		public static Dictionary<string, object> CollectConfig()
 		{
 			Dictionary<string, object> dictionary = new Dictionary<string, object>
 			{
 				{
-					<Module>.smethod_4<string>(3750446392u),
+					"Version",
 					ConfigManager.ConfigVersion
 				}
 			};
@@ -57,13 +57,13 @@ namespace UndeadHacks
 				where F.IsDefined(typeof(SaveAttribute), false)
 				select F).ToArray<FieldInfo>())
 				{
-					dictionary.Add(type.Name + <Module>.smethod_7<string>(2624420887u) + fieldInfo.Name, fieldInfo.GetValue(null));
+					dictionary.Add(type.Name + "_" + fieldInfo.Name, fieldInfo.GetValue(null));
 				}
 			}
 			return dictionary;
 		}
 
-		// Token: 0x0600009D RID: 157 RVA: 0x00009E54 File Offset: 0x00008054
+		// Token: 0x0600009D RID: 157 RVA: 0x00009BB0 File Offset: 0x00007DB0
 		public static Dictionary<string, object> GetConfig()
 		{
 			if (!File.Exists(ConfigManager.ConfigPath))
@@ -85,14 +85,14 @@ namespace UndeadHacks
 			return result;
 		}
 
-		// Token: 0x0600009E RID: 158 RVA: 0x000039AB File Offset: 0x00001BAB
+		// Token: 0x0600009E RID: 158 RVA: 0x000039A6 File Offset: 0x00001BA6
 		public static void SaveConfig()
 		{
 			ColorOptions.ColorDict = ColorOptions.ColorDict2;
 			File.WriteAllText(ConfigManager.ConfigPath, JsonConvert.SerializeObject(ConfigManager.CollectConfig(), Formatting.Indented));
 		}
 
-		// Token: 0x0600009F RID: 159 RVA: 0x00009EB0 File Offset: 0x000080B0
+		// Token: 0x0600009F RID: 159 RVA: 0x00009C0C File Offset: 0x00007E0C
 		public static void LoadConfig(Dictionary<string, object> Config)
 		{
 			if (!File.Exists(ConfigManager.ConfigPath))
@@ -105,7 +105,7 @@ namespace UndeadHacks
 				where Attribute.IsDefined(f, typeof(SaveAttribute))
 				select f)
 				{
-					string key = string.Format(<Module>.smethod_6<string>(3162460956u), type.Name, fieldInfo.Name);
+					string key = string.Format("{0}_{1}", type.Name, fieldInfo.Name);
 					Type fieldType = fieldInfo.FieldType;
 					object value = fieldInfo.GetValue(null);
 					if (!Config.ContainsKey(key))
@@ -136,15 +136,15 @@ namespace UndeadHacks
 		}
 
 		// Token: 0x04000072 RID: 114
-		public static string ConfigPath = string.Format(<Module>.smethod_7<string>(1888726180u), Environment.ExpandEnvironmentVariables(<Module>.smethod_5<string>(4026799123u)));
+		public static string ConfigPath = string.Format("{0}/config.txt", Environment.ExpandEnvironmentVariables("%appdata%"));
 
 		// Token: 0x04000073 RID: 115
-		public static string appdata = Environment.ExpandEnvironmentVariables(<Module>.smethod_6<string>(2861859544u));
+		public static string appdata = Environment.ExpandEnvironmentVariables("%appdata%/");
 
 		// Token: 0x04000074 RID: 116
-		public static string current = <Module>.smethod_6<string>(1330003308u);
+		public static string current = "config";
 
 		// Token: 0x04000075 RID: 117
-		public static string ConfigVersion = <Module>.smethod_7<string>(2958827572u);
+		public static string ConfigVersion = "1.0.2";
 	}
 }

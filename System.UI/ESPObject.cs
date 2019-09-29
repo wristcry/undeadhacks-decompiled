@@ -6,7 +6,7 @@ namespace UndeadHacks
 	// Token: 0x02000034 RID: 52
 	public class ESPObject
 	{
-		// Token: 0x060000EF RID: 239 RVA: 0x00003CDD File Offset: 0x00001EDD
+		// Token: 0x060000EF RID: 239 RVA: 0x00003CE9 File Offset: 0x00001EE9
 		public ESPObject(ESPTarget t, Component o)
 		{
 			this.Target = t;

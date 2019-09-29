@@ -10,8 +10,8 @@ namespace UndeadHacks
 	public class OV_PlayerInteract
 	{
 		// Token: 0x17000025 RID: 37
-		// (get) Token: 0x060001D3 RID: 467 RVA: 0x0000456C File Offset: 0x0000276C
-		// (set) Token: 0x060001D4 RID: 468 RVA: 0x0000457E File Offset: 0x0000277E
+		// (get) Token: 0x060001D2 RID: 466 RVA: 0x000045AC File Offset: 0x000027AC
+		// (set) Token: 0x060001D3 RID: 467 RVA: 0x000045BE File Offset: 0x000027BE
 		public static Transform focus
 		{
 			get
@@ -25,8 +25,8 @@ namespace UndeadHacks
 		}
 
 		// Token: 0x17000026 RID: 38
-		// (get) Token: 0x060001D5 RID: 469 RVA: 0x0000458C File Offset: 0x0000278C
-		// (set) Token: 0x060001D6 RID: 470 RVA: 0x0000459E File Offset: 0x0000279E
+		// (get) Token: 0x060001D4 RID: 468 RVA: 0x000045CC File Offset: 0x000027CC
+		// (set) Token: 0x060001D5 RID: 469 RVA: 0x000045DE File Offset: 0x000027DE
 		public static Transform target
 		{
 			get
@@ -40,8 +40,8 @@ namespace UndeadHacks
 		}
 
 		// Token: 0x17000027 RID: 39
-		// (get) Token: 0x060001D7 RID: 471 RVA: 0x000045AC File Offset: 0x000027AC
-		// (set) Token: 0x060001D8 RID: 472 RVA: 0x000045BE File Offset: 0x000027BE
+		// (get) Token: 0x060001D6 RID: 470 RVA: 0x000045EC File Offset: 0x000027EC
+		// (set) Token: 0x060001D7 RID: 471 RVA: 0x000045FE File Offset: 0x000027FE
 		public static Interactable interactable
 		{
 			get
@@ -55,8 +55,8 @@ namespace UndeadHacks
 		}
 
 		// Token: 0x17000028 RID: 40
-		// (get) Token: 0x060001D9 RID: 473 RVA: 0x000045CC File Offset: 0x000027CC
-		// (set) Token: 0x060001DA RID: 474 RVA: 0x000045DE File Offset: 0x000027DE
+		// (get) Token: 0x060001D8 RID: 472 RVA: 0x0000460C File Offset: 0x0000280C
+		// (set) Token: 0x060001D9 RID: 473 RVA: 0x0000461E File Offset: 0x0000281E
 		public static Interactable2 interactable2
 		{
 			get
@@ -70,8 +70,8 @@ namespace UndeadHacks
 		}
 
 		// Token: 0x17000029 RID: 41
-		// (get) Token: 0x060001DB RID: 475 RVA: 0x000045EC File Offset: 0x000027EC
-		// (set) Token: 0x060001DC RID: 476 RVA: 0x000045FE File Offset: 0x000027FE
+		// (get) Token: 0x060001DA RID: 474 RVA: 0x0000462C File Offset: 0x0000282C
+		// (set) Token: 0x060001DB RID: 475 RVA: 0x0000463E File Offset: 0x0000283E
 		public static ItemAsset purchaseAsset
 		{
 			get
@@ -85,7 +85,7 @@ namespace UndeadHacks
 		}
 
 		// Token: 0x1700002A RID: 42
-		// (get) Token: 0x060001DD RID: 477 RVA: 0x0000460C File Offset: 0x0000280C
+		// (get) Token: 0x060001DC RID: 476 RVA: 0x0000464C File Offset: 0x0000284C
 		private float salvageTime
 		{
 			get
@@ -94,7 +94,7 @@ namespace UndeadHacks
 				{
 					return MiscOptions.SalvageTime;
 				}
-				if (!OptimizationVariables.MainPlayer.channel.owner.isAdmin)
+				if (!Player.player.channel.owner.isAdmin)
 				{
 					return 8f;
 				}
@@ -102,13 +102,13 @@ namespace UndeadHacks
 			}
 		}
 
-		// Token: 0x060001DE RID: 478 RVA: 0x0000463C File Offset: 0x0000283C
+		// Token: 0x060001DD RID: 477 RVA: 0x0000467C File Offset: 0x0000287C
 		private void hotkey(byte button)
 		{
 			VehicleManager.swapVehicle(button);
 		}
 
-		// Token: 0x060001DF RID: 479 RVA: 0x00011DB4 File Offset: 0x0000FFB4
+		// Token: 0x060001DE RID: 478 RVA: 0x00011BD8 File Offset: 0x0000FDD8
 		[Override(typeof(PlayerInteract), "Update", BindingFlags.Instance | BindingFlags.NonPublic, 0)]
 		public void OV_Update()
 		{
@@ -116,11 +116,11 @@ namespace UndeadHacks
 			{
 				return;
 			}
-			if (OptimizationVariables.MainPlayer.stance.stance != EPlayerStance.DRIVING)
+			if (Player.player.stance.stance != EPlayerStance.DRIVING)
 			{
-				if (OptimizationVariables.MainPlayer.stance.stance != EPlayerStance.SITTING)
+				if (Player.player.stance.stance != EPlayerStance.SITTING)
 				{
-					if (!OptimizationVariables.MainPlayer.life.isDead && !OptimizationVariables.MainPlayer.workzone.isBuilding)
+					if (!Player.player.life.isDead && !Player.player.workzone.isBuilding)
 					{
 						if (Time.realtimeSinceStartup - OV_PlayerInteract.lastInteract > 0.1f)
 						{
@@ -157,13 +157,13 @@ namespace UndeadHacks
 								num = RayMasks.PLAYER_INTERACT;
 							}
 							OV_PlayerInteract.lastInteract = Time.realtimeSinceStartup;
-							float num2 = (InteractionOptions.InteractThroughWalls && !PlayerCoroutines.IsSpying) ? 20f : 4f;
-							PhysicsUtility.raycast(new Ray(OptimizationVariables.MainCam.transform.position, OptimizationVariables.MainCam.transform.forward), out OV_PlayerInteract.hit, (OptimizationVariables.MainPlayer.look.perspective == EPlayerPerspective.THIRD) ? (num2 + 2f) : num2, num, QueryTriggerInteraction.UseGlobal);
+							float num2 = (!InteractionOptions.InteractThroughWalls || PlayerCoroutines.IsSpying) ? 4f : 20f;
+							PhysicsUtility.raycast(new Ray(OptimizationVariables.MainCam.transform.position, OptimizationVariables.MainCam.transform.forward), out OV_PlayerInteract.hit, (Player.player.look.perspective == EPlayerPerspective.THIRD) ? (num2 + 2f) : num2, num, QueryTriggerInteraction.UseGlobal);
 						}
 						Transform transform = (!(OV_PlayerInteract.hit.collider != null)) ? null : OV_PlayerInteract.hit.collider.transform;
 						if (!(transform != OV_PlayerInteract.focus))
 						{
-							goto IL_3AD;
+							goto IL_39E;
 						}
 						if (OV_PlayerInteract.focus != null && PlayerInteract.interactable != null)
 						{
@@ -183,25 +183,25 @@ namespace UndeadHacks
 						OV_PlayerInteract.interactable2 = null;
 						if (!(transform != null))
 						{
-							goto IL_3AD;
+							goto IL_39E;
 						}
 						OV_PlayerInteract.focus = transform;
 						OV_PlayerInteract.interactable = OV_PlayerInteract.focus.GetComponentInParent<Interactable>();
 						OV_PlayerInteract.interactable2 = OV_PlayerInteract.focus.GetComponentInParent<Interactable2>();
 						if (!(PlayerInteract.interactable != null))
 						{
-							goto IL_3AD;
+							goto IL_39E;
 						}
-						OV_PlayerInteract.target = PlayerInteract.interactable.transform.FindChildRecursive(<Module>.smethod_4<string>(1288142903u));
+						OV_PlayerInteract.target = PlayerInteract.interactable.transform.FindChildRecursive("Target");
 						if (!PlayerInteract.interactable.checkInteractable())
 						{
 							OV_PlayerInteract.target = null;
 							OV_PlayerInteract.interactable = null;
-							goto IL_3AD;
+							goto IL_39E;
 						}
 						if (!PlayerUI.window.isEnabled)
 						{
-							goto IL_3AD;
+							goto IL_39E;
 						}
 						if (!PlayerInteract.interactable.checkUseable())
 						{
@@ -210,10 +210,10 @@ namespace UndeadHacks
 							if (componentInParent2 != null)
 							{
 								HighlighterTool.highlight(componentInParent2.door.transform, color);
-								goto IL_3AD;
+								goto IL_39E;
 							}
 							HighlighterTool.highlight(PlayerInteract.interactable.transform, color);
-							goto IL_3AD;
+							goto IL_39E;
 						}
 						else
 						{
@@ -226,10 +226,10 @@ namespace UndeadHacks
 							if (componentInParent3 != null)
 							{
 								HighlighterTool.highlight(componentInParent3.door.transform, color);
-								goto IL_3AD;
+								goto IL_39E;
 							}
 							HighlighterTool.highlight(PlayerInteract.interactable.transform, color);
-							goto IL_3AD;
+							goto IL_39E;
 						}
 					}
 				}
@@ -250,23 +250,23 @@ namespace UndeadHacks
 			OV_PlayerInteract.target = null;
 			OV_PlayerInteract.interactable = null;
 			OV_PlayerInteract.interactable2 = null;
-			IL_3AD:
-			if (!OptimizationVariables.MainPlayer.life.isDead)
+			IL_39E:
+			if (!Player.player.life.isDead)
 			{
 				EPlayerMessage message;
 				string text;
 				Color color2;
 				if (!(PlayerInteract.interactable != null))
 				{
-					if (OV_PlayerInteract.purchaseAsset != null && OptimizationVariables.MainPlayer.movement.purchaseNode != null && !PlayerUI.window.showCursor)
+					if (OV_PlayerInteract.purchaseAsset != null && Player.player.movement.purchaseNode != null && !PlayerUI.window.showCursor)
 					{
 						PlayerUI.hint(null, EPlayerMessage.PURCHASE, string.Empty, Color.white, new object[]
 						{
 							OV_PlayerInteract.purchaseAsset.itemName,
-							OptimizationVariables.MainPlayer.movement.purchaseNode.cost
+							Player.player.movement.purchaseNode.cost
 						});
 					}
-					else if (OV_PlayerInteract.focus != null && OV_PlayerInteract.focus.CompareTag(<Module>.smethod_7<string>(1695035590u)))
+					else if (OV_PlayerInteract.focus != null && OV_PlayerInteract.focus.CompareTag("Enemy"))
 					{
 						Player player = DamageTool.getPlayer(OV_PlayerInteract.focus);
 						if (player != null && player != Player.player && !PlayerUI.window.showCursor)
@@ -280,7 +280,7 @@ namespace UndeadHacks
 				}
 				else if (PlayerInteract.interactable.checkHint(out message, out text, out color2) && !PlayerUI.window.showCursor)
 				{
-					if (!PlayerInteract.interactable.CompareTag(<Module>.smethod_5<string>(59996598u)))
+					if (!PlayerInteract.interactable.CompareTag("Item"))
 					{
 						PlayerUI.hint((!(OV_PlayerInteract.target != null)) ? OV_PlayerInteract.focus : OV_PlayerInteract.target, message, text, color2, Array.Empty<object>());
 					}
@@ -299,7 +299,7 @@ namespace UndeadHacks
 				{
 					PlayerUI.hint2(message2, (!OV_PlayerInteract.isHoldingKey) ? 0f : ((Time.realtimeSinceStartup - OV_PlayerInteract.lastKeyDown) / this.salvageTime), data);
 				}
-				if ((OptimizationVariables.MainPlayer.stance.stance == EPlayerStance.DRIVING || OptimizationVariables.MainPlayer.stance.stance == EPlayerStance.SITTING) && !Input.GetKey(KeyCode.LeftShift))
+				if ((Player.player.stance.stance == EPlayerStance.DRIVING || Player.player.stance.stance == EPlayerStance.SITTING) && !Input.GetKey(KeyCode.LeftShift))
 				{
 					if (Input.GetKeyDown(KeyCode.F1))
 					{
@@ -351,9 +351,9 @@ namespace UndeadHacks
 				{
 					if (ControlsSettings.inspect != ControlsSettings.interact)
 					{
-						if (OptimizationVariables.MainPlayer.equipment.canInspect)
+						if (Player.player.equipment.canInspect)
 						{
-							OptimizationVariables.MainPlayer.channel.send(<Module>.smethod_6<string>(1705042596u), ESteamCall.SERVER, ESteamPacket.UPDATE_UNRELIABLE_BUFFER, Array.Empty<object>());
+							Player.player.channel.send("askInspect", ESteamCall.SERVER, ESteamPacket.UPDATE_UNRELIABLE_BUFFER, Array.Empty<object>());
 						}
 					}
 				}
@@ -375,9 +375,9 @@ namespace UndeadHacks
 						OV_PlayerInteract.isHoldingKey = false;
 						if (!PlayerUI.window.showCursor)
 						{
-							if (OptimizationVariables.MainPlayer.stance.stance != EPlayerStance.DRIVING)
+							if (Player.player.stance.stance != EPlayerStance.DRIVING)
 							{
-								if (OptimizationVariables.MainPlayer.stance.stance != EPlayerStance.SITTING)
+								if (Player.player.stance.stance != EPlayerStance.SITTING)
 								{
 									if (OV_PlayerInteract.focus != null && PlayerInteract.interactable != null)
 									{
@@ -394,18 +394,18 @@ namespace UndeadHacks
 										{
 											return;
 										}
-										if (OptimizationVariables.MainPlayer.equipment.canInspect)
+										if (Player.player.equipment.canInspect)
 										{
-											OptimizationVariables.MainPlayer.channel.send(<Module>.smethod_4<string>(98505503u), ESteamCall.SERVER, ESteamPacket.UPDATE_UNRELIABLE_BUFFER, Array.Empty<object>());
+											Player.player.channel.send("askInspect", ESteamCall.SERVER, ESteamPacket.UPDATE_UNRELIABLE_BUFFER, Array.Empty<object>());
 											return;
 										}
 										return;
 									}
 									else
 									{
-										if (OptimizationVariables.MainPlayer.skills.experience >= OptimizationVariables.MainPlayer.movement.purchaseNode.cost)
+										if (Player.player.skills.experience >= Player.player.movement.purchaseNode.cost)
 										{
-											OptimizationVariables.MainPlayer.skills.sendPurchase(OptimizationVariables.MainPlayer.movement.purchaseNode);
+											Player.player.skills.sendPurchase(Player.player.movement.purchaseNode);
 											return;
 										}
 										return;
@@ -415,7 +415,7 @@ namespace UndeadHacks
 							VehicleManager.exitVehicle();
 							return;
 						}
-						if (OptimizationVariables.MainPlayer.inventory.isStoring && OptimizationVariables.MainPlayer.inventory.shouldInteractCloseStorage)
+						if (Player.player.inventory.isStoring && Player.player.inventory.shouldInteractCloseStorage)
 						{
 							PlayerDashboardUI.close();
 							PlayerLifeUI.open();
@@ -481,19 +481,19 @@ namespace UndeadHacks
 		}
 
 		// Token: 0x040001C1 RID: 449
-		private static FieldInfo FocusField = typeof(PlayerInteract).GetField(<Module>.smethod_6<string>(1375592008u), ReflectionVariables.PrivateStatic);
+		private static FieldInfo FocusField = typeof(PlayerInteract).GetField("focus", ReflectionVariables.PrivateStatic);
 
 		// Token: 0x040001C2 RID: 450
-		private static FieldInfo TargetField = typeof(PlayerInteract).GetField(<Module>.smethod_5<string>(2807955658u), ReflectionVariables.PrivateStatic);
+		private static FieldInfo TargetField = typeof(PlayerInteract).GetField("target", ReflectionVariables.PrivateStatic);
 
 		// Token: 0x040001C3 RID: 451
-		private static FieldInfo InteractableField = typeof(PlayerInteract).GetField(<Module>.smethod_7<string>(3128667123u), ReflectionVariables.PrivateStatic);
+		private static FieldInfo InteractableField = typeof(PlayerInteract).GetField("_interactable", ReflectionVariables.PrivateStatic);
 
 		// Token: 0x040001C4 RID: 452
-		private static FieldInfo Interactable2Field = typeof(PlayerInteract).GetField(<Module>.smethod_6<string>(2524484185u), ReflectionVariables.PrivateStatic);
+		private static FieldInfo Interactable2Field = typeof(PlayerInteract).GetField("_interactable2", ReflectionVariables.PrivateStatic);
 
 		// Token: 0x040001C5 RID: 453
-		private static FieldInfo PurchaseAssetField = typeof(PlayerInteract).GetField(<Module>.smethod_5<string>(3643913391u), ReflectionVariables.PrivateStatic);
+		private static FieldInfo PurchaseAssetField = typeof(PlayerInteract).GetField("purchaseAsset", ReflectionVariables.PrivateStatic);
 
 		// Token: 0x040001C6 RID: 454
 		private static bool isHoldingKey;

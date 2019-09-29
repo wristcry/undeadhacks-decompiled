@@ -108,19 +108,19 @@ namespace UndeadHacks
 
 		// Token: 0x04000177 RID: 375
 		[Save]
-		public static string SpamText = <Module>.smethod_5<string>(1857340813u);
+		public static string SpamText = "vk.com/undeadhacks";
 
 		// Token: 0x04000178 RID: 376
 		[Save]
-		public static string TabFont = <Module>.smethod_8<string>(768326460u);
+		public static string TabFont = "Comic Sans MS";
 
 		// Token: 0x04000179 RID: 377
 		[Save]
-		public static string TextFont = <Module>.smethod_4<string>(3306459826u);
+		public static string TextFont = "Arial";
 
 		// Token: 0x0400017A RID: 378
 		[Save]
-		public static string EspFont = <Module>.smethod_4<string>(3306459826u);
+		public static string EspFont = "Arial";
 
 		// Token: 0x0400017B RID: 379
 		[Save]

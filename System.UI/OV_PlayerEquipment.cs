@@ -7,7 +7,7 @@ namespace UndeadHacks
 	// Token: 0x0200007C RID: 124
 	public class OV_PlayerEquipment
 	{
-		// Token: 0x060001D0 RID: 464 RVA: 0x00011D68 File Offset: 0x0000FF68
+		// Token: 0x060001CF RID: 463 RVA: 0x00011B8C File Offset: 0x0000FD8C
 		[Override(typeof(PlayerEquipment), "punch", BindingFlags.Instance | BindingFlags.NonPublic, 0)]
 		public void OV_punch(EPlayerPunch p)
 		{
@@ -32,7 +32,7 @@ namespace UndeadHacks
 			OV_DamageTool.OVType = OverrideType.None;
 		}
 
-		// Token: 0x060001D1 RID: 465 RVA: 0x00004535 File Offset: 0x00002735
+		// Token: 0x060001D0 RID: 464 RVA: 0x00004575 File Offset: 0x00002775
 		[Override(typeof(UseableMelee), "fire", BindingFlags.Instance | BindingFlags.NonPublic, 0)]
 		public void OV_fire()
 		{

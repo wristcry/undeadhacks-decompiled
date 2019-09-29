@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1259946F-6C12-4BA8-A078-3C981CFA54A2}</ProjectGuid>
+    <ProjectGuid>{944A7AEC-3272-421D-8F66-8AB9270A5610}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>UndeadHacks</RootNamespace>
     <AssemblyName>System.UI</AssemblyName>
@@ -83,7 +83,6 @@
     <Compile Include="ColorVariable.cs" />
     <Compile Include="ComponentAttribute.cs" />
     <Compile Include="ConfigManager.cs" />
-    <Compile Include="ConfusedByAttribute.cs" />
     <Compile Include="DebugUtilities.cs" />
     <Compile Include="Drawing.cs" />
     <Compile Include="DrawUtilities.cs" />

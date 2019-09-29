@@ -8,7 +8,7 @@ namespace UndeadHacks
 	// Token: 0x0200001A RID: 26
 	public static class AttributeManager
 	{
-		// Token: 0x06000072 RID: 114 RVA: 0x00008310 File Offset: 0x00006510
+		// Token: 0x06000072 RID: 114 RVA: 0x00008260 File Offset: 0x00006460
 		public static void Init()
 		{
 			List<Type> list = new List<Type>();

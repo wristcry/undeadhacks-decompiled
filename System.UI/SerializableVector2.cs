@@ -6,26 +6,26 @@ namespace UndeadHacks
 	// Token: 0x02000095 RID: 149
 	public class SerializableVector2
 	{
-		// Token: 0x06000247 RID: 583 RVA: 0x00004906 File Offset: 0x00002B06
+		// Token: 0x06000244 RID: 580 RVA: 0x00004936 File Offset: 0x00002B36
 		public SerializableVector2(float nx, float ny)
 		{
 			this.x = nx;
 			this.y = ny;
 		}
 
-		// Token: 0x06000248 RID: 584 RVA: 0x0000491C File Offset: 0x00002B1C
+		// Token: 0x06000245 RID: 581 RVA: 0x0000494C File Offset: 0x00002B4C
 		public Vector2 ToVector2()
 		{
 			return new Vector2(this.x, this.y);
 		}
 
-		// Token: 0x06000249 RID: 585 RVA: 0x0000492F File Offset: 0x00002B2F
+		// Token: 0x06000246 RID: 582 RVA: 0x0000495F File Offset: 0x00002B5F
 		public static implicit operator Vector2(SerializableVector2 vector)
 		{
 			return vector.ToVector2();
 		}
 
-		// Token: 0x0600024A RID: 586 RVA: 0x00004937 File Offset: 0x00002B37
+		// Token: 0x06000247 RID: 583 RVA: 0x00004967 File Offset: 0x00002B67
 		public static implicit operator SerializableVector2(Vector2 vector)
 		{
 			return new SerializableVector2(vector.x, vector.y);

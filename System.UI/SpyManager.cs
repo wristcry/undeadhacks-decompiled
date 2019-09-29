@@ -8,7 +8,7 @@ namespace UndeadHacks
 	// Token: 0x020000A4 RID: 164
 	public class SpyManager
 	{
-		// Token: 0x06000267 RID: 615 RVA: 0x000169C0 File Offset: 0x00014BC0
+		// Token: 0x06000264 RID: 612 RVA: 0x0001671C File Offset: 0x0001491C
 		public static void InvokePre()
 		{
 			foreach (MethodInfo methodInfo in SpyManager.PreSpy)
@@ -17,7 +17,7 @@ namespace UndeadHacks
 			}
 		}
 
-		// Token: 0x06000268 RID: 616 RVA: 0x00016A10 File Offset: 0x00014C10
+		// Token: 0x06000265 RID: 613 RVA: 0x0001676C File Offset: 0x0001496C
 		public static void InvokePost()
 		{
 			foreach (MethodInfo methodInfo in SpyManager.PostSpy)
@@ -26,7 +26,7 @@ namespace UndeadHacks
 			}
 		}
 
-		// Token: 0x06000269 RID: 617 RVA: 0x00016A60 File Offset: 0x00014C60
+		// Token: 0x06000266 RID: 614 RVA: 0x000167BC File Offset: 0x000149BC
 		public static void DestroyComponents()
 		{
 			foreach (Type type in SpyManager.Components)
@@ -35,7 +35,7 @@ namespace UndeadHacks
 			}
 		}
 
-		// Token: 0x0600026A RID: 618 RVA: 0x00016AB8 File Offset: 0x00014CB8
+		// Token: 0x06000267 RID: 615 RVA: 0x00016814 File Offset: 0x00014A14
 		public static void AddComponents()
 		{
 			foreach (Type componentType in SpyManager.Components)

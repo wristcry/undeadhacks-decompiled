@@ -7,7 +7,7 @@ namespace UndeadHacks
 	// Token: 0x02000053 RID: 83
 	public static class LoaderCoroutines
 	{
-		// Token: 0x06000141 RID: 321 RVA: 0x00003F8B File Offset: 0x0000218B
+		// Token: 0x06000141 RID: 321 RVA: 0x00003F97 File Offset: 0x00002197
 		public static IEnumerator LoadAssets()
 		{
 			return new LoaderCoroutines.<LoadAssets>d__2(0);

@@ -8,13 +8,13 @@ namespace UndeadHacks
 	// Token: 0x0200002F RID: 47
 	public static class ESPCoroutines
 	{
-		// Token: 0x060000C5 RID: 197 RVA: 0x00003BF1 File Offset: 0x00001DF1
+		// Token: 0x060000C5 RID: 197 RVA: 0x00003BFD File Offset: 0x00001DFD
 		public static IEnumerator DoChams()
 		{
 			return new ESPCoroutines.<DoChams>d__2(0);
 		}
 
-		// Token: 0x060000C6 RID: 198 RVA: 0x0000BE20 File Offset: 0x0000A020
+		// Token: 0x060000C6 RID: 198 RVA: 0x0000BF14 File Offset: 0x0000A114
 		public static void DoChamsGameObject(GameObject pgo, Color32 front, Color32 behind)
 		{
 			Renderer[] componentsInChildren = pgo.GetComponentsInChildren<Renderer>();
@@ -25,14 +25,14 @@ namespace UndeadHacks
 					if (material.shader == (ESPCoroutines.Normal | ESPCoroutines.Chams[0] | ESPCoroutines.Chams[1]))
 					{
 						material.shader = ESPCoroutines.Chams[ESPOptions.ChamsMode];
-						material.SetColor(<Module>.smethod_4<string>(3215702939u), behind);
-						material.SetColor(<Module>.smethod_7<string>(2199936712u), front);
+						material.SetColor("_IColor", behind);
+						material.SetColor("_VColor", front);
 					}
 				}
 			}
 		}
 
-		// Token: 0x060000C7 RID: 199 RVA: 0x0000BEDC File Offset: 0x0000A0DC
+		// Token: 0x060000C7 RID: 199 RVA: 0x0000BFC0 File Offset: 0x0000A1C0
 		[OffSpy]
 		public static void EnableChams()
 		{
@@ -41,10 +41,10 @@ namespace UndeadHacks
 				foreach (SteamPlayer steamPlayer in Provider.clients)
 				{
 					Player player = steamPlayer.player;
-					if (player && player != OptimizationVariables.MainPlayer && player.gameObject)
+					if (player && player != Player.player && player.gameObject)
 					{
-						Color32 front = FriendUtilities.IsFriendly(player) ? ColorUtilities.getColor(<Module>.smethod_8<string>(1270709942u)) : ColorUtilities.getColor(<Module>.smethod_4<string>(1034961585u));
-						Color32 behind = FriendUtilities.IsFriendly(player) ? ColorUtilities.getColor(<Module>.smethod_4<string>(117594846u)) : ColorUtilities.getColor(<Module>.smethod_7<string>(2164885953u));
+						Color32 front = FriendUtilities.IsFriendly(player) ? ColorUtilities.getColor("_ChamsFriendVisible") : ColorUtilities.getColor("_ChamsEnemyVisible");
+						Color32 behind = FriendUtilities.IsFriendly(player) ? ColorUtilities.getColor("_ChamsFriendInvisible") : ColorUtilities.getColor("_ChamsEnemyInvisible");
 						ESPCoroutines.DoChamsGameObject(player.gameObject, front, behind);
 					}
 				}
@@ -52,7 +52,7 @@ namespace UndeadHacks
 			}
 		}
 
-		// Token: 0x060000C8 RID: 200 RVA: 0x0000BFE8 File Offset: 0x0000A1E8
+		// Token: 0x060000C8 RID: 200 RVA: 0x0000C0B4 File Offset: 0x0000A2B4
 		[OnSpy]
 		public static void DisableChams()
 		{
@@ -63,7 +63,7 @@ namespace UndeadHacks
 			for (int i = 0; i < Provider.clients.Count; i++)
 			{
 				Player player = Provider.clients[i].player;
-				if (player && player != OptimizationVariables.MainPlayer)
+				if (player && player != Player.player)
 				{
 					Renderer[] componentsInChildren = player.gameObject.GetComponentsInChildren<Renderer>();
 					for (int j = 0; j < componentsInChildren.Length; j++)
@@ -81,7 +81,7 @@ namespace UndeadHacks
 			}
 		}
 
-		// Token: 0x060000C9 RID: 201 RVA: 0x00003BF9 File Offset: 0x00001DF9
+		// Token: 0x060000C9 RID: 201 RVA: 0x00003C05 File Offset: 0x00001E05
 		public static IEnumerator UpdateObjectList()
 		{
 			return new ESPCoroutines.<UpdateObjectList>d__6(0);

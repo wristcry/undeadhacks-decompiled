@@ -10,23 +10,23 @@ namespace UndeadHacks
 	// Token: 0x0200006E RID: 110
 	public static class OverrideUtilities
 	{
-		// Token: 0x0600019C RID: 412 RVA: 0x00010B38 File Offset: 0x0000ED38
+		// Token: 0x0600019B RID: 411 RVA: 0x000109F0 File Offset: 0x0000EBF0
 		public static object CallOriginalFunc(MethodInfo method, object instance = null, params object[] args)
 		{
 			if (OverrideManager.Overrides.All((KeyValuePair<OverrideAttribute, OverrideWrapper> o) => o.Value.Original != method))
 			{
-				throw new Exception(<Module>.smethod_7<string>(3500831689u));
+				throw new Exception("The Override specified was not found!");
 			}
 			return OverrideManager.Overrides.First((KeyValuePair<OverrideAttribute, OverrideWrapper> a) => a.Value.Original == method).Value.CallOriginal(args, instance);
 		}
 
-		// Token: 0x0600019D RID: 413 RVA: 0x00010BA0 File Offset: 0x0000EDA0
+		// Token: 0x0600019C RID: 412 RVA: 0x00010A54 File Offset: 0x0000EC54
 		public static object CallOriginal(object instance = null, params object[] args)
 		{
 			StackTrace stackTrace = new StackTrace(false);
 			if (stackTrace.FrameCount < 1)
 			{
-				throw new Exception(<Module>.smethod_4<string>(1074659456u));
+				throw new Exception("Invalid trace back to the original method! Please provide the methodinfo instead!");
 			}
 			MethodBase method = stackTrace.GetFrame(1).GetMethod();
 			MethodInfo original = null;
@@ -37,35 +37,35 @@ namespace UndeadHacks
 			OverrideAttribute overrideAttribute = (OverrideAttribute)Attribute.GetCustomAttribute(method, typeof(OverrideAttribute));
 			if (overrideAttribute == null)
 			{
-				throw new Exception(<Module>.smethod_8<string>(1025001251u));
+				throw new Exception("This method can only be called from an overwritten method!");
 			}
 			if (!overrideAttribute.MethodFound)
 			{
-				throw new Exception(<Module>.smethod_5<string>(3730427744u));
+				throw new Exception("The original method was never found!");
 			}
 			original = overrideAttribute.Method;
 			if (OverrideManager.Overrides.All((KeyValuePair<OverrideAttribute, OverrideWrapper> o) => o.Value.Original != original))
 			{
-				throw new Exception(<Module>.smethod_4<string>(902943551u));
+				throw new Exception("The Override specified was not found!");
 			}
 			return OverrideManager.Overrides.First((KeyValuePair<OverrideAttribute, OverrideWrapper> a) => a.Value.Original == original).Value.CallOriginal(args, instance);
 		}
 
-		// Token: 0x0600019E RID: 414 RVA: 0x00010CA4 File Offset: 0x0000EEA4
+		// Token: 0x0600019D RID: 413 RVA: 0x00010B44 File Offset: 0x0000ED44
 		public static bool EnableOverride(MethodInfo method)
 		{
 			OverrideWrapper value = OverrideManager.Overrides.First((KeyValuePair<OverrideAttribute, OverrideWrapper> a) => a.Value.Original == method).Value;
 			return value != null && value.Override();
 		}
 
-		// Token: 0x0600019F RID: 415 RVA: 0x00010CE8 File Offset: 0x0000EEE8
+		// Token: 0x0600019E RID: 414 RVA: 0x00010B88 File Offset: 0x0000ED88
 		public static bool DisableOverride(MethodInfo method)
 		{
 			OverrideWrapper value = OverrideManager.Overrides.First((KeyValuePair<OverrideAttribute, OverrideWrapper> a) => a.Value.Original == method).Value;
 			return value != null && value.Revert();
 		}
 
-		// Token: 0x060001A0 RID: 416 RVA: 0x00010D2C File Offset: 0x0000EF2C
+		// Token: 0x0600019F RID: 415 RVA: 0x00010BCC File Offset: 0x0000EDCC
 		public unsafe static bool OverrideFunction(IntPtr ptrOriginal, IntPtr ptrModified)
 		{
 			bool result;
@@ -104,7 +104,7 @@ namespace UndeadHacks
 			return result;
 		}
 
-		// Token: 0x060001A1 RID: 417 RVA: 0x00010DDC File Offset: 0x0000EFDC
+		// Token: 0x060001A0 RID: 416 RVA: 0x00010C7C File Offset: 0x0000EE7C
 		public unsafe static bool RevertOverride(OverrideUtilities.OffsetBackup backup)
 		{
 			bool result;
@@ -137,7 +137,7 @@ namespace UndeadHacks
 		// Token: 0x0200006F RID: 111
 		public class OffsetBackup
 		{
-			// Token: 0x060001A2 RID: 418 RVA: 0x00010E6C File Offset: 0x0000F06C
+			// Token: 0x060001A1 RID: 417 RVA: 0x00010D0C File Offset: 0x0000EF0C
 			public unsafe OffsetBackup(IntPtr method)
 			{
 				this.Method = method;
