@@ -6,8 +6,9 @@ Decompiled source of some b1g hack called "UndeadHacks" for Unturned. Again. Pas
 - Their website: http://undeadhacks.ru/ (im not sure)
 - Their VK group: https://vk.com/undeadhacks
 
-### Note
-- strings are still encrypted because im 2 lazy to decrypt them. By the way, if u want to decrypt them, decryptors are stored in "Module.txt" file.
+### Notes
+- strings are still encrypted because im 2 lazy to decrypt them. By the way, if U want to decrypt them, decryptors are stored in "Module.txt" file.
+- download 5.dll if u want to deobfuscate it by yourself.
 
 ### Tools used for crack (if its can be called "crack"...):
 - NoFuserEx - Unpacking
@@ -15,4 +16,4 @@ Decompiled source of some b1g hack called "UndeadHacks" for Unturned. Again. Pas
 - dnSpy - Decompilation
 
 ### Shoutouts to
-- http://defthack.ru/ - dll leak.
+- http://defthack.ru/ - obfuscated dll leak.
